@@ -1,1 +1,159 @@
-\section*{Lectura 1}
+\section*{Lectura 1: Grupos y Subgrupos}
+
+\begin{definition}
+    Sea $G$ un conjunto no vacio junto a una operaci\'on binaria  $\cdot$.
+    Decimos que el par  $(G,\cdot)$ es un \textbf{grupo} si:
+    \begin{enumerate}
+        \item[(1)] $a \cdot b \in G$ para $a,b \in G$.
+
+        \item[(2)] $a \cdot (b \cdot c)= (a \cdot b) \cdot c$, para $a,b,c \in G$
+
+        \item[(3)] Existe un $e \in G$ tal que  $a \cdot e=e \cdot a=a$ para
+            toda  $a \in G$.
+
+        \item [(4)] Para toda $a \in G$, existe una  $\inv{a} \in G$ tal que $a
+            \cdot \inv{a}=\inv{a} \cdot a=e$.
+    \end{enumerate}
+    Si $a \cdot b = b \cdot a$ para toda  $a,b \in G$, entoces decimos que  $G$
+    es un grupo  \textbf{Abeliano}.
+\end{definition}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] Los naturales $\N$ junto a la multiplicaci\'on es  satisface
+            los primeros tres axiomas, pero no es un grupo.
+
+        \item[(2)] El grupo mas peque\~no es el conjunto $\{e\}$, que denotamos
+            como $\vbrack{e}$. $\vbrack{e}$ es un grupo Abeliano.
+
+        \item[(3)] Los enteros $\Z$ junto con adici\'on  $+$ forma un grupo
+            Abeliano.
+
+        \item[(4)] El conjunto $GL(n,\R)$ de matrices $n \times n$ con entradas
+            reales, nosingular forman un grupo con respecto a multiplicaci\'on
+            de matrices. $GL(n,\R)$ no es un grupo Abeliano.
+
+        \item[(5)] Sea $S$ cualquier conjunto y  $A(S)$ el conjunto de todas las
+            permutaciones de de elementos de $S$. Entonces  $A(S)$ es un grupo
+            no Abeliano con respecto a composicion de funci\'ones, $\circ$. Si
+            $S$ tiene  $n$ elementos, entonces  $A(S)=S_n$.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    Sea $G$ un grupo. El \textbf{orden} de un grupo es su cardinalidad, y
+    escribimos $\ord{G}=|G|$. Decimos que $G$ es  \textbf{finito} si $\ord{G}$
+    es finito; de lo contrario, $G$ es  \textbf{infinito}.
+\end{definition}
+
+\begin{definition}
+    Sea $G$ un grupo, y  $a \in G$. El  \textbf{orden} de $a$, denotado
+    $\ord{a}$, es el menor entero positivo $n$ tal que  $a^n=e$ y escribimos
+    $\ord{a}-n$. Si tal $n$ no existe, entonces decimos que $a$ es de orden
+    \textbf{infinita}, y decimos que $a$ es un elemento  \textbf{torsi\'on}.
+\end{definition}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] Considera $\C^*=\com{\C}{0}$, entonces $\C^*$ tiene orden
+            infinita, note que si $\exp(\frac{2i\pi}{5}) \in \C^*$, entonces
+            $\alpha \neq 1$, para $j \neq 1,2,3,4$, pero $\alpha^5=1$. Entonces
+             $\ord{\alpha}=5$.
+
+         \item[(2)] Considere $A \in GL(6,\R)$ con la forma
+             \begin{equation*}
+               A=\begin{pmatrix}
+                     0 & 0 & 0 & 0 & 1 & 0 \\
+                     0 & 0 & 0 & 0 & 0 & 1 \\
+                     1 & 0 & 0 & 0 & 0 & 0 \\
+                     0 & 1 & 0 & 0 & 0 & 0 \\
+                     0 & 0 & 1 & 0 & 0 & 0 \\
+                     0 & 0 & 0 & 1 & 0 & 0 \\
+                 \end{pmatrix}
+             \end{equation*}
+            Entonces
+             \begin{equation*}
+               A^3=\begin{pmatrix}
+                     1 & 0 & 0 & 0 & 0 & 0 \\
+                     0 & 1 & 0 & 0 & 0 & 0 \\
+                     0 & 0 & 1 & 0 & 0 & 0 \\
+                     0 & 0 & 0 & 1 & 0 & 0 \\
+                     0 & 0 & 0 & 0 & 1 & 0 \\
+                     0 & 0 & 0 & 0 & 0 & 1 \\
+                 \end{pmatrix}
+             \end{equation*}
+             entonces, $A^3=I$.
+
+         \item[(3)] En $\R^*=\com{\R}{0}$, $\R^*$ es infinito, y  $\ord{2}$ es
+             infinito.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    Sea $G$ un grupo y  $H \subseteq G$ no vacio. Entonces decimos que  $H$ es
+    un  \textbf{subgrupo} de $G$ si  $H$ es un grupo bajo la misma opearaci\'on
+    de  $G$. Escribimos  $H \leq G$.
+\end{definition}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] Considere $GL(n,\R)$ y sea $SL(n,\R)$ los elementos $A \in
+           GL(n,\R)$ tales que $\det{A}=1$. Entonces $SL(n,\R) \leq GL(n,\R)$.
+
+       \item[(2)] Sea $C(\R)$ el conjunto de todas las funciones continuas sobre
+           $\R$. Entonces  $C(\R)$ es un grupo bajo la suma de funci\'ones $+$.
+           Sea $C^1(\R)$ el conjunto primer difirenciable continua de funciones
+           sobre $\R$. Observe lo siguiente:
+           \begin{enumerate}
+               \item[(a)] $(f+g)'=f'+g'$
+               \item[(b)] $f'+(g+h)'=(f+g)'+h'$.
+               \item[(c)] $c'=0$, entonces $0 \in C^1(\R)$
+               \item[(d)] $f'-f'=-f'+f'=0$.
+           \end{enumerate}
+           Como todos los funciones de arriba tambien son continuas, vemos que
+           $C^1(\R) \leq C(\R)$.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{}
+    Sea $G$ un grupo y  $H \subseteq G$ no vacio. Si tenemos que $ab \in H$,
+    implicat que $a\inv{b} \in H$, entonces $H \leq G$.
+\end{lemma}
+\begin{proof}
+    Como $H \neq \emptyset$, sea  $a \in H$. Entonces $a\inv{a}=e \in H$. Luego,
+    tambien tenemos qie $e\inv{a}=\inv{a} \in H$. Finalmente, tenemos que si $b
+    \in H$, entonces  $a\inv{b} \in H$, por lo tanto $\inv{b} \in H$, entonces
+    $a\inv{(\inv{b})}=ab \in H$.
+\end{proof}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] Considere a los enteros pares $2\Z$. Sean  $2n,2m \in 2\Z$.
+            Noten que $2n-2m=2(n-m) \in 2\Z$. Entonces $2\Z \leq \Z$.
+
+        \item[(2)] Si $G$ es un grupo, entonces  $\vbrack{e}$ y $G$ son
+            subgrupos de  $G$. Llamamos a $\vbrack{e}$ el grupo
+            \textbf{trivial}.
+
+        \item[(3)] Si $G$ es un grupo, y  $a \in G$, entonces el conjunto
+            $\vbrack{a}=\{a^j : j \in \Z\}$ es un subgrupo de $G$, llamado el
+            \textbf{subgrupo generado por $a$}.
+
+        \item[(4)] Si $G$ es un grupo, y  $a \in G$, entonces  $C(a)=\{g \in G :
+            ag=ga\}$ y $Z(G)=\{g \in G : ag=ga \text{ para toda } a \in G\}$ son
+            subgrupos. Nota que $Z(G)=\bigcap{C(a)}$. Llamamos a $C(a)$ el
+            \textbf{cnetralizador} de $a$ y  $Z(G)$ el \textbf{centro} de $G$.
+
+        \item[(5)] Sea $G$ un grupo y  $H \leq G$, y sea  $a \in G$, entonces
+        $\inv{a}Ha \leq G$. Llamamos a $\inv{a}Ha$ el \textbf{conjugado} de $H$
+         \textbf{con respecto} a $a$.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    Suponga que $G$ y  $H$ son grupos. Un mapa  $\phi:G \rightarrow H$ se llama
+    un \textbf{homomorphismo} si para toda $a,b \in G$,
+    $\phi(ab)=\phi(a)\phi(b)$. Si $\phi$ es  $1-1$ y sobre, entonces lo llamamos
+    un  \textbf{isomorphismo}. Si $\phi$ es un isomorphismo, y  $G=H$, entonces
+    llamamos a  $\phi$ un  \textbf{automorphismo}.
+\end{definition}
