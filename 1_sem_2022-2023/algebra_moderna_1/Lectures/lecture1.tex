@@ -1,7 +1,7 @@
 \section*{Lectura 1: Grupos y Subgrupos}
 
 \begin{definition}
-    Sea $G$ un conjunto no vacio junto a una operaci\'on binaria  $\cdot$.
+    Sea $G$ un conjunto no vac\'io junto a una operaci\'on binaria  $\cdot$.
     Decimos que el par  $(G,\cdot)$ es un \textbf{grupo} si:
     \begin{enumerate}
         \item[(1)] $a \cdot b \in G$ para $a,b \in G$.
@@ -18,25 +18,28 @@
     es un grupo  \textbf{Abeliano}.
 \end{definition}
 
-\begin{example}\label{}
+\begin{example}\label{example_1}
     \begin{enumerate}
-        \item[(1)] Los naturales $\N$ junto a la multiplicaci\'on es  satisface
-            los primeros tres axiomas, pero no es un grupo.
+        \item[(1)] Los naturales $\N$ junto a la multiplicaci\'on se satisface
+            los primeros tres axiomas, pero no es un grupo. De hecho, $\N$ forma
+            un estructura llamado un ``monoide''.
 
         \item[(2)] El grupo mas peque\~no es el conjunto $\{e\}$, que denotamos
-            como $\vbrack{e}$. $\vbrack{e}$ es un grupo Abeliano.
+            como $\vbrack{e}$. $\vbrack{e}$ es, trivialmente, un grupo Abeliano.
 
         \item[(3)] Los enteros $\Z$ junto con adici\'on  $+$ forma un grupo
-            Abeliano.
+            Abeliano por la commutatividad de adici\'on de los enteros.
 
         \item[(4)] El conjunto $GL(n,\R)$ de matrices $n \times n$ con entradas
             reales, nosingular forman un grupo con respecto a multiplicaci\'on
             de matrices. $GL(n,\R)$ no es un grupo Abeliano.
 
         \item[(5)] Sea $S$ cualquier conjunto y  $A(S)$ el conjunto de todas las
-            permutaciones de de elementos de $S$. Entonces  $A(S)$ es un grupo
-            no Abeliano con respecto a composicion de funci\'ones, $\circ$. Si
-            $S$ tiene  $n$ elementos, entonces  $A(S)=S_n$.
+            funci\'ones $1$--$1$ y sobre llevando elementos de $S$ a elementos de
+             $S$. Entonces  $A(S)$ es un grupo no Abeliano con respecto a
+            composici\'on de funci\'ones, $\circ$. Si $S$ tiene  $n$ elementos,
+            entonces exscribimos $A(S)=S_n$. $A(S)$ tambi\'en no se Abeliano ya
+            que para funci\'ones cualquieras $f,g$,  $f \circ g \neq g \circ f$.
     \end{enumerate}
 \end{example}
 
@@ -53,12 +56,12 @@
     \textbf{infinita}, y decimos que $a$ es un elemento  \textbf{torsi\'on}.
 \end{definition}
 
-\begin{example}\label{}
+\begin{example}\label{example_2}
     \begin{enumerate}
         \item[(1)] Considera $\C^*=\com{\C}{0}$, entonces $\C^*$ tiene orden
-            infinita, note que si $\exp(\frac{2i\pi}{5}) \in \C^*$, entonces
-            $\alpha \neq 1$, para $j \neq 1,2,3,4$, pero $\alpha^5=1$. Entonces
-             $\ord{\alpha}=5$.
+            infinita, note que si $\alpha=\exp(\frac{2i\pi}{5}) \in \C^*$,
+            entonces $\alpha \neq 1$, para $j \neq 1,2,3,4$, pero $\alpha^5=1$.
+            Entonces $\ord{\alpha}=5$.
 
          \item[(2)] Considere $A \in GL(6,\R)$ con la forma
              \begin{equation*}
@@ -90,33 +93,35 @@
 \end{example}
 
 \begin{definition}
-    Sea $G$ un grupo y  $H \subseteq G$ no vacio. Entonces decimos que  $H$ es
+    Sea $G$ un grupo y  $H \subseteq G$ no vac\'io. Entonces decimos que  $H$ es
     un  \textbf{subgrupo} de $G$ si  $H$ es un grupo bajo la misma opearaci\'on
     de  $G$. Escribimos  $H \leq G$.
 \end{definition}
 
-\begin{example}\label{}
+\begin{example}\label{example_3}
     \begin{enumerate}
         \item[(1)] Considere $GL(n,\R)$ y sea $SL(n,\R)$ los elementos $A \in
            GL(n,\R)$ tales que $\det{A}=1$. Entonces $SL(n,\R) \leq GL(n,\R)$.
 
        \item[(2)] Sea $C(\R)$ el conjunto de todas las funciones continuas sobre
            $\R$. Entonces  $C(\R)$ es un grupo bajo la suma de funci\'ones $+$.
-           Sea $C^1(\R)$ el conjunto primer difirenciable continua de funciones
-           sobre $\R$. Observe lo siguiente:
+           Sea $C^1(\R)$ el conjunto de funci\'ones primer diferenciables
+           continuas sobre $\R$ Es decir, que $f'$ existe y es continua.
+           Observe lo siguiente:
            \begin{enumerate}
                \item[(a)] $(f+g)'=f'+g'$
                \item[(b)] $f'+(g+h)'=(f+g)'+h'$.
                \item[(c)] $c'=0$, entonces $0 \in C^1(\R)$
                \item[(d)] $f'-f'=-f'+f'=0$.
            \end{enumerate}
-           Como todos los funciones de arriba tambien son continuas, vemos que
-           $C^1(\R) \leq C(\R)$.
+           Suponiendo que $f',g',h' \in C^1(\R)$, son continuas, entonces vemos
+           que los funciones de arriba tambien son continuas. Entonces $C'(\R)
+           \leq C(\R)$.
     \end{enumerate}
 \end{example}
 
-\begin{lemma}\label{}
-    Sea $G$ un grupo y  $H \subseteq G$ no vacio. Si tenemos que $ab \in H$,
+\begin{lemma}\label{lemma_1}
+    Sea $G$ un grupo y  $H \subseteq G$ no vac\'io. Si tenemos que $ab \in H$,
     implicat que $a\inv{b} \in H$, entonces $H \leq G$.
 \end{lemma}
 \begin{proof}
@@ -126,7 +131,7 @@
     $a\inv{(\inv{b})}=ab \in H$.
 \end{proof}
 
-\begin{example}\label{}
+\begin{example}\label{example_4}
     \begin{enumerate}
         \item[(1)] Considere a los enteros pares $2\Z$. Sean  $2n,2m \in 2\Z$.
             Noten que $2n-2m=2(n-m) \in 2\Z$. Entonces $2\Z \leq \Z$.
