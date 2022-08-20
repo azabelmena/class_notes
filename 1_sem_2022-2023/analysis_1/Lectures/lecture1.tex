@@ -30,8 +30,8 @@ calculus.
 \end{remark}
 
 \begin{definition}
-    We define an \textbf{order} on a set $A$ to be a relation  $<$ satisfying
-    the following properties for all $a,b,c \in A$:.
+    We define an \textbf{partial order} on a set $A$ to be a relation $<$
+    satisfying the following properties for all $a,b,c \in A$:.
     \begin{enumerate}
         \item[(1)] $a<a$  (Reflexive).
 
@@ -45,7 +45,7 @@ calculus.
 \end{definition}
 
 \begin{definition}
-    Let $A$ be a set with order  $<$. We call an element  $x \in A$ a
+    Let $A$ be a set with partial order  $<$. We call an element  $x \in A$ a
     \textbf{maximum} of $A$ if  $x<a$ implies  $x=a$ for all $a \in A$. If $B
     \subseteq A$, then we call an element $a \in A$ an \textbf{upper bound} of
     $B$ if  $b<a$ for all  $B$ in  $B$; and we say  $B$ is  \textbf{bounded
@@ -54,7 +54,7 @@ calculus.
 \end{definition}
 
 \begin{definition}
-    Let $A$ be a set with order  $<$. We call an element  $x \in A$ a
+    Let $A$ be a set with partial order  $<$. We call an element  $x \in A$ a
     \textbf{minimum} of $A$ if  $a<x$ implies  $x=a$ for all $a \in A$. If $B
     \subseteq A$, then we call an element $a \in A$ an \textbf{lower bound} of
     $B$ if  $a<b$ for all  $B$ in  $B$; and we say  $B$ is  \textbf{bounded
@@ -63,8 +63,8 @@ calculus.
 \end{definition}
 
 \begin{theorem}[Zorn's Lemma]\label{thm_2}
-    Let $A$ be a set with order  $<$. If every totally ordered subset of  $A$
-    under  $<$ has an upperbound, then  $A$ has a maximum element.
+    Let $A$ be a set with partial order  $<$. If every totally ordered subset of
+    $A$ under  $<$ has an upperbound, then  $A$ has a maximum element.
 \end{theorem}
 \begin{remark}
     It can be shown that Zorn's lemma and the axiom of choice are equivalent
@@ -79,8 +79,8 @@ calculus.
 \begin{proof}
     Consider the collection of all triples $C=\{(X,Y,f) : f:X \rightarrow Y
     \text{ is 1--1 and onto, where }\\ X \subseteq A, Y \subseteq B\}$, and
-    define an order $<$ on  $C$ by: $(X,Y,f)<(X',Y',g)$ if, and only if $X
-    \subseteq X'$,  $Y \subseteq Y'$, and  $g|_X=f$. Now suppose that the
+    define a partial order $<$ on  $C$ by: $(X,Y,f)<(X',Y',g)$ if, and only if
+    $X \subseteq X'$,  $Y \subseteq Y'$, and  $g|_X=f$. Now suppose that the
     collection  $\{(X_\alpha, Y_\alpha,f_\alpha)\}$ is a totally ordered subset
     of $C$. Then define
     \begin{align*}
