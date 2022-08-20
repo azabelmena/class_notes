@@ -1,1 +1,108 @@
-\section*{Lectura 1}
+\section*{Lecture 1: Review}
+
+We begin with a review of some prelimanary results of set theory and advanced
+calculus.
+
+\begin{definition}
+    Let $A$ and $B$ be sets, and let $f:A \rightarrow B$ be a map of $A$ into
+   $B$. We say that $f$ is  \textbf{1--1} if for every  $x,y \in X$,  $f(x)=f(y)$
+   implies $x=y$. We say $f$ is \textbf{onto} if for every $y \in B$, there is
+   an  $x \in A$ for which $y=f(x)$. We say that $f$ is a  \textbf{1--1
+   correspondence} of $A$  \textbf{onto} $B$ if  $f$ is both 1--1 and onto and
+   onto.
+\end{definition}
+
+\begin{theorem}[Beinstern's Theorem]\label{thm_1}
+    Let $A$ and  $B$ be sets. If there is a 1--1 map of $A$ into  $B$, and a
+    1--1 map of  $B$ into $A$, then there exists a 1--1 correspondence of
+    $A$ onto  $B$.
+\end{theorem}
+
+\begin{axiom}[The Axiom of Choice]\label{axm_1}
+    Suppose that $\{A_\alpha\}_{\alpha \in \Lambda}$ is a collection of nonmepty
+    sets indexed by the set $\Lambda$. Then there exists a map $f:\Lambda
+    \rightarrow \bigcup{A_\alpha}$ called a \textbf{choice function}, defined by
+    the rule $f(\alpha) \in A_\alpha$ for all $\alpha \in \Lambda$.
+\end{axiom}
+\begin{remark}
+    What this axiom says is that given any (not necesarrily countable)
+    collection of sets, one can ``choose '' an element from each set.
+\end{remark}
+
+\begin{definition}
+    We define an \textbf{order} on a set $A$ to be a relation  $<$ satisfying
+    the following properties for all $a,b,c \in A$:.
+    \begin{enumerate}
+        \item[(1)] $a<a$  (Reflexive).
+
+        \item[(2)] If $a<b$ and  $b<a$, then  $a=b$  (Antisymmetry).
+
+        \item[(3)] If $a<b$ and  $b<c$, then  $a<c$  (Transitivity).
+    \end{enumerate}
+     We say that elements $a,b \in A$ are \textbf{comparable} under $<$ if
+     either $a<b$ or $b<a$. If every element of $A$ is comparable, then  $<$ is
+     called a  \textbf{total order}.
+\end{definition}
+
+\begin{definition}
+    Let $A$ be a set with order  $<$. We call an element  $x \in A$ a
+    \textbf{maximum} of $A$ if  $x<a$ implies  $x=a$ for all $a \in A$. If $B
+    \subseteq A$, then we call an element $a \in A$ an \textbf{upper bound} of
+    $B$ if  $b<a$ for all  $B$ in  $B$; and we say  $B$ is  \textbf{bounded
+    above}. If $b<a'$ implies that  $a<a'$ for any  $a' \in A$, then we call
+    $a$ a  \textbf{least upper bound} of $B$ and write  $\sup{B}=a$.
+\end{definition}
+
+\begin{definition}
+    Let $A$ be a set with order  $<$. We call an element  $x \in A$ a
+    \textbf{minimum} of $A$ if  $a<x$ implies  $x=a$ for all $a \in A$. If $B
+    \subseteq A$, then we call an element $a \in A$ an \textbf{lower bound} of
+    $B$ if  $a<b$ for all  $B$ in  $B$; and we say  $B$ is  \textbf{bounded
+    below}. If $a'<b$ implies that  $a'<a$ for any  $a' \in A$, then we call
+    $a$ a  \textbf{greatest lower bound} of $B$ and write  $\inf{B}=a$.
+\end{definition}
+
+\begin{theorem}[Zorn's Lemma]\label{thm_2}
+    Let $A$ be a set with order  $<$. If every totally ordered subset of  $A$
+    under  $<$ has an upperbound, then  $A$ has a maximum element.
+\end{theorem}
+\begin{remark}
+    It can be shown that Zorn's lemma and the axiom of choice are equivalent
+    statements. That is you can prove Zorn's lemma from the axiom of choice, and
+    you can prove the axiom of choice from Zorn's lemma.
+\end{remark}
+
+\begin{theorem}\label{thm_3}
+    For any sets $A$ and  $B$, there is either a 1--1 map of  $A$ into  $B$, or
+    a 1--1 map of  $B$ into  $A$.
+\end{theorem}
+\begin{proof}
+    Consider the collection of all triples $C=\{(X,Y,f) : f:X \rightarrow Y
+    \text{ is 1--1 and onto, where }\\ X \subseteq A, Y \subseteq B\}$, and
+    define an order $<$ on  $C$ by: $(X,Y,f)<(X',Y',g)$ if, and only if $X
+    \subseteq X'$,  $Y \subseteq Y'$, and  $g|_X=f$. Now suppose that the
+    collection  $\{(X_\alpha, Y_\alpha,f_\alpha)\}$ is a totally ordered subset
+    of $C$. Then define
+    \begin{align*}
+        \tilde{X}   &=      \bigcup_{\alpha}{X_\alpha} \\
+        \tilde{Y}   &=      \bigcup_{\alpha}{Y_\alpha} \\
+    \end{align*}
+    and since for all $x \in \tilde{X}$, there is an $\alpha$  for which $x \in
+    X_\alpha$, define the map $\tilde{f}:\tilde{X} \rightarrow \tilde{Y}$ by the
+    rule $\tilde{f}(x)=f_\alpha(x) \in Y_\alpha$. This map is well defined by
+    the total order on $\{(X_\alpha,Y_\alpha,f_\alpha)\}$.
+
+    Now, notice that $\tilde{f}$ is an upperbound of the collection
+    $\{(X_\alpha,Y_\alpha_f_\alpha)\}$, therefore, by Zorn's lemma there is a
+    maximum element $(X,Y,f)$ of $C$. By definition we get that $f$ is a 1--1
+    correspondence of $X$ onto $Y$, and by maximality, we get that either $X=A$
+    or $Y=B$. Suppose on the contary that this is not true. Then there is an  $a
+    \in \com{A}{X}$ and a $b \n \com{B}{Y}$. Letting $X'=X \cup a$ and  $Y'=Y
+    \cup b$, and  $f':X' \rightarrow Y'$ defined by $f'|_X=f$ and  $f'(a)=b$.
+    Then $(X,Y,f)<(X',Y',f')$, which contradicts the maximality of $(X,A,f)$.
+
+    Therefore, we must have that either $X=A$ or  $Y=B$. Now, if  $X=A$, then
+    $f:A \rightarrow Y$ is 1--1 and onto, taking the extension of $Y$ to  $B$,
+    $f_B:A \rightarrow B$, we see it must be 1--1 as well. By the same reasoning
+    we can assure there is a 1--1 map $f_A:B \rightarrow A$ of $B$ into  $A$.
+\end{proof}
