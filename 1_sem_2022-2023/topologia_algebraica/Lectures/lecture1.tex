@@ -5,7 +5,7 @@ Empezamos con declara notaci\'on Vamos a denotar las siguentes conjuntos:
 \begin{definition}
     Denotamos la \textbf{$n$-esfera} como el conjuno $S^n=\{x \in
     \R^{n+1} : \|x\|=1\}$ y la \textbf{$n$-bola} como el conjunto $B^n=\{x
-    \in \R^{n+1} : \|x\| \leq 1\}$, donde $\|\cdot\|$ el la \textbf{norma} en
+    \in \R^{n} : \|x\| \leq 1\}$, donde $\|\cdot\|$ el la \textbf{norma} en
     $\R^n$ que induca la topolog\'ia usual de $\R^n$. Llamamos punto
     $N=(0,\dots,0,1)$ de $S^n$ el \textbf{polo norte} de $s^n$ y el punto $S=(0,
     \dots, -1)$ de $S_n$ el  \textbf{polo sur} de $S^n$. Definimos la
@@ -23,7 +23,7 @@ Empezamos con declara notaci\'on Vamos a denotar las siguentes conjuntos:
             el polo norte de $S^0$ es $1$ y el polo sur es $-1$.
 
         \item[(4)] Nota que el borde de una $n$-bola es una  $n$-esfera. Es
-            decie  $\partial{B^n}=S^n$.
+            decie  $\partial{B^n}=S^{n-1}$.
     \end{enumerate}
 \end{example}
 
@@ -34,13 +34,14 @@ Empezamos con declara notaci\'on Vamos a denotar las siguentes conjuntos:
 
 \begin{example}\label{exmp_2}
     \begin{enumerate}
-        \item[(1)] $\Delta^0=\{1\} \susbeteq \R$.
+        \item[(1)] $\Delta^0=\{1\} \subeteq \R$.
 
-        \item[(2)] $\Delta_1$ es una recta entre los puntos $(0,1)$ y $(1,0)$ en
+        \item[(2)] $\Delta^1$ es una recta entre los puntos $(0,1)$ y $(1,0)$ en
             $\R^2$ restrinjido a la primera caudrante.
 
         \item[(3)] $\Delta^2$ es una tetrahedro en la primer oct\'ante de  $\R$
-            con vertices en  $(0,0,1)$, $(0,1,0)$, y $(1,0,0)$.
+            con vertices en  $(0,0,1)$, $(0,1,0)$, y $(1,0,0)$. Se representa en
+            la figura \ref{fig_1} tambi\'en.
 
         \item[(4)] Note que $\Delta^0 \subseteq \Delta^1 \leq \Delta^2$.
 
@@ -49,6 +50,13 @@ Empezamos con declara notaci\'on Vamos a denotar las siguentes conjuntos:
              $\Delta^n \simeq B^n$.
     \end{enumerate}
 \end{example}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{Figures/standaard_simplices.eps}
+    \caption{El $1$-simplejo y  $2$-simplejo est\'anderes.}
+    \label{fig_1}
+\end{figure}
 
 \begin{definition}
     Sea $f:A \rightarrow A$ una funci\'on. Llamamos u punto $x \in A$ un
@@ -79,7 +87,7 @@ Empezamos con declara notaci\'on Vamos a denotar las siguentes conjuntos:
     nota que los medio planos son abiertos en
     $\R^2$. Ahora, como  $B^1$ es compacto, y Hausdorff, se puede demostrar que
     $G_f$ y  $\Delta(B^1)$ son cerrados. Se puede ver la grafica de $f$ en el
-    figura \ref{fig_1}
+    figura \ref{fig_2}
 
     Ahora, not que $G_f$ es conexo ya que es la imagen de la funci\'on $i_{B^1}
     \times f$. Como  $f$ y  $i_{B^1}$ son continua, entonces  $i_{B^1} \times f$
@@ -102,5 +110,5 @@ Empezamos con declara notaci\'on Vamos a denotar las siguentes conjuntos:
     \centering
     \includegraphics[scale=0.8]{Figures/brouwers_thm_1.eps}
     \caption{Demostraci\'on del teorema de puntos fijos de Brouwer.}
-    \label{fig_1}
+    \label{fig_2}
 \end{figure}
