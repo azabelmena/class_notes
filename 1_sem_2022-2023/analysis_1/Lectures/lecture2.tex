@@ -1,1 +1,142 @@
-\section*{Lecture 2: Review}
+\section*{Lecture 2: Smallest Infinite Cardinality}
+
+\begin{definition}
+    A set $A$ is  \textbf{countably infinite} if there exists a $1-1$ map $f:\N
+    \rightarrow A$ of $\N$ onto  $A$.
+\end{definition}
+\begin{remark}
+    That is we can put $A$ into countable order and represent it as an
+    increasing sequence $A=\{a_n\}_{n \in \N}$ where each $a_n$ is distinct for
+    all  $n$.
+\end{remark}
+
+\begin{example}\label{}
+    Both $\N$ and  $2\N$ are countable. Consider the identity map  $i:\N
+    \rightarrow \N$ and the map $f:\N \rightarrow 2\N$ defined by $n \rightarrow
+    2n$.
+\end{example}
+
+\begin{theorem}\label{thm_2.1}
+    A set $A$ is finite if, and only if there is no  $1-1$ map of $A$ onto a
+    subset of itself.
+\end{theorem}
+\begin{corollary}
+    Every infinite set countains a countable subset.
+\end{corollary}
+
+\begin{theorem}\label{}
+    A countable union of sets is countable.
+\end{theorem}
+\begin{proof}
+    Let $A$ and  $B$ be nonempty countable sets. Then there exists nonrepeating
+    increaseing sequences  $A=\{a_n\}$ and $B=\{b_m\}$. Then take $A \cup
+    B=\{a_n,b_m\}$, and delete any repeated members. Then we can say that $A
+    \cup B=\{c_k\}$ where $c_k=a_k$ for  $k$ odd, and  $c_k=b_k$ for  $k$ even.
+    Then  $A \cup B$ is countable.
+
+    Now suppose that  $\{A_n\}$ is a collection of countable sets. Then we have
+    the following:
+    \begin{align*}
+        A_1     &=      a_{11} \ a_{12} \ \dots \ a_{1n} \ \dots \\
+        A_2     &=      a_{21} \ a_{22} \ \dots \ a_{2n} \ \dots \\
+        A_3     &=      a_{31} \ a_{32} \ \dots \ a_{3n} \ \dots \\
+                \vdots                              \\
+        A_n     &=      a_{n1} \ a_{n2} \ \dots \ a_{nn} \ \dots \\
+                \vdots                                \\
+    \end{align*}
+    Construct the set:
+    \begin{equation*}
+        A=\{a_{11},a_{12},a_{21},a_{13},a_{22},a_{31}, \dots\}
+    \end{equation*}
+    Then $A$ is countable and $A=\bigcup{A_n}$.
+\end{proof}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] $-\N$ is countable, then  $-\N \cup \N=\Z$ is also countable,
+            which makes $\Z$ countable.
+
+        \item[(2)]  Consider the rational numbers $\Q=\{\frac{p}{q} : p,q \in
+            \Z\}$. Let $\frac{\Z}{n}=\{\frac{p}{n} : p \in \Z\}$ for some $n \in
+            \com{\N}{\{0\}}$. Then notice that  $\frac{\Z}{n}$ is countable and
+            that $\Q=\bigcup{\frac{\Z}{n}}$, which makes $\Q$ countable as well.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{}
+    Let $A$ and  $B$ be two countably finite sets. Then  $A \times B$ is
+    countable.
+\end{lemma}
+\begin{proof}
+    Take $A \times B=(\bigcup{A_n}) \times \{b_n\}$, where $b_n \in B$.
+\end{proof}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] Let $P$ be the set of all polynomials with integer
+            coefficients. Let  $P_i$ be the set of all polynomials of degree
+            $\deg=i$. Then we have the following:
+            \begin{align*}
+                P_0     &\simeq     \Z      \\
+                P_1     &\simeq     \Z \times \Z        \\
+                        \vdots              \\
+                P_n     &\simeq     \Z \times \Z \times \dots \times \Z        \\
+                        \vdots                      \\
+            \end{align*}
+            Then we have that $P \simeq \bigcup{P_i}$. Since each $P_i$ is
+            countable, so is  $\bigcup{P_i}$, so by isomorphism, $P$ must also
+            be countable.
+
+        \item[(2)] Let $\Ac=\{x \in \C : \text{ there exists a polynomial with
+                integer coefficients } p \text{ such that } p(x)=0\}$ be the set
+                of all algebraic numbers over $\C$. Then we have  $\Q \subseteq
+                \Ac$, since the polynomial $z^2+1=0$ has complex roots. $\Ac$
+                is countable.
+    \end{enumerate}
+\end{example}
+
+\begin{theorem}\label{}
+    Let $A$ be a set, then  $|A|<|2^A|$.
+\end{theorem}
+\begin{proof}
+    We have that by definition, $|A|>|2^A|$ is impossible, so suppose that
+    $|A|=|2^A|$. Then there exists a $1-1$ map  $f:A \rightarrow 2^A$ of $A$
+    onto its powerset. Then we have that for each  $a \in A$,  $f(a) \subseteq
+    A$. Now, let $A_0=\{x \in A : x \notin f(x)\}$. Since $f$ is onto, there is
+    an  $x_0 \in A$ with $f(x_0)=A_0$. Now, if $x \in f(x_0)$, we get that $x
+    \in A_0$, which means that $x_0 \notin f(x_0)$. This cannot happen; so it
+    must be that $x_0 \notin f(x_0)$, but then we get that $x_0 \in A_0$, which
+    forces $x_0 \in f(x_0)$. A contradiction! Therefore it must be that
+    $|A|<|2^A|$
+\end{proof}
+
+\begin{example}\label{}
+    $|\N|<|2^\N|$
+\end{example}
+
+Now consider the set of real numbers $\R$. We have the following theorems.
+
+\begin{theorem}\label{}
+    $\R$ is a field.
+\end{theorem}
+
+\begin{theorem}\label{}
+    $\R$ is a totally ordered set.
+\end{theorem}
+\begin{corollary}
+    The following are true for all $a,b,c \in \R$.
+    \begin{enumerate}
+        \item[(1)] $a>b$ impl ies that $a+c>b+c$.
+
+        \item[(2)] $a>b$ and  $c>0$ implies  $ac>bc$.
+
+        \item[(3)] For all $a>0$ and  $b>0$, there exists an  $n \in \N$ such
+            that  $an>b$  (Property of Archimedes).
+    \end{enumerate}
+\end{corollary}
+
+\begin{theorem}\label{}
+    $\R$ has the least upperbound property. That is, if  $\{a_n\}$ is an
+    increasing sequence of real numbers bounded above by $b$, then  $\sup{\{a_n\}}
+    \in \R$.
+\end{theorem}
