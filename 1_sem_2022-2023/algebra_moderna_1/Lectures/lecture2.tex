@@ -1,0 +1,99 @@
+\section*{Lectura 2: Grupos y Subgrupos}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] Considera $\R$ bajo la suma  $+$ y  $\R^+$ bajo la
+            multiplicac\'on,  $\cdot$. Sea  $\phi:\R \rightarrow \R^+$ definido
+            por $\phi:x \rightarrow \exp{x}$. Entonces $\phi$ es un
+            homomorfismo, ya que  $\exp{(x+y)}=\exp{x}+\exp{y}$. De igual
+            forma, nota que $\phi$ es  $1-1$ y sobre, por lo tanto, existe
+            inverso; de hecho,  $\inv{\phi}=\log$, que tambien es un
+            homomorfismo Pues, tenemos $\phi$ es un isomorphismo y que  $\R
+            \simeq \R^+$.
+
+        \item[(2)] Sea $\phi:GL(n,\R) \rightarrow \R^*$ dado por $\phi:A
+            \rightarrow \det{A}$. Entonces $\phi$ es un homomorphismo ya que
+            $\det{AB}=\det{A}\det{B}$. Nota que $GL(n,\R)$ no es Abeliano, pero
+            $\R^*$ si, por lo tanto  $GL(n\R) \not\simeq \R^*$. Esto tambi\'en
+            dice que no existe inverso $\inv{\det}$. Esto nos dice que los
+            homomorfismos solo preservan el estructura de grupos, pero nada mas
+            de eso.
+
+        \item[(3)] Considere $\phi:\Z \rightarrow \faktor{\Z}{n\Z}$ dado por
+            $\phi(m)=m \mod{n}$. Entonces $\phi(m+k)=(m+k) \mod{n} \equiv m
+            \mod{n}+k \mod{n}=\phi(m)+\phi(k)$. As\'i que $\phi$ es un
+            homomorfismo.
+
+        \item[(4)] Sea $G$ y  $H$ grupos, y sea  $\phi:G \rightarrow H$ un
+            homomorfismo de $G$ sobre  $H$. Entonces si  $G$ es Abeliano,
+            tambi\'en lo es  $H$. Nota que para  $h,h' \in H$, exists  $g,g' \in
+            G$ con  $\phi(g)=h$ y $\phi(g')=h'$. Entonces
+            $hh'=\phi(g)\phi(g')=\phi(gg')=\phi(g'g)=\phi(g')\phi(g)=h'h$.
+
+        \item[(5)] Sea $\phi:\Z \rightarrow \Z$ dado por $x \rightarrow 5x$.
+            Entonces $\phi(x+y)=5(x+y)=5x+5y=\phi(x)+\phi(y)$.
+
+        \item[(6)] Suponga que $G$ es Abeliano y defina $\phi: G \rightarrow G$
+            por la regla $\phi(a)=\inv{a}$. Entonces tenemos que
+            $\phi(ab)=\inv{(ab)}=\inv{b}\inv{a}=\inv{a}\inv{b}=\phi(a)\phi(b)$.
+            As\'i que $\phi$ es un homomorfismo. Nota tambi\'en que por la ley
+            de inversos de elementos, que $\phi$ es sobre. Tambi\'en tenemos que
+            $\phi$ es  $1-1$ ya que  $\inv{a}=\inv{b}$ implica que $a=b$, por
+            unicidad de inversos. Por lo tanto  $\phi$ es un automorfismo.
+
+        \item[(7)] Sea $\phi:\Z \rightarrow \Z$ dado por $x \rightarrow x^2$.
+            $\phi$ no es un homomorfismo ya que en general,  $(x+y)^2 \neq
+            x^2+y^2$. Peros, si tomamos la mapa $\psi:\Z \rightarrow
+            \faktor{\Z}{2\Z}$ dado por la misma regla, entonces $\psi$ es un
+            homomorfismo.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    Sea $G$ y  $H$ grupos, y  $\phi:G \rightarrow H$ un homomorfismo de $G$
+    hacia  $H$. Definimos el \textbf{kernel} de $\phi$ como el conjunto
+    $\ker{\phi}=\{a \in G : \phi(a)=e'\}$ donde $e'$ es la identitad de  $H$.
+    Definimos tambi\'en la  \textbf{imagen} del homoorphismo como el conjunto
+    $\Im{\phi}=\phi(G)=\{\phi(a) : a \in G\}$.
+\end{definition}
+
+\begin{lemma}\label{}
+    Sea $G$ y  $H$ grupos y $\phi:G \rightarrow H$ un homomorfismo de $G$ hacia
+     $H$. Entonces  $\ker{\phi} \leq G$ y $\phi(G) \leq H$.
+\end{lemma}
+\begin{proof}
+    Nota por definicion qiue $\ker{\phi} \subseteq G$. Tambien tenemos que $e
+    \in \ker{\phi}$ por el ley de homomorpfismo. Entonces $\ker{\phi}$ no es
+    vacio. Ahora, sea $a,b \in \ker{\phi}$. Entonces, tenemos
+    $\phi(a\inv{b})=\phi(a)\phi(\inv{b})=\phi(a)\inv{(\phi(b))}=e'e'=e'$, pues
+    $a\inv{b} \in \ker{\phi}$.
+\end{proof}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] Considere $\phi:\Z \rightarrow \faktor{\Z}{12\Z}$ dado por $m
+            \rightarrow m \mod{12}$. Entonces $\ker{\phi}=\vbrack{12m}=12\Z$.
+            Tambien $\phi(\Z)=\faktor{\Z}{12\Z}$; pues $\phi$ es sobre.
+
+        \item[(2)] Considere $\phi:\faktor{\Z}{12\Z} \rightarrow
+            \faktor{\Z}{12\Z}$ dado por $m \rightarrow 3m$. $\phi$ es un
+            homomorfismo, y $\ker{\phi}=\{x \in \faktor{\Z}{12\Z} : 3x \equiv_{12}
+            0\}=\{0,4,8\}=\vbrack{4}$. De igual manera,
+            $\phi(\faktor{\Z}{12\Z})=\{0,3,6,9\}=\vbrack{3}$.
+
+        \item[(3)] Sea $\phi:\Z \rightarrow \Z$ dado por $m \rightarrow 5m$.
+            Entonces $\ker{\phi}=\vbrack{5m}=\vbrack{0}=5\Z$. Nota que como $\phi$
+            es  $1-1$, si $a \in 5\Z$, entonces  $a=5m \equiv_5 0$. Note tambien
+            que $\phi(\Z)=5\Z$, por lo tanto $\phi$ es sobre, asi que tenemos
+            $\Z \simeq 5\Z$.
+
+        \item[(4)] Sea $D_n$ el grupo dihedral sobre un polygano regular de
+            $n$-vertices. Recuerda que  $r^n=t^2=e$ y que  $tr^j=r^{n-j}t$.
+            Considere la homomorfismo $\phi:D_8 \rightarrow \faktor{\Z}{2\Z}
+            \times \faktor{\Z}{2\Z}$, donde $\faktor{\Z}{2\Z} \times
+            \faktor{\Z}{2\Z}$ es un grupo bajo la suma de productos directos.
+            Entonces si  $\phi(r)=(1,0)$ y $\phi(t)=(0,1)$ entonces tenemos que
+            $\ker{\phi}=\vbrack{r^2}$ y $\phi(D_8)=\faktor{\Z}{2\Z} \times
+            \faktor{\Z}{2\Z}$.
+    \end{enumerate}
+\end{example}
