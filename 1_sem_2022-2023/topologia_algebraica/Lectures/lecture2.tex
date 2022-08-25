@@ -11,10 +11,18 @@ Brouwer}
 Es decir que el retracci\'on de $Y$ sobre $X$  lleva sus puntos fijos en todo el
 $X$. Podemos ver que  $r$ es una mapa sobre, ya que $r(X)=X$ por definici\'on.
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=1.0]{Figures/retract_diagram.eps}
+    \caption{Un retracci\'on $r:Y \rightarrow X$ de un espacio $Y$ hac\'ia un
+    espacio  $X$.}
+    \label{fig_3}
+\end{figure}
+
 Ahora recuerda que las mapas de inclusi\'on y identidad para espacios
 topol\'ogicos son las mapas $i:X \rightarrow Y$ (donde $X$ es subespacio de
 $Y$), y $1_X:X \rightarrow X$ dado por $i:x \rightarrow x$ y $1_X:x \rightarrow
-x$ para todo $x \in X$. La definici'on del retracto entonces se puede ver en la
+x$ para todo $x \in X$. La definici\'on del retracto entonces se puede ver en la
 siguiente diagrama, llamado una diagrama ``commutativa'':
 \[\begin{tikzcd}
 	&& Y \\
@@ -48,7 +56,7 @@ preservada; es decir,  $\Fc$ lleva mapas continuas hacia homomorfismos.
     \caption{Una diagrama commutativa, donde $A$, $B$,  $C$ son conjuntos
     cualquieras, y $f$,  $g$, y  $h$ son funciones cualquieras doned  $f \circ
 g=h$.}
-    \label{fig_3}
+    \label{fig_4}
 \end{figure}
 
 \begin{lemma}\label{lemma_2.2}
@@ -112,12 +120,12 @@ Ahora reiteremos la teorema de Brouwer para la demostraci\'on para $n$ general.
 \begin{proof}
     Para $n>1$, suponga que no hay puntos fijos. Entonces sea $f:D^n \rightarrow
     D^n$ y que $f(x) \neq x$ para todo $x \in D^n$. Defina entonces, la mapa
-    $g:D^n \rightarrow S^{n-1}$ dado por la figura \ref{fig_4}.
+    $g:D^n \rightarrow S^{n-1}$ dado por la figura \ref{fig_5}.
     \begin{figure}[h]
         \centering
         \includegraphics[scale=0.5]{Figures/brouwer_thm_2.eps}
         \caption{}
-        \label{fig_4}
+        \label{fig_5}
     \end{figure}
     Note que $g$ es continua, y que  $g(x)=x$ para todo $x \in S^{n-1}$. Puse,
     vemos que $g$ es una retracci\'on, lo cual es imposible por el lema

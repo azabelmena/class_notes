@@ -1,0 +1,143 @@
+\section*{Lectura 3: Categor\'ias y Funtores.}
+
+\begin{definition}
+    Definimos una \textbf{clase} de ser una colecci\'on de objetos tal que s\'i
+    $T$ y  $A$ son clases, entonces  $A \notin T$.
+\end{definition}
+
+\begin{definition}
+    Una \textbf{categor\'ia} $\Cc$ es un clase de objetos denotados por
+    $\obj{\Cc}$ junto a una colecci\'on de conjuntos $\Hom{(X,Y)}$,  para
+    cualquieras $X,Y \in \obj{\Cc}$, de \textbf{morfismos} de $X$ hac\'ia $Y$,
+    cuyas elementos estan denotados $f:X \rightarrow Y$ \'o $X \xrightarrow{f}
+    Y$, y una operac\i\'on binaria $\circ:\Hom{(X,Y)} \times \Hom{(Y,Z)}
+    \rightarrow \Hom{(X,Z)}$ llamado \textbf{composici\'on} tal que si $f:X
+    \rightarrow Y$ y $g:Y \rightarrow Z$ son morfismos, entonces $g \circ f:X
+    \rightarrow Z$ es un morfismo y:
+    \begin{enumerate}
+        \item[(1)] $\Hom{(X,Y)}$ y $\Hom{(A,B)}$ son disjuntas.
+
+        \item[(2)] La composici\'on $\circ$ es associativa s\'i esta definido.
+            Es decir, sy  $g \circ (f \circ h)$ \'o $(g \circ g) \circ h$
+            existen en $\Hom{(X,Y)}$, entonces $g \circ (f \circ h)=(g \circ f)
+            \circ g$.
+
+        \item[(3)] $\Hom{(X,X)}$ no es vac\'io y existe al menos un morfismo
+            $1_X:X \rightarrow X$, llamado la \textbf{identidad} de $X$, tal que
+            $1_X \circ f=f$ y  $g \circ 1_X=g$ para morfismos  $f:X \rightarrow
+            Y$ y $g:Z \rightarrow X$, para cualquieras objetos $X,Y,Z \in
+            \obj{\Cc}$
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    Sea $\Cc$ una categor\'ia. Se llama el conjunto $\Mc_\Cc$  \textbf{los
+    morfismos de la categor\'ia} donde $\Mc_\Cc$ es la union de todos los
+    conjuntos $\Hom{(X,Y)}$ para todos $X,Y \in \obj{\Cc}$.
+\end{definition}
+
+\begin{figure}[h]
+    \centering
+    \[\begin{tikzcd}
+	X &&& Y &&& Z
+	\arrow["f", from=1-1, to=1-4]
+	\arrow["g", from=1-4, to=1-7]
+	\arrow["{g \circ f}"', curve={height=30pt}, from=1-1, to=1-7]
+\end{tikzcd}\]
+    \caption{Un ejemplo de composici\'on de morfismos de una categor\'ia}
+    \label{fig_6}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \[\begin{tikzcd}
+	X & X &&& Y & Y
+	\arrow[curve={height=12pt}, from=1-2, to=1-5]
+	\arrow[curve={height=-12pt}, from=1-2, to=1-5]
+	\arrow[from=1-2, to=1-5]
+	\arrow["{1_X}", from=1-2, to=1-1]
+	\arrow["{1_Y}", from=1-5, to=1-6]
+	\arrow[curve={height=24pt}, from=1-5, to=1-2]
+	\arrow[curve={height=-24pt}, from=1-5, to=1-2]
+\end{tikzcd}\]
+    \caption{Morfismos entre dos objetos $X$ y  $Y$ de una categor\'ia
+    incluyendo las identidades de $X$ y $Y$}
+    \label{fig_7}
+\end{figure}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] Considere la categor\'ia $\Cc=\Conj$, donde  $\boj{\Cc}$ es
+            la clase de todo los conjuntos. Los morfismos de $\Cc$ son
+            funci\'ones  $f:X \xrightarrow{} Y$ de un conjunto $X$ hac\'ia un
+            conjunto  $Y$.
+
+        \item[(2)] Sea $\Cc=\Top$ la categor\'ia de espacios topol\'ogicos,
+            donde  $\obj{\Cc}$ es la colecci\'on de todas las espacios
+            topol\'ogicos. Los morfismos de $\Top$ son funci\'ones continuas
+            entre espacios topologicos. Es decir, $\Hom{(X,Y)}=\{f : f:X
+            \xrightarrow{} Y \text{ es continua}\}$. La composici\'on de
+            morfismos es la composicion de funciones usual.
+
+        \item[(3)] Sea $\Cc=\Grup$ la categor\'ia de grupos, cuyas objetos son
+            todo los grupos. Entonces los morfismos de  $\Grup$ estan definido
+            por los conjuntos  $\Hom{(G,H)}=\{\phi : \phi:G \xrightarrow{} H
+            \text{ es un homomrfismo}\}$. La composici\'on de morfismos es la
+            composicion de funciones usual.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    Sean $\Cc$ y  $\Ac$ categor\'ias con  $\obj{\Cc} \subseteq \obj{\Ac}$.
+    Decimos que $\Cc$ es una \textbf{subcategor\'ia} de $\Ac$ s\'i
+    $\Hom_\Cc{(X,Y)} \subseteq \Hom_\Ac{(X,Y)}$ para todo $X,Y \in \obj{\Cc}$ ty
+    la composici\'on de $\Cc$ es la misma de  $\Ac$.
+\end{definition}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] Tenemos que $\Top$ y  $\Grup$ son subcategor\'ias de
+            $\Conj$.
+        \item[(2)] La categor\'ia $\Top^2$ de pares topologicos tiene como objetos
+            son todas pares  $(X,A)$, donde $X$ es un espacio topol\'ogico y $A
+            \subseteq X$ es subsepacio de $X$. Los morfismos de $\Top^2$, para
+            pare topologicos  $(X,Y)$ y $(Y,B)$, son las funciones continuas
+            $f:X \xrightarrow{} Y$ donde $f(A) \subseteq B$ es subespacio de $B$.
+
+        \item[(3)] La categor\'ia $\Top^*$ de pares topologicos  $(X,a)$, donde
+            $a$ es un punto en  $X$ es una subcategor\'ia de  $\top^2$.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    Sea $\Cc$ una categor\'ia. Una \textbf{diagrama} de objetos y morfismos en
+    $\Cc$ es un grafo dirigido cuya cunjunto de vertices es subconjunto de
+    $\obj{\Cc}$ y cuyas aristas son morfismos entre esos vertices. Decimos que
+    una diagrama es \textbf{commutativo} si para cualquieras vertices $A,B,C,D$
+    en la diagrama, y cualquier morfismos  $f:A \xrightarrow{} B$, $i:C
+    \xrightarrow{} D$, $h:A \xrightarrow{} C$, y $g:B \xrightarrow{} D$, tenemos
+    que $g \circ f=i \circ h$.
+\end{definition}
+
+\begin{example}\label{}
+    Las figuras \ref{fig_6} y \ref{fig_7} son ejemplos de diagramas de objetos y
+    morfismos en una categori\'ia.
+\end{example}
+
+\begin{figure}[h]
+    \centering
+    \[\begin{tikzcd}
+	A &&&&& B \\
+	\\
+	\\
+	C &&&&& D
+	\arrow["f", from=1-1, to=1-6]
+	\arrow["i", from=4-1, to=4-6]
+	\arrow["g", from=1-6, to=4-6]
+	\arrow["h"', from=1-1, to=4-1]
+	\arrow["{g \circ f=i \circ h}", dashed, from=1-1, to=4-6]
+\end{tikzcd}\]
+    \caption{Un diagrama commutativa entre objetos y morfismos de una
+    categor\'ia.}
+    \label{fig_8}
+\end{figure}
