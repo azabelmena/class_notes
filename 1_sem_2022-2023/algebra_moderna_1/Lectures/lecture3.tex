@@ -1,1 +1,248 @@
-\section*{Lectura 3: Grupos y Subgrupos}
+\section*{Lectura 3: Grupos C\'iclicos, Clases Laterales, y La Teorema de
+Lagrange.}
+
+\begin{definition}
+    Sea $G$ un grupo. Definimos un  \textbf{grupo c\'iclico} de $G$
+    \textbf{generado} por un elemento $a \in G$ de ser el subgrupo de $G$
+    $\langle a \rangle=\{aj : j \in \Z\}$. Llamamos a $a$ el  \textbf{generador}
+    del grupo. Si $G=\langle a \rangle$ para algun $a \in G$, entonces decimos
+    que $G$ es  \textbf{c\'iclico}.
+\end{definition}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] Considere el grupo $\langle A \rangle$, donde
+            \begin{equation*}
+              A=\begin{pmatrix}
+                    0   &   1   &   0   &   0   \\
+                    0   &   0   &   1   &   0   \\
+                    0   &   0   &   0   &   1   \\
+                    1   &   0   &   0   &   0   \\
+                \end{pmatrix}
+            \end{equation*}
+            Nota que $A^4=I$, entonces  $\langle A \rangle=\{I,A,A^2,A^3\}$ es
+        un subgrupo de orden $\ord{A}=4$ del grupo $GL(4,\R)$.
+
+    \item[(2)] Considere el grupo dihedral $D_3=\{e,r,r^2,t,rt,r^t\}$ Los
+        sobgrupos de $D_3$ son los siguientes en la reticulo de subgrupos
+        sigueinte con los ordenes anotados:
+        \[\begin{tikzcd}
+	&&& {D_3} \\
+	&&&&& {\langle r^2 \rangle} \\
+	{\langle t \rangle} & {\langle rt \rangle} & {\langle r^2t \rangle} \\
+	&&& {\langle e \rangle}
+	\arrow["2"', no head, from=1-4, to=3-1]
+	\arrow["2"'{pos=0.7}, no head, from=1-4, to=3-2]
+	\arrow["2"', no head, from=1-4, to=3-3]
+	\arrow["3", no head, from=1-4, to=2-6]
+	\arrow["1", no head, from=2-6, to=4-4]
+	\arrow["1", no head, from=3-3, to=4-4]
+	\arrow["1"{description}, no head, from=3-2, to=4-4]
+	\arrow["1"', no head, from=3-1, to=4-4]
+\end{tikzcd}\]
+    \end{enumerate}
+\end{example}
+
+\begin{theorem}[Teorema Fundamental de Grupos C\'iclicos]\label{thm_3.3}
+    Todo subgrupo de un grupo c\'iclico es c\'iclico. mas a\'un si $G=\langle a
+    \rangle$ es un grupo c\'iclico de orden $\org{G}=n$, entonces $G$ tiene un
+    subgrupo de orden $d$ por cada divisor $d$ de  $n$.
+\end{theorem}
+\begin{proof}
+    Sea $G=\langle a \rangle$ y $H \leq G$. Observe qu si  $H=\langle e
+    \rangle$, entonces terminamos. Pues suponga que $H \neq \langle e \rangle$.
+    Entonces existe un $h \in H$ con  $h \neq e$. Es decir, que  $h=a^j$ para
+    alguna  $j \in \Z$. Nota que si  $j>0$ entonces  $h$ es una potencia
+    positiva de  $j$; de igual manera, si  $j<0$ entonces  $h^{-j}=(\inv{h})^j$
+    es una potencia psotiva de $j$. Es decir, $H$ tiene potencias positivas. Por
+    lo tanto, por el principio de buen orden, existe una potencia positiva mas
+    peqe\~no, sea  $a^m$. Sea  $h \in H$, entonces  $h=a^k$ para alg\'un  $k \in
+    \Z$. Entonces por la teorema de divisi\'on, existe  $q,r \in \Z$ tales que
+    $k=qm+r$ y $0 \leq r < m$. Entonces $a^k=a^{qm+r}=a^{qm}a^ri=(a^m)^qa^r$.
+    Como  $a^k \in H$, y  $a^m \in H$, es necesario tener  $(a^m)^qa^r \in H$
+    para preservar que $H \leq G$. Entonces, si  $a^r \neq e$, tenemos una
+    potencia de  $a$ mas peque\~no que  $a^m$, lo cual no puede pasar. Es decir
+     $a^r=e$, y  $a^k=(a^m)^q$. Es decir todo elemento de $h$ es una potencia
+     del elemento $a^m$, por lo tanto $H=\langle a^m \rangle$ es c\'iclico.
+
+     Ahora sea $\ord{G}=n$ y sea $d$ un divisor positivo de  $n$. Como  $d|n$,
+     entonces existe un  $k \in \Z^+$ con  $n=kd$. Ahora considere el subgrupo
+     $\langle a^k \rangle$ Entonces sea $j \in \Z$ y considere $(a^k)^j$. Nota
+     que $(a^k)^d=a^{kd}=a^n=e$, y si $0<d<j$ entonces $(a^k)^j=a^{kj} \neq e$
+     por lo tanto $\ord{a^k}=d$, lo cual dice que $\ord{\langle a^k \rangle}=d$.
+\end{proof}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] Sea $U(\faktor{\Z}{18\Z})=\{1,5,7,11,13,17\}$ el grupo de
+            unidades dde $\faktor{\Z}{18\Z}$. Observe que
+            $U(\faktor{\Z}{18\Z})=\langle 5 \rangle$, y que
+            $\ord{U(\faktor{\Z}{18\Z})}=\ord{\langle 5 \rangle}=6$. Entonces
+            $U(\faktor{\Z}{18\Z})$ tiene los siguientes subgrupos mostrado en la
+            siguiente reticulo con ordenes anotados:
+            \[\begin{tikzcd}
+	&& {U(\faktor{\Z}{18\Z})} \\
+	\\
+	{\langle 7 \rangle} &&&& {\langle 17 \rangle} \\
+	\\
+	&& {\langle 1 \rangle}
+	\arrow["3"', no head, from=1-3, to=3-1]
+	\arrow["1"', no head, from=3-1, to=5-3]
+	\arrow["1"', no head, from=5-3, to=3-5]
+	\arrow["3"', no head, from=3-5, to=1-3]
+	\arrow["1", no head, from=1-3, to=5-3]
+\end{tikzcd}\]
+
+    \item[(2)] El grupo de unidades de $\faktor{\Z}{50\Z}$,
+        $U(\faktor{\Z}{50\Z})=\langle 3 \rangle$ tiene el siguiente ret\'iculo
+        de subgrupos:
+        \[\begin{tikzcd}
+	& {U(\faktor{\Z}{18\Z})} \\
+	{\langle 9 \rangle} && {\langle 7 \rangle} \\
+	\\
+	\\
+	{\langle 11 \rangle} && {\langle 49 \rangle} \\
+	& {\langle 1 \rangle}
+	\arrow[no head, from=1-2, to=2-1]
+	\arrow[no head, from=2-1, to=5-1]
+	\arrow[no head, from=5-1, to=6-2]
+	\arrow[no head, from=6-2, to=5-3]
+	\arrow[no head, from=5-3, to=2-3]
+	\arrow[no head, from=2-3, to=1-2]
+	\arrow[no head, from=1-2, to=6-2]
+\end{tikzcd}\]
+    \end{enumerate}
+\end{example}
+
+\begin{theorem}[Criterio de Igualdad de Potencias]\label{thm_3.4}
+    Suponga que $G$ es un grupo. Sea $a \in G$,  y sea  $i,j \in \Z$ tales que
+    $a^i=a^j$. Si $a$ es de orden infinito, entonces $i=j$; de igual manera, si
+     $\ord{a}=n$, entonces $i \equiv j \mod{n}$.
+\end{theorem}
+\begin{corollary}
+    S\'i $j \in \Z^+$, entonces  $\langle a^j \rangle=\langle a^{(j,n)}
+    \rangle$, y $\ord{a^j}=\frac{n}{(j,n)}$, donde $(j,n)$ es el maximo com\'un
+    divisor de $j$ y  $n$.
+\end{corollary}
+\begin{corollary}
+    S\'i $G=\langle a \rangle$, y $\ord{G}=\ord{\langle a \rangle}=n$, entonces
+    $a^j$ es generador de  $G$ s\'i y solo s\'i $(j,n)=1$. La cantidad de
+    generadores de $G$ est\'a dado por  $\phi(n)$ donde $\phi$ es la funci\'on
+    Euler-$\phi$.
+\end{corollary}
+
+\begin{example}\label{}
+    Considere de nuevo $U(\faktor{\Z}{50\Z})=\langle 3 \rangle$. Tenemos que
+    $\phi(50)=20$, as\'i que los generadores de $U(\faktor{\Z}{50\Z})$ son
+    potencias $3^j$ donde  $(j,n)=1$. Es decir, los generadores son:
+    \begin{align*}
+        3^1 &&  3^3 &&  3^7 &&  3^9 &&  3^{11}  &&  3^{13}  &&  3^{17}  &&  3^{19}  \\
+    \end{align*}
+\end{example}
+
+\begin{theorem}\label{thm_3.5}
+Sea $G$ un grupo c\'iclico. Entonces  $G \simeq \Z$ \'o  $G \simeq
+\faktor{\Z}{n\Z}$ para alg\'un $n \in \Z^+$.
+\end{theorem}
+\begin{proof}
+    Sea $G$ un grupo c\'iclico. Suponga que  $G$ es infinito. Como los elementos
+    de  $G$ son de la forma  $a^j$ para  $j \in \Z$, considere el mapa  $\phi:G
+    \xrightarrow{} \Z$ dado por $a^j \xrightarrow{} j$. Entonces $\phi$ es un
+    homomorfismo de  $G$ sobre  $\Z$, ya que  $j$ corresponde a la potencia de
+    uno de los infinito elementos de $G$. Mas a\'un, $\phi$ es 1--1, ya que
+    $a^i=a^k$ implica que $i=k$. Es decir  $\phi$ define un isomprfismo entre
+    $G$ y  $\Z$.
+
+    De igaul forma, suponga que $\ord{G}=n$. Nota entonces que $G$ tiene la
+    forma  $G=\{a^j : j \in \faktor{\Z}{n\Z}\}$. Define entonces $\phi:G
+    \xrightarrow{} \faktor{\Z}{n\Z}$ dado por $a^j \xrightarrow{} j \mod{n}$.
+    $\phi$ es un homomorfismo de  $G$ sobre  $\faktor{\Z}{n\Z}$, por
+    definici\'on. $\phi$ tambien es  1--1 ya que  $a^i=a^j$ implica  $i \equiv j
+    \mod{n}$. Esto define un isomorfismo de $G$ sobre  $\faktor{\Z}{n\Z}$.
+\end{proof}
+
+\begin{example}\label{}
+    Considere $\C$ y sea  $i \in \C$. Entonces $\langle i \rangle=\{1,i,-1,-i\}$
+    por multiplicaci\'on, as\'i que $\ord{\langle i \rangle}=\ord{i}=4$. Por la
+    teorema anterior, esto hace $\langle i \rangle \simeq \faktor{\Z}{4\Z}$.
+\end{example}
+
+\begin{definition}
+    Sea $G$ un grupo y  $H \leq G$. S\'i  $a \in G$ definimos la  \textbf{clase
+    lateral por la derecha} de $H$  \textbf{generado} por $a$ de ser el conjunto
+     $Ha=\{ha : h \in H\}$. De igual forma, definimos la \textbf{clase lateral
+     por la izquierda} de $H$  \textbf{generado} por $a$ de ser el conjunto
+     $aH=\{ah : h \in H\}$.
+\end{definition}
+
+\begin{definition}
+    Sea $G$ un grupo y $H \leq G$. Defina la relaci\'on $\equiv$ sobre $G$ de la
+    siguiente forma:  $a \equiv b$ s\'i y solo s\'i $a\inv{b} \in H$. Llamamos a
+    $\equiv$  \textbf{congruencia modulo} $H$. Escribimos $a \equiv b \mod{H}$, \'o
+    simplements $a \equiv_H b$.
+\end{definition}
+
+\begin{lemma}\label{lemma_3.6}
+    Sea $G$ un grupo y  $H \leq G$. Entonces la relaci\'on de congruencia modulo
+    $H$ sobre  $G$ es una relaci\'on de equivalencia.
+\end{lemma}
+\begin{proof}
+    Como $H \leq G$, tenemos que  $e=a\inv{a} \in H$, as\'i que $a \equiv a
+    \mod{H}$. Ahora, suponga que $a \equiv b \mod{H}$, entonces $a\inv{b} \in
+    H$. Entonces $\inv{(a\inv{b})}=b\inv{a} \in H$, por lo tanto $b \equiv a
+    \mod{H}$. Finalmente, sea $a \equiv b \mod{H}$, y $b \equiv c \mod{H}$.
+    Entonces $a\inv{b},b\inv{c} \in H$, as\'i que
+    $(a\inv{b})(b\inv{c})=a(b\inv{b})\inv{c}=a\inv{c} \in H$, as\'i que $a
+    \equiv c \mod{H}$.
+\end{proof}
+\begin{corollary}
+    Los clases de equivalencia de $\equiv_H$ sobre  $G$ son precisamente los
+    clases laterales por la izquierda  $aH$.
+\end{corollary}
+\begin{proof}
+    Exercise.
+\end{proof}
+\begin{corollary}
+    Tenemos que $\ord{H}=|aH|$.
+\end{corollary}
+\begin{proof}
+    Considere la mapa $f:H \xrightarrow{} aH$ dado por la regla $h
+    \xrightarrow{} ah$. A todo $ah \in H$ podemos asignarlo a  $h$, as\'i que
+    $f$ lleva  $H$ sobre  $aH$. De igual forma, si $ah=ah'$ para  $h,h' \in H$,
+    entonces por cancelaci\'on  $h=h'$. Es decir  $f$ es 1--1.
+\end{proof}
+\begin{corollary}
+    La cantidad de clases laterales por la izquierda de $H$ en  $G$ es la misma
+    que la del los clases laterales por la derecha de  $H$ en  $G$.
+\end{corollary}
+\begin{proof}
+    Considere la mapa $f:aH \xrightarrow{} Ha$.
+\end{proof}
+
+\begin{definition}
+    Sea $G$ un grupo y  $H \leq G$. Definimos el \textbf{indice} de $H$ en  $G$,
+    denotado por  $[G:H]$, de ser la cantidad de clases laterales de $H$ en
+    $G$.
+\end{definition}
+
+\begin{theorem}[La Teorema de Lagrange]\label{thm_3.7}
+    Sea $G$ un grupo y  $H \leq G$. Entonces tenemos
+    \begin{equation*}
+        \ord{G}=[G:H]\ord{H}
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Sabemos que $G=\bigcup_{a \in H}{aH}$ es una uni\'on disjunta. Como $aH \cap
+    bH=\emptyset$ s\'i y solo s\'i  $a \neq b$, entonces tenemos repeticiones.
+    Ahora suponga que el conjunto de clases laterales de $H$ en $G$ est\'a
+    indexado por $J$. Entonces tenmos que
+    \begin{equation*}
+        \ord{G}=\sum_{j \in J}{|a_jH|}=\sum_{j \in J}{\ord{H}}=|J|\ord{H}
+    \end{equation*}
+    Nota que $|J|=[G:H]$.
+\end{proof}
+\begin{corollary}
+    Si $G$ y  $H$ son finito, entonces el orden de $H$ divide el orden de $G$.
+    Mas a\'un, tenemos que
+    $\frac{\ord{G}}{\ord{H}}=[G:H]$
+\end{corollary}
