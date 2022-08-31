@@ -1,0 +1,129 @@
+\section*{Lectura 4: Gurpos Cocientes y Teoremas de Isomorfismo.}
+
+\begin{definition}
+    Dado un grupo $G$ y un subgrupo  $H$ de  $G$, definimos el  \textbf{producto
+    de clases laterales} de ser el producto $aHbH=abH$.
+\end{definition}
+
+\begin{definition}
+    Sea $G$ un grupo. Decimos que un subgrupo  $H$ de  $G$ es  \textbf{noraml}
+    si para cualquier $a \in G$,  $aH=Ha$. Escribimos $H \unlhd G$.
+\end{definition}
+
+\begin{lemma}\label{lemma_4.8}
+    Sea $H$ un subgrupo normal de un grupo  $G$. Entonces los siguientes son
+    equivalentes para todo $a \in H$:
+    \begin{enumerate}
+        \item[(1)] $aH\inv{a} \subseteq H$.
+
+        \item[(2)] $aH\inv{a}=H$.
+
+        \item[(3)] Para todo $a \in G$, existe un  $b \in G$ tal que  $aH=Hb$.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    S'i $aH\inv{a}=H$, entonces $aH\inv{a} \subseteq H$. Por el otro lado, si
+    $aH\inv{a} \subseteq H$, entonces para $h,h' \in H$,  $ah\inv{a}=h'$, as\'i
+    que $h' \in aH\inv{a}$, as\'i que $H \subseteq aH\inv{a}$.
+
+    Ahora, si $aH\inv{a}=H$, entonces tenemos que $aH=Ha$ para todo  $a \in H$,
+    por el otro lado, suponga que  $a,b \in H$ tal que  $aH=Hb$. Entonces nota
+    que  $a \in Hb$ y  $a \in Ha$, as\'i que  $Ha \cap Hb \neq \emptyset$. Como
+     $Ha$ y  $Hb$ son clases de equivalencias, esto forza a  $a=b$.
+\end{proof}
+
+\begin{example}\label{}
+    $SL(n\R) \unlhd GL(n,\R)$, nota que para cualquier $A \in SL(n,\R)$ y $B \in
+    GL(n,\R)$ que $\det{(BA\inv{B})}=(\det{B})(1)(\det{\inv{B}})=1$.
+\end{example}
+
+\begin{theorem}\label{thm_4.9}
+    S\'i $G$ es un grupo y  $H \unlhd G$ es subgrupo notmal de $G$, entonces las
+    clases laterales de $H$ en  $G$ forman un grupo bajo el producto de clases.
+\end{theorem}
+\begin{proof}
+    Define la operaci\'on $(aH,bH) \xrightarrow{} aHbH=\{ahbh' : h,h' \in
+    H\}=abH$.  Ya que $aH$ y $bH$ son clases de equivalencia, el producto es
+    bien definida.
+
+    Ahora sea  $aH$ y  $bH$, como  $H \unlhd G$, tenemos que  $aHbH=abHH=abH$,
+    as\'i que $abH$ es clase lateral de $H$ en  $G$; nota tambien que
+    $aH(bHcH)=aH(bcH)=a(bc)H=abcH=(ab)cH=abHcH-(aHbH)cH$, as\'i que el producto
+    es associativa.
+
+    Ahora toma la identidad de $H$, $e \in H \unlhd G$ y para cada  $a \in G$,
+    toma  $\inv{a}$. Entonces tenemos que $aHeH=aeH=eaH=eHaH=H$ y que  $eH=H$.
+    De igual forma  $aH\inv{a}H=a\inv{a}H=\inv{a}aH=\inv{a}HaH=H$. As\'i que $H$
+    es la identidad,y  $\inv{a}H$ la inversa de $aH$.
+\end{proof}
+
+\begin{definition}
+    Sea $G$ un grupo. Denotamos el conjunto de todos clases laterales de un
+    subgrupo $H$ en $G$ como $\faktor{G}{H}$. S\'i $H$ es un subgrupo normal,
+    entonces  $\faktor{G}{H}$ forma un grupo llamado el \textbf{grupo cociente}
+    de $G$ sobre $H$.
+\end{definition}
+
+\begin{lemma}\label{lemma_4.10}
+    Sea $G$ un grupo. Todo subgrupo de  $G$ es normal s\'i y solo s\'i $H$ es el
+    kernel de alg\'un homomorfismo  $\phi$ en  $G$.
+\end{lemma}
+\begin{proof}
+    Sea $H \unlhd G$ Considere la mapa  $\phi:G \xrightarrow{} \faktor{G}{H}$
+    tal que $\phi:a \xrightarrow{} aH$. Entonces $\ker{\phi}=\{a \in G :
+    aH=h\}$. As\'i que si $a \in \ker{\phi}$, tenemos $aH=H$, que nos dice que
+    $a \in H$. Por otro lado,  $a \in H$ implica  $aH=H$, as\'i que  $a \in
+    \ker{\phi}$. Es decir $H=\ker{\phi}$.
+\end{proof}
+
+\begin{lemma}\label{lemma_4.11}
+    Sea $G$ un grupo y  $\phi:G \xrightarrow{} G'$ un homomorfismo. Entonces
+    tenemos que Si $H \unlhd G$ y $\phi$ es sobre, entonces  $\phi(H) \unlhd G'$.
+    Mas a\'un s\'$H' \unlhd G'$, entonces $\inv{\phi}(H') \unlhd G$.
+\end{lemma}
+\begin{proof}
+    Sea $\phi:G \xrightarrow{} G'$ una mapa de $G$ sobre  $G'$. Suponga tambien
+    que  $H \unlhd G$. Entonces tome  $y \in G'$. Pues entonces existe un  $x
+    \in G$ tal que  $y=\phi(x)$. Tambien existe un $h \in H$ con
+    $\alpha=\phi(h)$. Entonces considere
+    $y\alpha\inv{y}=\phi(x)\phi(h)\inv{\phi}(y)=\phi(xh\inv{x})=\phi(h')$. Por
+    lo tanto $y\alpha\\inv{y} \in \phi(H)$ lo que hace $y\phi(H)\inv{y}
+    \subseteq \phi(H)$. As\'i que $\phi(H)$ es normal en $G'$.
+\end{proof}
+
+\begin{theorem}[Teorema de Factorizaci\'on]\label{thm_4.12}
+    Suponga que $G$ y $G'$ son grupos y  $H \unlhd H$. Sea $\phi:G
+    \xrightarrow{} G'$ y $\pi:G \xrightarrow{} \faktor{G}{H}$ dado por $\pi:a
+    \xrightarrow{} aH$. Enotnces existe un u\'unico $\tilde{\phi}:\faktor{G}{H}
+    \xrightarrow{} G'$ tal que $\phi=\tilde{\phi} \circ \pi$.
+    \[\begin{tikzcd}
+	G &&&& {G'} \\
+	\\
+	\\
+	\\
+	{\faktor{G}{H}}
+	\arrow["\phi", from=1-1, to=1-5]
+	\arrow["\pi"', from=1-1, to=5-1]
+	\arrow["{\tilde{\phi}}"', dashed, from=5-1, to=1-5]
+\end{tikzcd}\]
+\end{theorem}
+\begin{proof}
+    Suponga primero que existe tal $\tilde{\phi}$. Sea $\bar{\phi}:\faktor{G}{H}
+    \xrightarrow{} G'$ otro homomorfismo tal que $\phi=\bar{\phi} \circ \pi$.
+    Entonces tenemos que $\tilde{\phi} \circ \pi(a)=\bar{\phi} \circ \pi(a)$. Es
+    decir que $\tilde{\phi}(aH)=\bar{\phi}(aH)=\phi(a)$. Esto hace que
+    $\tilde{\phi}(\faktor{G}{H})=\bar{\phi}(\faktor{G}{H})=\phi(G)$, as\'i que
+    tienen el misma imagen y misma relaci\'on. As\'i que
+    $\tilde{\phi}=\bar{\phi}$.
+
+    Ahora define la mapa $\tilde{\phi}:\faktor{G}{H} \xrightarrow{} G'$ dado por
+    $aH \xrightarrow{} \phi(a)$. Sea entonce_3s $b \in aH$, as\'i que  $aH=bH$,
+    entonces tenemos  $\inv{a}b \in H=\ker{\phi}$. Entonces $\phi(\inv{a}b)=e'$,
+    la identidad de $G'$, entonces  $\phi(a)=\phi(b)$. Pues $\tilde{\phi}$ esta
+    bien definida. Por ultimo, note que
+    $\tilde{\phi}(aH)=\tilde{\phi}(\pi(a))=\tilde{\phi} \circ \pi(a)$.
+\end{proof}
+\begin{corollary}
+    $\phi$ es sobre s\'y y solo s\'i $\tilde{\phi}$ es sobre, y $\phi$ es  1--1
+    s\'i y solo s\'i $\ker{\phi}=H$.
+\end{corollary}
