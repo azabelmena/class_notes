@@ -22,7 +22,7 @@
     \end{enumerate}
 \end{lemma}
 \begin{proof}
-    S'i $aH\inv{a}=H$, entonces $aH\inv{a} \subseteq H$. Por el otro lado, si
+    S\'i $aH\inv{a}=H$, entonces $aH\inv{a} \subseteq H$. Por el otro lado, si
     $aH\inv{a} \subseteq H$, entonces para $h,h' \in H$,  $ah\inv{a}=h'$, as\'i
     que $h' \in aH\inv{a}$, as\'i que $H \subseteq aH\inv{a}$.
 
@@ -74,12 +74,19 @@
     aH=h\}$. As\'i que si $a \in \ker{\phi}$, tenemos $aH=H$, que nos dice que
     $a \in H$. Por otro lado,  $a \in H$ implica  $aH=H$, as\'i que  $a \in
     \ker{\phi}$. Es decir $H=\ker{\phi}$.
+
+    Por otro lado considere $\ker{\phi}$ para alg\'un mapa en $G$ Considere
+    cualquier $a \in G$ y  $h \in \ker{\phi}$. Entonces
+    $\phi(a)\phi(h)\inv{\phi}(a)=\phi(a)e'\inv{\phi}(a)=\phi(a)\inv{\phi}(a)=e'$,
+    donde $e'$ es la identidad de $G'$. Entonces como $a$ y $h$ eran
+    arbitraros, vemos que $\phi(a)\ker{\phi}\inv{\phi}(a) \subseteq \ker{\phi}$.
+    As\'i que $\ker{\phi} \unlhd G$.
 \end{proof}
 
 \begin{lemma}\label{lemma_4.11}
     Sea $G$ un grupo y  $\phi:G \xrightarrow{} G'$ un homomorfismo. Entonces
     tenemos que Si $H \unlhd G$ y $\phi$ es sobre, entonces  $\phi(H) \unlhd G'$.
-    Mas a\'un s\'$H' \unlhd G'$, entonces $\inv{\phi}(H') \unlhd G$.
+    Mas a\'un s\'i $H' \unlhd G'$, entonces $\inv{\phi}(H') \unlhd G$.
 \end{lemma}
 \begin{proof}
     Sea $\phi:G \xrightarrow{} G'$ una mapa de $G$ sobre  $G'$. Suponga tambien
@@ -87,8 +94,15 @@
     \in G$ tal que  $y=\phi(x)$. Tambien existe un $h \in H$ con
     $\alpha=\phi(h)$. Entonces considere
     $y\alpha\inv{y}=\phi(x)\phi(h)\inv{\phi}(y)=\phi(xh\inv{x})=\phi(h')$. Por
-    lo tanto $y\alpha\\inv{y} \in \phi(H)$ lo que hace $y\phi(H)\inv{y}
+    lo tanto $y\alpha\inv{y} \in \phi(H)$ lo que hace $y\phi(H)\inv{y}
     \subseteq \phi(H)$. As\'i que $\phi(H)$ es normal en $G'$.
+     Ahora considere $H' \unlhd G'$, entonces para todo  $a' \in G$ y  $h' \in
+     H'$,  $a'h'\inv{a'} \in H$. Como $\phi$ es sobre, tenemos que existen $x
+     \in G$ y  $h \in H$ con  $x=\phi(a')$ y $h=\phi(h)$, osea $x \in
+     \inv{\phi}(G')$ y $h \in \inv{\phi}(H')$. Entonces
+     $xh\inv{x}=\phi(a')\phi{h}\inv{\phi}(a')=\phi(a'h\inv{a'}) \in
+     \inv{\phi}(H')$. Entonces $x\inv{\phi}(H')\inv{x} \subseteq
+     \inv{\phi}(H')$, as\'i que $\inv{\phi}(H')\unlhd G$.
 \end{proof}
 
 \begin{theorem}[Teorema de Factorizaci\'on]\label{thm_4.12}
@@ -127,3 +141,13 @@
     $\phi$ es sobre s\'y y solo s\'i $\tilde{\phi}$ es sobre, y $\phi$ es  1--1
     s\'i y solo s\'i $\ker{\phi}=H$.
 \end{corollary}
+\begin{proof}
+    Nota que como $\tilde{\phi}(\faktor{G}{H})=\phi(G)$, entonces s\'i
+    $\tilde{\phi}$ es sobre, entonces $\phi$ tiene que ser sobre. Por el otro
+    lado, el mismo es cierto.
+
+    Ahora s\'i  $\ker{\phi}=H$, como $H$ es identidad del $\faktor{G}{H}$,
+    entonces $\phi$ es 1--1. Por el otro lado, s\'i $\phi$ es 1--1, entonces
+    $\ker{\phi}=\vbrack{e_{\faktor{G}{H}}}$, donde $e_{\faktor{G}{H}}$ es la
+    identidad de $\faktor{G}{H}$; pero $e_{\faktor{G}{H}}=H$.
+\end{proof}
