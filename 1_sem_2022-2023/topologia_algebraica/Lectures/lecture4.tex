@@ -10,15 +10,21 @@
 \begin{figure}[h]
     \centering
     \[\begin{tikzcd}
-	&&&&& {[f]} \\
-	A &&&&&& B \\
-	& {[g]}
-	\arrow["{f_2}"{description}, curve={height=-6pt}, dashed, from=2-1, to=2-7]
-	\arrow["{f_0}"{description}, curve={height=-30pt}, dashed, from=2-1, to=2-7]
-	\arrow["{f_1}"{description}, curve={height=-18pt}, dashed, from=2-1, to=2-7]
-	\arrow["{g_2}"{description}, curve={height=6pt}, squiggly, from=2-1, to=2-7]
-	\arrow["{g_1}"{description}, curve={height=18pt}, squiggly, from=2-1, to=2-7]
-	\arrow["{g_0}"{description}, curve={height=30pt}, squiggly, from=2-1, to=2-7]
+	&&&& \textcolor{rgb,255:red,167;green,42;blue,42}{[f]} \\
+	\\
+	A &&&&& B \\
+	\\
+	& \textcolor{rgb,255:red,42;green,167;blue,42}{[g]}
+	\arrow["{f_0}"{description}, shift left=5, color={rgb,255:red,167;green,42;blue,42}, curve={height=-30pt}, from=3-1, to=3-6]
+	\arrow["{f_1}"{description}, shift left=4, color={rgb,255:red,167;green,42;blue,42}, curve={height=-24pt}, from=3-1, to=3-6]
+	\arrow["{f_2}"{description}, shift left=3, color={rgb,255:red,167;green,42;blue,42}, curve={height=-18pt}, from=3-1, to=3-6]
+	\arrow["{f_3}"{description}, shift left=2, color={rgb,255:red,167;green,42;blue,42}, curve={height=-12pt}, from=3-1, to=3-6]
+	\arrow["{g_0}"{description}, shift right=5, color={rgb,255:red,42;green,167;blue,42}, curve={height=30pt}, from=3-1, to=3-6]
+	\arrow["{g_1}"{description}, shift right=4, color={rgb,255:red,42;green,167;blue,42}, curve={height=24pt}, from=3-1, to=3-6]
+	\arrow["{g_2}"{description}, shift right=3, color={rgb,255:red,42;green,167;blue,42}, curve={height=18pt}, from=3-1, to=3-6]
+	\arrow["{g_3}"{description}, shift right=2, color={rgb,255:red,42;green,167;blue,42}, curve={height=12pt}, from=3-1, to=3-6]
+	\arrow["{f_4}"{description}, shift left=1, color={rgb,255:red,200;green,50;blue,50}, curve={height=-6pt}, from=3-1, to=3-6]
+	\arrow["{g_4}"{description}, shift right=1, color={rgb,255:red,42;green,167;blue,42}, curve={height=6pt}, from=3-1, to=3-6]
 \end{tikzcd}\]
     \caption{Una relaci\'on de equvalencia entre morfismos.}
     \label{fig_9}
@@ -64,11 +70,9 @@
 \begin{figure}[h]
     \centering
     \[\begin{tikzcd}
-	& {\faktor{\Cc}{\sim}} \\
-	\\
-	A &&&&&& B
-	\arrow["{[f]}"{description}, curve={height=-30pt}, dashed, from=3-1, to=3-7]
-	\arrow["{[g]}"{description}, curve={height=30pt}, squiggly, from=3-1, to=3-7]
+	A &&&&& B
+	\arrow["{[f]}", color={rgb,255:red,167;green,42;blue,42}, curve={height=-30pt}, from=1-1, to=1-6]
+	\arrow["{[g]}"', color={rgb,255:red,42;green,167;blue,42}, curve={height=30pt}, from=1-1, to=1-6]
 \end{tikzcd}\]
     \caption{La categor\'ia cociente $\faktor{\Cc}{\sim}$, donde $\Cc$ es la
     categor\'ia de la figura \ref{fig_9}.}
