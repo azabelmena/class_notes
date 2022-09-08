@@ -1,1 +1,56 @@
 \section*{Lectura 6: Sumas Directas y Productos Semidirectas.}
+
+\begin{definition}
+    Dado grupos $G$ y  $H$, definimos el  \textbf{producto directo} de $G$ y
+    $H$ de ser el grupo  $G \times H$ bajo la operacion  $((a,b),(g,h))
+    \xrightarrow{} (ah,bg)$.
+\end{definition}
+
+\begin{lemma}\label{lemma_6.19}
+    Sean $G$ y  $H$ grupos, entonces el producto directo de  $G$ y  $H$ es un
+    grupo bajo su operaci\'on.
+\end{lemma}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] El grupo Klein-$4$ es un producto directo, $V_4 \simeq
+            \faktor{\Z}{2\Z} \times \faktor{\Z}{2\Z}$.
+
+        \item[(2)] $\faktor{\Z}{6\Z} \simeq \faktor{\Z}{2\Z} \times
+            \faktor{\Z}{3\Z}$.
+
+        \item[(3)] $\faktor{\Z}{70\Z} \simeq \faktor{\Z}{5\Z} \times
+            \faktor{\Z}{7\Z}$.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{lemma_6.20}
+    S\'i $G \times H$ es un producto directo, entonces  $G \times H$ contine
+    subgrupos  $G'$ y  $H'$ con  $G' \simeq G$ y  $H' \simeq H$.
+\end{lemma}
+\begin{proof}
+    Sea $G'=\{(g,e_H) : g \in G\}$ y $H'=\{(e_G,h : h \in H)\}$. Considere
+    entonces las proyecciones del primer y segundo partes, $\pi:G \times H
+    \xrightarrow{} G$ y $\pi_2:G \times H \xrightarrow{} H$ dados por
+    $\pi_1:(g,e_H) \xrightarrow{} g$ y $\pi_2:(e_G,h) \xrightarrow{} h$.
+    Entonces  $\pi_1$ y $\pi_2$ son isomorfismos.
+\end{proof}
+\begin{corollary}
+    $G'$ y  $H'$ son normales en  $G \times H$.
+\end{corollary}
+\begin{corollary}
+    $G'H'=G \times H$ y  $G' \cap H'=\langle e \rangle$, donde $e=(e_G,e_H)$ es
+    la identidad de $G \times H$.
+\end{corollary}
+
+\begin{definition}
+    Decimos que $G$ es un  \textbf{producto directo interior} s\'i existen
+    subgrupos $G'$ y  $H'$ tales que:
+    \begin{enumerate}
+        \item[(1)] $G'$ y  $H'$ son normales en  $G$.
+
+        \item[(2)] $G' \cap H'=\langle e \rangle$.
+
+        \item[(3)] $G'H'=G$.
+    \end{enumerate}
+\end{definition}
