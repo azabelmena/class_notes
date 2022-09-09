@@ -44,4 +44,31 @@
         perforado y rellena el hueco con $y_0$}.
         \label{fig_12}
     \end{figure}
+
+    Suponga ahora que existe un extensi\'on $g:D^{n+1} \xrightarrow{} Y$ de $f$.
+    Como  $S^n$ es subsespacio de  $D^{n+1}$, tenemos que $g \circ
+    i=g|_{S^n}=f$. Sea $x_0 \in S^n$, y $k:x \xrightarrow{} f(x_0)$ una mapa
+    constante. Defina $F:S^n \times I \xrightarrow{} Y$ dado por
+    $F(x,t)=g((1-t)x+x_0t)$. Entonces $F$ es continua por composicion de mapas
+    continuas, ademas $F(x,0)=g(x)=f(x)$, como $x \in S^n$, y
+    $F(x,1)=g(x_0)=f(x_0)=k(x)$, como $x_0 \in S^n$. Por lo tanto, $F$ defina
+    una homotopia entre  $f$ y  $k$.
 \end{proof}
+
+\begin{example}\label{}
+    Considere $S^{n-1}$ y $D^n$ y considere la siguiente diagrama
+    % https://q.uiver.app/?q=WzAsMyxbMCwwLCJTXntuLTF9Il0sWzMsMCwiU157bi0xfSJdLFswLDMsIkRebiJdLFswLDEsIjFfe1Nee24tMX19Il0sWzAsMiwiaSIsMl0sWzIsMSwiZyIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+    \[\begin{tikzcd}
+        {S^{n-1}} &&& {S^{n-1}} \\
+        \\
+        \\
+        {D^n}
+        \arrow["{1_{S^{n-1}}}", from=1-1, to=1-4]
+        \arrow["i"', from=1-1, to=4-1]
+        \arrow["g"', dashed, from=4-1, to=1-4]
+    \end{tikzcd}\]
+    S\'i $g$ es una extensi\'on de $1_{S^{n-1}}$, entonces tenemos que  la
+    diagrama es commutativa y que $g \circ i=1_{S^{n-1}}$; es decir que $g$ es
+    una retracci\'on de  $S^{n-1}$, lo cual es imposible. As\'i que por la
+    teorema anterior, $1_{S^{n-1}}$ no puede ser nulhomotopico.
+\end{example}
