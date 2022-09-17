@@ -1,0 +1,60 @@
+\section*{Lectura y: Acciones de Grupos.}
+
+\begin{theorem}[EL Teorema de Cayley]\label{thm_7.26}
+    Todo grupo es isomorfo a un subgrupo del grupo de simetrico.
+\end{theorem}
+\begin{proof}
+    Sea $G$ un grupo y  $A(G)$ el grupo simetrico de $G$. Defnia $\lambda:G
+    \xrightarrow{} A(G)$ dado por $g \xrightarrow{} \lambda_g$, donde
+    $\lambda_g:G \xrightarrow{} G$ esta dado por $x \xrightarrow{} gx$. Note que
+    $\lambda_g$ es un permutacion de los elementos de  $G$, es sobre, y es 1--1
+    por cancelacion, as\'i que  $\lambda_g \in A(G)$. As\'i que $\lambda$ es
+    bien definido.
+
+    Ahora suponga que que  $lambda(g)=\lambda(h)$, entonces para alg\'un $x \in
+    G$,  $\lambda_g(x)=\lambda_g(h)$, pues $gx-gh$. Por cancelaci\'on, tenemos
+    que  $g=h$. s\'i que  $\lambda$ es 1--1. Ahora dado  $x \in G$, que
+    $\lamda(gh)(x)=\lambda_{gh}(x)=(gh)x=g(hx)=g(\lamda_h(x))=\lambda_g(\lambda_h(x))=
+    \lambda_G\lambda_h(x)$. As\'i que $\lambda$ definia  una isomorfismo de $G$
+    hac\'ia  $\lambda(G)$ lo cual es subgrupo de $A(G)$.
+\end{proof}
+
+\begin{example}\label{}
+    Por la teorema de Cayley, tenemos que $D_3 \simeq S_6$.
+\end{example}
+
+\begin{definition}
+    Un grupo $G$  \textbf{actua} sobre un conjunto $X$ s\'i para todo  $g \in
+    G$, existe una mapa  $G \times X \xrightarrow{} X$ dado por $(g,x)
+    \xrightarrow{} g \cdot x$ tal que:
+    \begin{enumerate}
+        \item[(1)] $h \cdot (g \cdot x)=(hg) \cdot x$.
+
+        \item[(2)] $e \cdot x=x$ para todo  $x \in X$.
+    \end{enumerate}
+\end{definition}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] Todo grupo actua sobre si mismo bajo multiplicacion pr la
+            izquierda. Llamamos esto el \textbf{accion regular}.
+
+        \item[(2)] Todo grupo actua sobre si mismo via la accion de
+            \textbf{conjugacion} definido pro $(g,x) \xrightarrow{} gx\inv{g}$.
+            Nota que $h \cdot (g \cdot x)=h \cdot
+            (gx\inv{g})=hgx\inv{g}\inv{h}=(hg)x\inv{(hg)}=(hg) \cdot x$. Tambein
+            $e \cdot x=ex\inv{e}=x$.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    Definimos el \textbf{kernel} de una accion $G \times X \xrightarrow{} X$ de
+    ser el conjunto $\ke=\{g \in G: g \cdot x=x\}$.
+\end{definition}
+
+\begin{example}\label{}
+    S\'i $G$ actua sobre si mismo via conjugacion, entonces si  $gx\inv{g}=x$,
+    tenemos que $gx=xg$ para todo  $x \in G$. Por lo tanto  $\ker=\{g \in G :
+    gx=xg \text{ para todo } x \in G\}$. Llamamos este kernel el \textbf{centro}
+    de $G$, y lo denotamos como  $Z(G)$.
+\end{example}

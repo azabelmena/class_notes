@@ -54,3 +54,164 @@
         \item[(3)] $G'H'=G$.
     \end{enumerate}
 \end{definition}
+
+\begin{theorem}\label{thm_6.21}
+    S\'i $G=HK$ es un grupo donde  $H,K \leq G$, entonces  $G \simeq H \times
+    K$.
+\end{theorem}
+\begin{proof}
+    Defina $\phi:H \times K \xrightarrow{} HK$ pro $(h,k) \xrightarrow{} hk$.
+    Nota que $h \in H$ y  $k \in K$ implica que  $hk=kh$. S\'i
+    $(\inv{h}\inv{k}h)K \in K$ y $\inv{h}(\inv{k}hk) \in H$, entonces
+    $\inv{h}\inv{k}hk \in H \cap K=\langle e \rangle$. Nota que s\'i $(h_1,k_1)$
+    y $(h_2,k_2) \in H \times K$, entonces
+    $\phi((h_1,k_1),(h_2,k_2))=(h_1h_2,k_1k_2)=h_1h_2k_1k_2=h_1k_1h_2k_2=\phi(h_1,
+    k_1)\phi(h_2,k_2)$. Entonces $\phi$ es un homomorfismo
+
+    Ahora suponga que $\phi(h,k)=e$. Entonces $hk=e$, as\'i loq que dice que  $h
+    \in K$ y  $k \in H$, entonces  $h=k=e$. Por lo tanto  $\ker{\phi}=\langle e
+    \rangle$. Mas a\'un, $\phi$ es sobre por definici\'on, as\'i que  $HK \simeq
+    H \times K$.
+\end{proof}
+
+\begin{definition}
+    S\'i $G$ es un grupo que contienes subgrupos normales  $\{H_i\}_{i=1}^n$,
+    y $g \in G$ se puede escribir unicamente como  $g=h_1 \dots h_n$, donde
+    $h_i$, entonces se llama $G$ el  \textbf{producto directo interno} de
+    $\{H_i\}$.
+\end{definition}
+
+\begin{lemma}\label{lemma_6.22}
+    Suponga que $H=H_1 \dots H_n$ donde $H_i \unlhd G$ para toda $1 \leq i$ \leq
+    n. Los sigueintes enunicados son equivalente:
+    \begin{enumerate}
+        \item[(1)] $G$ es producto directo interno de  $\{H_i\}$.
+
+        \item[(2)] $(H_1 \dots H_{i-1}) \cap H_i=\langle e \rangle$ para todo $1
+            \leq i \leq n$.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    Supong  que $G$ es producto directo interno de  $\{H_i\}$. Entonces, para
+    todo $g \in G$,  $g=h_1 \dots h_n$. Sea que $g \in (H_1 \dots H_{i-1}) \cap
+
+    H_i$. Entonces $g \in H_1 \dots H_{i-1}$, entonces $g=h_1 \dots
+    h_i-1e_ie_{i+1} \dots e_n$. Ahora tambien tenemos que $g \in H_i$, as\'i que
+     $g=e_1 \dots e_{i-1}ge_{i+1} \dots e_n$. Como $g$ es de representacion
+     unica, $h_1 \dots h_{i-1}e_i \dots e_n=e_1e_2 \dots ge_{i+1} \dots e_n$.
+     Por correspondencia, tenemos que $g=e$. Por lo tanto  $(H_1 \dots H_{i-1})
+     \cap H_i=\langle e \rangle$.
+
+     Suponga ahora que $(H_1 \dots H_{i-1}) \cap H_i=\langle e \rangle$.
+     Suponga que $g=h_1 \dots h_{i-1} \in (H_1 \dots H_{i-1})$ y $g=k_1 \dots
+     k_n \in H_i$. Como $H_i \unlhd G$, tenemos que  $h_ik_i=k_ih_i$. Por lo
+     tanto, como  $h_1 \dots h_n=k_1 \dots k_n$. Entonces tenemos $h_2 \dots
+     h_n=(\inv{h_1}k_1)k_2 \dots k_n$, y que $h_3 \dots
+     h_n=(\inv{h_1}k_1)(\inv{h_2}k_2)k_3 \dots k_n$. Procediendo recursivamente,
+     tenemos que  $(\inv{h_1}k_1) \dots (\inv{h_{n-1}}k_{n-1})=h_nk\inv{k_n}$, y
+     comoe $h_n\inv{k_n} \in H_n \cap (H_1 \dots H_{n-1})$, tenemos que
+     $\inv{h_i}k_i=e$ para todo $i$. Por lo tanto  $h_i=k_i$ y  $g$ tiene
+     representaci\'on unica. Como  $G=H_1 \dots H_n$, esto hace $G$ el producto
+     directo interno de  $\{H_i\}$.
+\end{proof}
+
+\begin{example}\label{}
+        $D_3=\langle r \rangle\langle t \rangle$ y es una
+        representacion unica, pero $\ord{\langle r \rangle}=3$ y
+        $\ord{\langle t \rangle}=2$, pero $D_3$ no es abeliano, asi que
+        $D_3$ no puede ser el producto directo interno de $\langle r
+        \rangle$ y $\langle t\rangle$.
+\end{example}
+
+\begin{definition}
+    Sea $G$ un grupo, definimos a $\Aut{G}$ el \textbf{grupo de automorfismos}
+    de $G$ sobre si mismo.
+\end{definition}
+
+\begin{lemma}\label{}
+    Sean $H,K$ grupos, y sea  $r:K \xrightarrow{} \Aut{H}$ dado por $k
+    \xrightarrow{r} r_k$ y $r_k:H \xrightarrow{} H$ es un autmorfismo de $H$.
+    Considere la operacion bianria  $(H \times K) \times (H \times K)
+    \xrightarrow{} H \times K$ dado por $(h_1,k_1),(h_2,k_2) \xrightarrow{}
+    (h_1r_k(h_2),k_1k_2)$. Esta operaci\'on induce un grupo sobre $H \times K$.
+\end{lemma}
+\begin{proof}
+    Como $r_k$ es un automorfismo de  $H$, es un homomorfismo, as\'i que tenemos
+    que  $r(kn)=r_{kn}=r_kr_n=r(k)r(n)$, as\;i que $r$ es un homorfismo, y se
+    cierra la operaci\'on en  $H \times K$.
+
+    Ahora nota que
+    $(h,k)(e_H,e_K)=(hr_k(e_H),ke_K)=(he_H,ke_k)=(h,k)$ y
+    $(e_H,e_K)(h,k)=(e_Hr_{e_K}(h), e_Kk)=(e_Hh,e_K,k)=(h,k)$, como $r_{e_H}$ es
+    la identidad. A\'is que $e=(e_H,e_K)$ es la identidad.
+
+    De igaul manera, tenemos $(h,k)(\inv{r_k}(\inv{h}),
+    \inv{k})=(hr_k(\inv{r_k}(\inv{h})), k\inv{k})=(h\inv{h},k\inv{k})=e$, y
+    $(\inv{r_k}(\inv{h}),\inv{k})(h,k)=(\inv{r_k}(\inv{h})r_h(h),
+    \inv{k}k)=(r_{e_H}(\inv{h}),\inv{k}k)=(\inv{h}h,\inv{k}k)=e$, com
+    $\inv{r_k}r_k=r_{e_H}$, la identidad. As\'i que $H \times K$ tiene inversos.
+
+    Finalmente, nota que  $((h_1,k_1)(h_2,k_2))(h_3,k_3)=(h_1r_{k_1}(h_2),
+    k_1k_2)(h_3,k_3)=((h_1r_{k_1}(h_2))r_{k_3}(h_3),k_1k_2k_3)=(h_1h_2r_{k_1k_3}(h_2h_3),
+    k_1k_2,k_3)$ y
+    $(h_1,k_1)((h_2,k_2)(h_3,k_3))=(h_1,k_1)(h_2r_{k_3}(h_3),
+    k_2k_3)=(h_1h_2r_{k_1k_3}(h_2h_3),k_1k_2k_3)$, y associatividad se preserva.
+\end{proof}
+
+\begin{definition}
+    Sea $H$,  $K$ grupos, y  $r:K \xrightarrow{} \Aut{H}$ un homomorfismo.
+    Definimos el \textbf{producto semidirecto externo} de ser el grupo $H
+    \times_r K$ bajo la operaci\'on
+    $(h_1,k_1)(h_2,k_2)=(h_1r_{k_1}(h_2),k_1k_2)$.
+\end{definition}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] $D_3 \simeq \langle r \rangle \times_r \langle t \rangle
+            \simeq \faktor{\Z}{3\Z} \times_r \faktor{\Z}{2\Z}$, donde $r:x
+            \xrightarrow{} -x$. En ambos grupos.
+
+        \item[(2)] Sea $G=H \times_r K$. Sea  $H'=\{(h,e_K), h \in H\}$ y
+            $K'=\{(e_H,k): k \in K\}$. Nota que $H' \simeq H$, que  $K' \simeq
+            K$, y que  $H' \unlhd H \times_r K$, pero no necesariamente  $K'
+            \unlhd H \times_r K$. Tambien tenemos que $H' \cap K'=\langle e
+            \rangle$. Ahora, $(h,e_K)(e_H,k)=(hr_{e_H}(e_H),
+            e_Kk)=(he_H,e_K,k)=(h,k)$, as\'i que $H \times_r K =H'K'$.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    Sea $G$ un grupo, y  $H \unlhd G$ y  $K \leq G$. Decimos que  $G$ es el
+     \textbf{producto semidirecto interno} s\'i $G=HK$ y  $H \cap K=\langle e
+     \rangle$. Lo denotamos como $G=H \rtimes K$.
+\end{definition}
+
+\begin{example}\label{}
+    $D_n \simeq \faktor{\Z}{n\Z} \rtimes \faktor{\Z}{2\Z} \simeq \langle r
+    \rangle \rtimes \langle t \rangle$. Nota que $\langle r \rangle \unlhd D_n$
+    y que $[D_n,\langle r \rangle]=2$.
+\end{example}
+
+\begin{lemma}\label{lemma_6.24}
+    Suponga que $G$ es un grupo semidirecto interno de  $H \unlhd G$, y  $K \leq
+    G$. Entonces  $G \simeq H \times_r K$, donde  $r:K \xrightarrow{} \Aut{H}$
+    esta dado por $r_k:h \xrightarrow{} kh\inv{k}$.
+\end{lemma}
+\begin{proof}
+    Note que $r_k$ es un automorfismo de $H$, como $H \unlhd G$ as\'i que $r$
+    esta bien definida. Por la lemma \ref{lemma_6.22}, todo $g \in G$ se escribe
+    unicamenet como  $hk$. Por lo tanto, sea  $\phi:H \times_r K \xrightarrow{}
+    G$ dado por $(h,k) \xrightarrow{} hk$. Vemos que $\phi$ es 1--1, y que es
+    sobre.
+
+    Ahora dado $(h,k)$ y $(h',k')$, tenemos que
+    $\phi((h,k)(h',k'))=\phi(hr_k(h'),kk')=\phi(hkh\inv{k},
+    kk')=(hkh'\inv{k})(kk')=(hk)(h'k')=\phi(h,k)\phi(h',k')$. Por lo tanto
+    $\phi$ es un ismomorfismo y termianmos.
+\end{proof}
+
+\begin{lemma}\label{lemma_6.25}
+    Sea $G$ un grupo y  $H,K \leq G$. Suponga que  $G=HK$, y que  $H \cap
+    K=\langle e \rangle$. Entonces para todo $g \in G$, se puede escribir de
+    manera unica de la forma  $g=hk$ donde  $h \in H$ y  $k \in K$.
+\end{lemma}
