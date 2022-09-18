@@ -82,8 +82,8 @@
 \end{definition}
 
 \begin{lemma}\label{lemma_6.22}
-    Suponga que $H=H_1 \dots H_n$ donde $H_i \unlhd G$ para toda $1 \leq i$ \leq
-    n. Los sigueintes enunicados son equivalente:
+    Suponga que $H=H_1 \dots H_n$ donde $H_i \unlhd G$ para toda $1 \leq i \leq
+    n$ . Los sigueintes enunicados son equivalente:
     \begin{enumerate}
         \item[(1)] $G$ es producto directo interno de  $\{H_i\}$.
 
@@ -151,11 +151,21 @@
     \inv{k}k)=(r_{e_H}(\inv{h}),\inv{k}k)=(\inv{h}h,\inv{k}k)=e$, com
     $\inv{r_k}r_k=r_{e_H}$, la identidad. As\'i que $H \times K$ tiene inversos.
 
-    Finalmente, nota que  $((h_1,k_1)(h_2,k_2))(h_3,k_3)=(h_1r_{k_1}(h_2),
-    k_1k_2)(h_3,k_3)=((h_1r_{k_1}(h_2))r_{k_3}(h_3),k_1k_2k_3)=(h_1h_2r_{k_1k_3}(h_2h_3),
-    k_1k_2,k_3)$ y
-    $(h_1,k_1)((h_2,k_2)(h_3,k_3))=(h_1,k_1)(h_2r_{k_3}(h_3),
-    k_2k_3)=(h_1h_2r_{k_1k_3}(h_2h_3),k_1k_2k_3)$, y associatividad se preserva.
+    Finalmente, nota que
+    \begin{align*}
+        ((h_1,k_1)(h_2,k_2))(h_3,k_3) &= (h_1r_{k_1}(h_2), k_1k_2)(h_3,
+        k_3)    \\
+                                      &=
+                                      ((h_1r_{k_1}(h_2))r_{k_3}(h_3),k_1k_2k_3) \\
+                                      &= (h_1h_2r_{k_1k_3}(h_2h_3), k_1k_2,k_3)  \\
+    \end{align*}
+
+    \begin{align*}
+        (h_1,k_1)((h_2,k_2)(h_3,k_3)) &= (h_1,k_1)(h_2r_{k_3}(h_3),
+        k_2k_3) \\
+                                    &=(h_1h_2r_{k_1k_3}(h_2h_3),k_1k_2k_3) \\
+    \end{align*}
+    y associatividad se preserva.
 \end{proof}
 
 \begin{definition}
