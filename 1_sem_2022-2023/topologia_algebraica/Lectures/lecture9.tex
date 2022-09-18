@@ -88,17 +88,36 @@
     f(X_\alpha)=g(f(X_\alpha))$. Sea $Y_\beta$ el comoponente que contiene a
     $f(X_\alpha)$, es decir, $\pi_0(f)(X_\alpha)=Y_\beta$. Entonces $Y_\gamma$
     es el unico tal componente, as\'i que vemos que
-    $g(f(X_\alpha))=g(Y_\beta)=Z_\gamma$, y $Z_\gamma$ es el unico componente
-    que contienes a  $Y_\beta$, y a  $X_\alpha$. Por lo tanto, tenemos que
-    $\pi_0(g \circ f)=\pi_0(g) \circ \pi_0(f)$. Esto hace a $\pi_0$ un funtor en
-    $\Top.$
+    $g(f(X_\alpha)) \subseteq g(Y_\beta) \subseteq Z_\gamma$, y $Z_\gamma$ es el
+    unico componente que contienes a  $Y_\beta$, y a  $X_\alpha$. Por lo tanto,
+    tenemos que $\pi_0(g \circ f)=\pi_0(g) \circ \pi_0(f)$. Esto hace a $\pi_0$
+    un funtor en $\Top.$
 \end{proof}
 \begin{corollary}
-    S\'i  $f \simeq g$, son del mismo tipo de homotopia, entonces  $\pi_0(f)
-    \simeq \pi_0(g)$.
+    S\'i  $f \simeq g$, son del mismo tipo de homotopia, entonces  $\pi_0(f) = \pi_0(g)$.
 \end{corollary}
 \begin{proof}
-    Sean $g \simeq f$, entonces  $g \circ f=1_X$ y  $f \circ g=1_Y$. Entonces
-    tenemos que  $\pi_0(g \circ f)=\pi_0(g \circ f)=1_{\pi_0(X)}$ y $\pi_0(f
-    \circ g)=\pi_0(f) \circ \pi_0(g)=1_{\pi_0(Y)}$.
+    Suponga que $f \simeq g$ atraves de una homotop\'ia $F$. Sea $C$ un
+    componente por caminos de  $X$, entonces,  $C \times I$ es conexo por
+    caminos. Entonces, tenemos que $F(C \times I)$ es continua, por lo tanto,
+    $F(C \times I)$ es conexo por caminos. Ahora, tenemos que $f(C)=F(C \times 0)
+    \subseteq F(C \times I)$; de igaul forma, $g(C) \subseteq F(C \times 1)
+    \subseteq F(C \times I)$. As\'i que el componente por caminos unico
+    conteniendo a  $F(C \times I)$ contiene a $F(C)$ y a $g(C)$. Por lo tanto,
+    $\pi_0(f)=\pi_0(g)$.
+\end{proof}
+\begin{corollary}
+    S\'i dos espacios tienen el mismo tipo de homotopia, entonces tienen el
+    mismo numero de componenetes por caminos.
+\end{corollary}
+\begin{proof}
+    Suponga, que $f:X \xrightarrow{} Y$ y $g:Y \xrightarrow{} X$ son continuas,
+    y satisfacen $g \circ f=1_X$ y  $f \circ g=1_Y$. Aplicando  $\pi_0$, venos
+    que $\pi_0(g \circ f)=\pi_0(g) \circ \pi_0(f)=1_{pi_0(X)}$ y
+    $\pi_0(f \circ g)=\pi_0(f) \circ \pi_0(g)=1_{pi_0(Y)}$. Esto implica que
+    $\pi_0(g)$ es sobre, y que $\pi_0(f)$ es 1--1 en la categoria $\Conj$. De
+    igaul manera, vemos que $\pi_0(f)$ es sobre, y que $\pi_0(g)$ es 1--1, as\'i
+    que $\pi_0(f)$ y $\pi_0(g)$ son ambos 1--1 y sobre. As\'i que $\pi_0(X)$ y
+    $\pi_0(Y)$ son equienumerables, as\'i que tienen el mismo numero de
+    componentes por caminos.
 \end{proof}
