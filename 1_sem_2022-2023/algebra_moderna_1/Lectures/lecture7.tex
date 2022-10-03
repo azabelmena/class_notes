@@ -53,8 +53,111 @@
 \end{definition}
 
 \begin{example}\label{}
-    S\'i $G$ actua sobre si mismo via conjugacion, entonces si  $gx\inv{g}=x$,
-    tenemos que $gx=xg$ para todo  $x \in G$. Por lo tanto  $\ker=\{g \in G :
-    gx=xg \text{ para todo } x \in G\}$. Llamamos este kernel el \textbf{centro}
-    de $G$, y lo denotamos como  $Z(G)$.
+    \begin{enumerate}
+        \item[(1)] S\'i $G$ actua sobre si mismo via conjugacion, entonces si
+            $gx\inv{g}=x$,
+            tenemos que $gx=xg$ para todo  $x \in G$. Por lo tanto  $\ker=\{g \in
+                G : gx=xg \text{ para todo } x \in G\}$. Llamamos este kernel el
+                \textbf{centro} de $G$, y lo denotamos como  $Z(G)$.
+
+            \item[(2)] Conisdere $\Bc_n$ el conjunto de todos funciones
+                booleanas  $f:\F_2^n \xrightarrow{} \F_2^n$ en $n$ variables.
+                Defina una operacion de $S_n$ sobre  $\Bc_n$ definida por  $s
+                \cdot f(x_1, \dots, x_n)=f(x_{s(1)}, \dots, x_{s(n)})$. Este
+                operaci\'on defina una acci\'on de grupos de $S_n$ sobre
+                $\Bc_n$. Nota que el kernel de este accion es trivial.
+    \end{enumerate}
 \end{example}
+
+\begin{definition}
+    Sea $G$ un grupo que actua sobre un conjunto $X$. La \textbf{\'orbita} de un
+    $x \in X$ es el conjunto  $\Oc(x)=\{g \cdot x : g \in G\}$.
+\end{definition}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] Sea $G$ un grupo actuando sobre si mismo por su
+            multiplicacion  (por izquierda). Suponga que $x \in G$ y sea  $g \in
+            G$ un elemento cualquiera. Entonces existe un  $g_0 \in G$ tal que
+            $g=g_0x$. Esto hace $G \subseteq \Oc(x)$. Por lo tanto $\Oc(x)=G$.
+
+        \item[(2)] Considere un grupo $G$ actuando sobre si mismo mediante
+            conjugacion. Sea $x \in G$. Entonces $\Oc(x)=\{gx\inv{g} : g \in
+            G\}=\cl{x}$. Llamamos a $\cl{x}$ la \textbf{clase de conjugacion} de
+            $x$.
+
+        \item[(3)] Considere $\Bc_3$ y defina
+            $f(x_1,x_2,x_3)=x_1+x_2x_3+x_1x_2x_3$. Sea $S_3=\{(1), (2 \ 3), (1 \
+            2), (1 \ 2 \ 3), (1 \ 3 \ 2), (1 \ 3)\}$. Entonces:
+            \begin{align*}
+                (1) \cdot f     &=  x_1+x_2x_3+x_1x_2x_3=f  \\
+                (2 \ 3) \cdot f         &= x_1+x_3x_2+x_1x_3x_2=f    \\
+                (1 \ 2) \cdot f     &= x_2+x_1x_3+x_2x_1x_3=f_1     \\
+                (1 \ 2 \ 3) \cdot f     &=  x_2+x_3x_1+x_3x_2x_1=f_1    \\
+                (1 \ 3 \ 2) \cdot f     &=  x_3+x_1x_2+x_3x_1x_2=f_2    \\
+                (1 \ 3) \cdot f     &=  x_3+x_2x_1+x_3x_2x_1=f_2    \\
+            \end{align*}
+            As\'i que $\Oc(f)=\{f,f_1,f_2\}$. Nota que $|\Oc(x)|$ divide a
+            $\ord{S_3}$.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{}
+    Sea $G$ un grupo que actua sobre un conjunto  $X$. Entonces las \'orbitas de
+     $X$ particionan a  $X$.
+\end{lemma}
+\begin{proof}
+    Sea $x \in \Oc(y)$ y $x \in \Oc(z)$ para $x,y,z \in X$. Entonces vemos que
+    $x=gy$ y  $x=hz$, por lo tanto  $gy=hz$. Es decir  $y=(\inv{g}h)z$, por lo
+    tanto $y \in \Oc(z)$. De igual forma, $z \in \Oc(y)$. Esto hace que
+    $\Oc(y)=\Oc(y)$.
+\end{proof}
+
+\begin{definition}
+    Sea $G$ un grupo actuando sobre un conjunto  $X$. El  \textbf{estabilizador}
+    de $x \in X$ es el conjunto  $\stab{x}=\{g \in G : g \cdot x=x\}$.
+\end{definition}
+
+\begin{lemma}\label{7.28}
+    Sea $G$ un grupo que actua sobre un conjunto $X$. Entonces el estabilizador
+    de todo $x \i X$ es subgrupo de  $G$.
+\end{lemma}
+\begin{proof}
+    Sea $x \in X$ y sea $g,h \in \stab{x}$. Entonces $x=gx$ y  $x=\inv{h}x$. Por
+    lo tanto $(g\inv{h}) \cdot x=x$.
+\end{proof}
+
+\begin{example}\label{}
+    Para cualquier grupo actuando sobre si mismo bajo conjugacion,
+    $\stab{x}=\{g : gx=xg\}=C(x)$ que se llama el \textbf{centralizador} de $x$.
+\end{example}
+
+\begin{theorem}[Teorema del \'Orbita-Estabilizador.]\label{7.29}
+    Suponga que $G$ es un grupo que actua sobre un conjunto  $X$. Sean  $
+    \Oc(x)$ y $\stab{x}$ la \'orbita y estabilizador de un $x \in X$. Entonces:
+    \begin{equation*}
+        |\Oc(x)|=[G:\stab{x}]
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Suponga que $y \in \Oc(x)$. Entonces $y=g \cdot x$ para alg\'un  $g \in G$.
+    Defina ahora la mapa  $f:\Oc(x) \xrightarrow{} \faktor{G}{\stab{G}}$ dado
+    por $y=g \cdot x \xrightarrow{} g\stab{x}$. Sea ahora $y=g \cdot x=h \cdot
+    x$. Entonces vemos que  $x=(\inv{g}h) \cdot x$, as\'i que $\inv{g}h \in
+    \stab{x}$. Esto hace que $g\stab{x}=h\stab{x}$. Por lo tanto $f$ es bien
+    definida.
+
+    Ahora, vemos que $f$ es sobre; s\'i $y \in \Oc(x)$, entonces $y=g \cdot x$
+    para alg\'un $g \in G$, as\'i que a cada  $y \in \Oc(x)$ est\'a asignada a
+    un $g\stab{x}$. M\'as aun, $f$ es 1--1. Sean $y=gx$ y  $y'=hx$. S\'i
+    $g\stab{x}=h\stab{x}$, entonces $\inv{g}h \in \stab{x}$, as\'i que $gx=hx$,
+    es decir  $y=y'$. Por lo tanto, tenemos una mapa 1--1 de  $\Oc(x)$ sobre el
+    conjunto $\faktor{G}{\stab{x}}$, que tiene cardinalidad $[G:\stab{x}]$.
+\end{proof}
+\begin{corollary}
+    S\'i $G$ es un grupo finito, entonces  $|\Oc(x)|$ divida a $\ord{G}$. En
+    particular
+    \begin{equation*}
+        |\Oc(x)|=\frac{\ord{G}}{\ord{(\stab{x})}}
+    \end{equation*}
+\end{corollary}
