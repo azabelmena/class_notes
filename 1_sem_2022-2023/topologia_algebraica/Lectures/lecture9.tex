@@ -30,7 +30,11 @@
     \begin{enumerate}
         \item[(1)] Considera la curva seno del topologo.
 
-        \item[(2)] Considera el remolino del topologo.
+        \item[(2)] Considera el \textbf{remolinon del topologo} definido de ser
+        la siguiente curva: $S^1 \cup \{r \in \R^2 : r=\frac{\theta}{1+\theta},
+        \text{ donde }  0 \leq \theta\}$. El remolino es conexo, pero no es
+        conexo por camino; la demostraci\'on de esto es similar al del curva
+        seno del topologo.
     \end{enumerate}
 \end{example}
 
@@ -121,3 +125,79 @@
     $\pi_0(Y)$ son equienumerables, as\'i que tienen el mismo numero de
     componentes por caminos.
 \end{proof}
+
+\begin{definition}
+    Un componente de camino de un espacio topologico $X$ se llama
+    \textbf{maximal} si no hay ningun otro componente de camino que lo contiene.
+    Es decir si $C$ y  $B$ son componented de camino, con $C$ maximal y $C
+    \subseteq B$, entonces  $C=B$.
+\end{definition}
+
+\begin{definition}
+    Decimos que un espacio topologico es \textbf{localmente conexo por caminos}
+    si para todo $x \in X$ y toda vecindad $U$ de $x$, existe un abierto en $X$,
+    $V$, con $x \in V \subseteq U$ tal que para todo $v_1,v_2 \in V$, existe un
+    camino $f$ en $U$ con $f(0)=v_1$ y $f(1)=v_2$.
+\end{definition}
+
+\begin{theorem}\label{9.21}
+    Un espacio topologico es localmente conexo por caminos s\'i, y solo s\'i los
+    componentes de caminos de abiertos son abiertos.
+\end{theorem}
+\begin{proof}
+    Sea $X$ un espacio localmente conexo por caminos y sea  $U$ abierto en $X$,
+    y $C$ un componente de camino de  $U$. Sea  $c \in C$, por hipotesis,
+    tenemos que existe un abierto  $V$ con  $c \in V \subseteq U$ tal que para
+    todo  $x,y \in V$ existe un camino $f$ en $U$ desde  $x$ hacia  $y$.
+    Entonces  $V$ esta en un componente de camino de $X$. Como $c \in V$,
+    tenemos que  $c \in V \subseteq C$, lo cual hace  $C$ abierto.
+
+    Por otro lado, sean los componentes de caminos de conjuntos abiertos de $X$
+    abiertos, y sea $U$ un abierto de  $X$. Sea $C$ un componente de camino de
+    $X$ con $x \in C$, donde  $x \in U$. Entonces  $x \in C \subseteq U$, y por
+    definicion, $X$ es localmente conexo por caminos.
+\end{proof}
+\begin{corollary}
+    S\'i $X$ es un espacio localmente conexo por caminos, entonces
+    todos los componentes de caminos de  $X$ son abiertas.
+\end{corollary}
+\begin{corollary}
+    $X$ es un espacio localmente por caminos s\'i y solo s\'i para todo  $x \in
+    X$ y  $U$ una vecindad de  $x$, existe un componente por camino $V$ con  $x
+    \in V \subseteq U$.
+\end{corollary}
+\begin{corollary}
+    S\'i $X$ es localmente conexo por caminos, los componentes de caminos de
+    $X$ coincidan con los componentes convexos de  $X$.
+\end{corollary}
+\begin{proof}
+    Sea $X$ localmente conexo por caminos, u  $U$ abierto en  $X$, y  $C$ un
+    componente conexo de $X$. Sea $\{A_\alpha\}$ una coleccion de componentes
+    de caminos de $C$, entonces  $C=\bigcup{A_{\alpha}}$ es una union disjunta
+    de los $A_\alpha$. Mas aun,  $A_\alpha$ esta abierto en $C$ (como subespacio
+    de $X$). Entonces nota que $\com{C}{A_\alpha}=\bigcup_{\beta \neq
+    \alpha}{A_\beta}$ lo que hace $A_\alpha$ cerrado en  $C$. Ahora, si hay mas
+    de una indice $\alpha$, entonces tenemos una separaci\'on de $C$, lo cual es
+    imposible. Es decir, $C=A_\alpha$.
+\end{proof}
+\begin{corollary}
+    S\'i $X$ es un espacio conexo, y localmente conexo por caminos, entonces $X$
+    es conexo por caminos.
+\end{corollary}
+
+\begin{definition}
+    Sea $A$ un subespacio de un espacio topologico  $X$. Llamamos a $A$ un
+    \textbf{retracto de deformaci\'on} s\'i existe una mapa $f:X \xrightarrow{}
+    A$ tal que $r \circ i=1_A$ y  $i \circ r \simeq 1_X$, donde  $i:A
+    \xrightarrow{} X$ es la inclusion.
+\end{definition}
+
+\begin{theorem}\label{9.22}
+    S\'i $A$ es una retracto de deformacion de un espacio topologico  $X$,
+    entonces  $A$ y  $X$ tienen el mismo tipo de homotopia.
+\end{theorem}
+
+\begin{example}\label{}
+    $S^1$ es un retracto de deformacion de  $\com{\C}{\{0\}}$, y igualmente de
+    $\com{\R^2}{\{0\}}$.
+\end{example}

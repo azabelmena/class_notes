@@ -1,0 +1,47 @@
+\section*{Lectura 10: Simplejas.}
+
+\begin{definition}
+    Un subconjunto $A \subseteq \R^n$ es  \textbf{af\'in} s\'i para todo $x,y
+    \in A$, la recta  $l$ que pasa por  $x$ y  $y$ esta contenido en  $A$.
+\end{definition}
+
+\begin{lemma}\label{10.23}
+    S\'i $A \subseteq \R^n$ es af\'in, entonces es convexo.
+\end{lemma}
+
+\begin{example}\label{}
+    Los conjuntos $\emptyset$ y $\{x\}$, con $x \in \R^n$ son af\'in.
+\end{example}
+
+\begin{theorem}\label{10.24}
+    S\'i $\{X\alpha\}$ es una colecci\'on de conjuntos afines en $\R^n$,
+    entonces el interseccion de todos es afin.
+\end{theorem}
+\begin{proof}
+    Sea $X=\bigcap{X_\alpha}$ con $X_\alpha \in \R^n$ af\'in. Sean  $x,y \in X$
+    y  $l(x,y)$ la recta que pasa por $x$ y  $y$. Entonces  $l(x,y) \in
+    X_\alpha$ para todo $\alpha$ lo cual hace  $l(x,y) \in X$. Por lo tanto $X$
+    es af\'in.
+\end{proof}
+\begin{corollary}
+    S\'i $\{X\alpha\}$ es una colecci\'on de conjuntos convexos en $\R^n$,
+    entonces el interseccion de todos es convexos.
+\end{corollary}
+
+\begin{definition}
+    Sea $X \subseteq \R^n$. Llamamos al interseccion de todos los conjuntos
+    afines conteniendo a $X$ el  \textbf{casco af\'in} de $X$. De igual forma,
+    la interseccion de todos conjuntos convexos conteniendo a  $X$ se llama el
+     \textbf{casco convex} generado $X$. En ambos casos, denotamos el casco afin
+     o convexo como $[X]$.
+\end{definition}
+
+\begin{definition}
+    Una \textbf{combianci\'on af\'in} de puntos $x_0, \dots, x_m \in \R^n$ es un
+    punto $x$ tal que:
+    \begin{equation*}
+        x=t_0x_0+\dots+t_mx_m
+    \end{equation*}
+    donde $\sum{t_i}=1$. Una \textbf{combinaci\'on convexo} es una combinacion
+    afin donde $y_i \geq 0$ para todo  $1 \leq i \leq m$.
+\end{definition}
