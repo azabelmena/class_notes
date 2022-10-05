@@ -1,0 +1,86 @@
+\section*{Lectura 8: Las Teoremas de Sylow}
+
+\begin{definition}
+    Sea $p \in \Z^+$ un primo. Llamos a un grupo $G$ un \textbf{$p$-grupo} s\'i
+    cada $g \in G$ es una potencia de  $p$.
+\end{definition}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] El grupo Klein $V_4=\faktor{\Z}{2\Z} \oplus \faktor{\Z}{2\Z}$
+            es un $2$-grupo.
+
+        \item[(2)] Los grupose $\faktor{\Z}{14\Z} \oplus \faktor{\Z}{2\Z}$ y
+            $D_{16}$ son $2$-grupos.
+
+        \item[(3)] El grupo $\bigoplus_{n=1}^{\infty}{\faktor{\Z}{5^n\Z}}$ es un
+            $5$-grupo, pero  $\prod_{n=1}^{\infty}{\faktor{\Z}{5^n\Z}}$ solo es
+            un $5$-grupo cuando $n=1$.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    S\'i $G$ es un grupo con orden  $p^rm$ donde  $p$ es primo y  $p \not| m$,
+    entonces llamamos un subgrupo  $P \leq G$ un \textbf{$p$-subgrupo de Sylow},
+    o un \textbf{$p$-Sylow} s\'i $\ord{P}=p^r$.
+\end{definition}
+
+\begin{lemma}\label{8.31}
+    S\'i $G$ es u grupo de orden  $p^rm$ con  $p$ primo, y $p \not|m$ y $P \leq
+    G$ es un  $p$-Sylow de  $G$, entonces  $P$ es de orden lo maximo posible.
+\end{lemma}
+\begin{proof}
+    Por el teorema de Lagrange.
+\end{proof}
+
+\begin{example}\label{}
+    $|D_6|=2^2 \cdot 3$. Nota que $P_1=\{e,r^3,tr^3t\}$,
+    $P_2=\{e,r^3,rt,r^4t\}$, y $P_3=\{e,r^3,r^2t,r^5t\}$ son $2$-Sylows de
+    $D_6$ y $P=\{e,r,r^4\}$ es $3$-Sylow.
+\end{example}
+
+\begin{lemma}\label{8.32}
+    S\'i $n=p^rm$ con  $p$ primo y  $p \not| m$, entonces
+    \begin{equation*}
+        {n \choose p^r} \equiv m \mod{p}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Nota que $(x+1)^{p^r}=\sum_{k=1}^{p^r}{{p^r \choose k}x^{p^r-k}}
+    \equiv x^{p^rm}+1 \mod{p}$. Entonces $(x+1)^{p^rm} \equiv (x^{p^r}+1)^m
+    \mod{p}$, as\'i que
+    \begin{equation*}
+        \sum{{p^rm \choose k}x^{p^rm-k}} \equiv \sum{{m \choose
+        k}(x^{p^r})^{m-k}} \mod{p}
+    \end{equation*}
+    Mirando el coeficiente de $x^{p^r}$, en la izquierd, tenemos que este
+    termino occure cuando $k=p^r(m-1)$, y obtenemeos ${p^rm \choose p^r}={n
+    \choose p^r}$. Por el lado derecho, el termino $x^{p^r}$ occure cuando
+    $k=m-1$ y por simetria obtenemos ${m \choose 1}=m$.
+\end{proof}
+
+\begin{theorem}[El Primer Teorema de Sylow]\label{8.33}
+    Sea $G$ un grupo finito de orden  $p^rm$ donde  $p$ es primo, y  $p \not|
+    m$. Entonces existe al menos un  $p$-subgrupo de Sylow, de  $G$.
+\end{theorem}
+\begin{proof}
+    Sea $X={G \choose p^r}$. Note que $G$ actua sobre  $X$ v\'a la
+    multiplicacion por la izquierda. Ahora, este accion induce en  $X$ una
+    particion de  $X$ en orbitas. Es decir
+    \begin{equation*}
+        {G \choose p^r}=\bigcup{\Oc(S)}
+    \end{equation*}
+    entonces $p \not| \sum{|\Oc(S)|}$. Por lo tanto, existe un $S \in X$ con $p
+    \not| |\Oc(S)|$. Sea $P=\stab{S}$ Entonces por el teoream del
+    \'orbita-estabilizador, tenemos
+    \begin{equation*}
+        |\Oc(S)|=\frac{\ord{G}}{\ord{P}}=\frac{p^rm}{\ord{P}}
+    \end{equation*}
+    Como $p \not| |\Oc(S)|$, $\ord{P}$ tiene que ser un multiplo de $p^r$, es
+    decir que $p^r | \ord{P}$, por lo tanto $p^r \leq \ord{P}$.
+
+    Por otro lado, defina la mapa $\lambda_x:P \xrightarrow{} S$, para $x \in S$
+    dado por $\lambda_x:g \xrightarrow{} \lambda_x(g)=g \cdot x$. Vemos que esta
+    mapa es bien definida, y que es 1--1. Por lo tanto $\ord{P} \leq |S|=p^r$.
+    Por lo tanto $P$ es un  $p$-subugrupo de Sylow.
+\end{proof}

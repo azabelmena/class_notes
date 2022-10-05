@@ -161,3 +161,43 @@
         |\Oc(x)|=\frac{\ord{G}}{\ord{(\stab{x})}}
     \end{equation*}
 \end{corollary}
+
+\begin{example}\label{}
+    Sea $G$ un grupo finito y sea la accion de  $G$ sobre si mismo la
+    congugacion. Entonces  $\Oc(x)=\cl{x}$. Nota que $x \in \cl{x}$. Suponga que
+    $|\cl{x}|=1$, entonces $gx\inv{g}=x$ asi que $gx=xg$ lo que hace  $x \in
+    Z(G)$. Nota igualmente que $G=\bigcup{\cl{x}}$. Entonces
+    \begin{equation*}
+        \ord{G}=\sum{\cl{x}}=\ord{Z(G)}+\sum{[G:C(x)]}=\ord{Z(G)}+\sum{\cl{x}}
+    \end{equation*}
+    Llamamos a esta equacion la \textbf{ecuacion de clase}.
+\end{example}
+
+\begin{theorem}[Conteo de \'Orbitas]\label{7.30}
+    Sea $G$ un grupo finito  que actua sobre un conjunto finitio $X$. Denota
+    $X^g=\{x \in X : g \cdot x=x\}$. Sea $\Oc$ la colleccion de todas las
+    orbitas de $x \in X$. Entonces:
+    \begin{equation*}
+        |\Oc|=\frac{1}{\ord{G}}\sum{|X^g|}
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Sabemos que $X^g=\{(g,x) \in G \times X : g \cdot x=x\}$. Sea:
+    \begin{align*}
+        (g_1,x_1)   &&          &&  (g_1,x_3)   &&  (g_1,x_4)   \\
+                    &&  (g_2,x_2)   &&  (g_2,x_3)   &&  &&  (g_2,x_5)   \\
+        (g_3,x_1)   &&           && (g_3,x_3)   &&  (g_3,x_4)   &&  \dots   \\
+                    \vdots
+    \end{align*}
+    Nota que las columnas de este arreglo forman los estabilizadores de los
+    $x_i$, ahora vemos que
+    \begin{equation*}
+        \sum{|X^g|}=\sum{\stab{x}}=\sum{\frac{\ord{G}}{|\Oc(x)|}}
+    \end{equation*}
+    Por el teorema del \'orbiata estabilizador, tenemos que
+    \begin{equation*}
+        \ord{G}\sum{\frac{1}{|\Oc(x)|}}=\ord{G}\sum_{\Oc(x) \in
+        \Oc}{\sum_x{|\Oc(x)|}=\ord{G}|\Oc|
+    \end{equation*}
+    Rearreglando los terminos, tenemos el resultado.
+\end{proof}
