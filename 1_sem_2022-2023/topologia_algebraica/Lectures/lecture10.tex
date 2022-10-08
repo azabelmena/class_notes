@@ -30,10 +30,11 @@
 
 \begin{definition}
     Sea $X \subseteq \R^n$. Llamamos al interseccion de todos los conjuntos
-    afines conteniendo a $X$ el  \textbf{casco af\'in} de $X$. De igual forma,
-    la interseccion de todos conjuntos convexos conteniendo a  $X$ se llama el
-     \textbf{casco convex} generado $X$. En ambos casos, denotamos el casco afin
-     o convexo como $[X]$.
+    afines conteniendo a $X$ el  \textbf{casco af\'in} abarcado por $X$. De
+    igual forma, la interseccion de todos conjuntos convexos conteniendo a  $X$
+    se llama el \textbf{casco convexo} abarcado $X$. En ambos casos, denotamos
+    el casco afin o convexo como $[X]$. S\'i $x_0, \dots, x_m \in \R^n$,
+    escribimos $[\{x_0, \dots, x_m\}]=[x_0, \dots, x_m]$.
 \end{definition}
 
 \begin{definition}
@@ -45,3 +46,158 @@
     donde $\sum{t_i}=1$. Una \textbf{combinaci\'on convexo} es una combinacion
     afin donde $y_i \geq 0$ para todo  $1 \leq i \leq m$.
 \end{definition}
+
+\begin{theorem}\label{10.25}
+    S\'i $x_0, \dots, x_m \in \R^$, entonces $[x_0, \dots, x_m]$ el casco
+    convexo abarcado por estos puntos es el conjunto de toda las combinaciones
+    convexas de $x_0, \dots, x_m$.
+\end{theorem}
+\begin{proof}
+    Sea $S$ el conjunto de todas las combinaciones convexas de  $x_0, \dots,
+    x_m$. Entonces $[x_0, \dots, x_m] \subseteq S$; pues, sea $t_j=1$ y $t_i=0$
+    para todo  $i \neq j$, entonces  $x_j \in S$, as \'i que $\{x_0, \dots,
+    x_m\} \subseteq S$. Ahora, sea $\alpha=\sum{a_ix_i}$ y $\beta=\sum{b_ix_i}$
+    donde $a_i,b_i \geq 0$ y  $\sum{a_i}=\sum{b_i}=1$. Nota que
+    \begin{equation*}
+        t\alpha+(1-t)\beta=\sum{(ta_i+(1-t)b_i)x_i}
+    \end{equation*}
+    mas aun, $\sum{ta_i+(1-t)b_i}=1$ y que $ta_i+(1-t)b_i \geq 0$ para todo $0
+    \leq i \leq m$. As\'i que  $S$ es convexo.
+
+    Ahora, sea $X$ convexo con  $\{x_0, \dots, x_m\} \subseteq X$ por induccion
+    en $m$, s\'i  $m=0$, $S=\{x_0\}$ lo que hace $S \subseteq X$. Ahora,
+    considere para $m \geq 0$. Sea  $t_i \geq 0$ y  $\sum{t_i}=1$ tal que
+    $x=\sum{t_ix_i}$. Si $t_0=1$, entonces $p=\sum{t_ix_i}=x_0 \in X$. Ahora, si
+    $t_0 \neq 1$, considere la combinacion
+    \begin{equation*}
+        q=(\frac{t_1}{1-t_0})x_1+\dots+(\frac{t_m}{1-t_0})x_m
+    \end{equation*}
+    Entonces, vemos $q$ es una combinacion convexa, y por hipotesis,  $q \in X$.
+    Entonces la combinacion  $x=t_0x_0+(1-t_0)q \in X$, lo que hace $X$ convexo.
+    Ahora, nota que  $[x_0, \dots, x_m]$ es convexo y contiene $\{x_0, \dots,
+    x_m\}$, por lo tanto $S \subseteq [x_0, \dots, x_m]$.
+\end{proof}
+
+\begin{definition}
+    Una colecci\'on de puntos $x_0, \dots, x_m \in \R^n$ son \textbf{af\'in
+    independiente} si la colecci\'on $x_1-x_0, \dots x_m-x_0$ es linealmente
+    independiente en $\R^n$ como espacio vectorial.
+\end{definition}
+
+\begin{example}\label{}
+    $\emptyset$ y $\{x_0\}$ son afin independientes en $\R^n$.
+\end{example}
+
+\begin{theorem}\label{10.26}
+    Las siguientes enunciados son equivalentes para todo $x_0, \dotx, x_m \in
+    \R^n$:
+    \begin{enumerate}
+        \item[(1)] $x_0, \dots, x_m$ son af\'in independiente.
+
+        \item[(2)] S\'i $a_0, \dots, a_m \in \R^n$ tales que $\sum{a_ix_i}=0$ y
+            $\sum{a_i}=0$, entonces $a_0=\dots=a_m=0$.
+
+        \item[(3)] S\'i  $A$ es abarcado afinmente por  $x_0, \dots, x_m$,
+            entonces cada $x \in A$ tiene una representacion unica como
+            combinacion afin de  $x_0, \dots, x_m$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Suponga, primero, que $x_0, \dots, x_m$ son af\'in independiente. Ahora, sea
+    $a_0, \dots, a_m \in \R^n$ tales que $\sum{a_i}=0$, y que $\sum{a_ix_i}=0$.
+    Entonces vemos que
+    \begin{equation*}
+        \sum{a_ix_i}=\sum{a_x_i-0 \cdot x_0}=\sum{(a_ix_i-x_0\sum{a_i})}
+        =\sum{a_i(x_i-x_0)}=0
+    \end{equation*}
+    Como $x_0, \dot, x_m$ son af\'in independientes, entonces $x_1-x_0, \dots,
+    x_m-x_0$ son linealmente independiente, lo cual implica que
+    $a_0=\dots=a_m=0$.
+
+    Ahora, suponga que el segundo enunciado sea cierto. Sea  $A$ abarcado por
+    $x_0, \dots, x_m$, y suponga que $x \in A$ tal que  $x=\sum{a_ix_i}$ y
+    $\sum{a_i}=1$. Sea tambien $x=\sum{b_ix_i}$ donde $\sum{b_i}=1$. Entonces
+    tenemos que $\sum{a_ix_i}=\sum{b_ix_i}$ por lo tanto
+    $\sum{(a_i-b_i)x_i}=0$, mas aun $\sum{a_i-b_i}=\sum{a_i}-\sum{b_i}=0$.
+    Entonces, vemos que $a_i-b_i=0$ lo que hace  $a_i=b_i$.
+
+    Por ultimo, suponga que $A$ es abaracado por  $x_0, \dotms x_m$ y que todo
+    $x \in A$ se puede escribir unicamente como una combinacion af\'in de  $x_0,
+    \dots, x_m$. Es decir, $x=\sum{a_ix_i}$. S\'i $m=1$, tenemos el resultado.
+    Ahora, suponga quie  $m \geq 1$. Suponga que  $x_1-x_0, \dotsm x_m-x_0$ son
+    linealmente dependientes. Entonces existen $r_i \in \R$, no todos  $0$ con
+    $\sum{r_i(x_i-x_0)}=0$. Entonces para una $r_j \neq 0$.
+    \begin{equation*}
+        \sum{\frac{r_i}{r_j}(x_i-x_0)}=0
+    \end{equation*}
+    Suponga, sin perder la generalidad, que hay un
+    $r_j=1$. Entonces  $x_j \in \{x_0, \dots, x_m\}$ y tiene las
+    representaciones:
+    \begin{align*}
+        x_j     &=      x_j=1 \cdot x_j     \\
+        x_j     &=      -\sum_{i \neq j}{r_ix_i}+(1+\sum_{i \neq j}{r_j})x_0    \\
+    \end{align*}
+    Esto contradice que cada $x \in X$ tiene representaci\'on unica, por lo
+    tanto  $x_1-x_0, \dots, x_m-x_0$ tienen que ser linealmente indpendiente,
+    por lo tanto $x_0, \dots, x_m$ es af\'in independiente.
+\end{proof}
+\begin{corollary}
+    Una combinaci\'on af\'in es independiented del orden en lo que esta dado.
+\end{corollary}
+\begin{corollary}
+    S\'i $A$ es af\'in en  $\R^n$, y esta abarcado por  $p_0, \dots, p_m$,
+    af\'in independientes, entonces $A$ es una traslaci\'on de un subespacio
+    vectorial $m$-dimensional de $\R^n$. A saber,  $A=V+x_0$.
+\end{corollary}
+\begin{proof}
+    Sean $x_0=p_0$ y $V$ el subespacio vectorial de $\R^n$ con base  $\{p_1-p_0,
+    \dots, p_m-p_0\}$, Por un lado, s\'i $z \in A$, entonces  $z=\sum{t_ip_i}$
+    donde $\sum{t_i}=1$. Entonces
+    $z=\sum{t_ip_i}+t_0p_0=\sum{t_ip_i}-\sum{t_ip_0}+(t_0+\sum{t_i})p_0=
+    \sum{t_i(p_i-p_0)}+p_0 \in V+x_0$. Por otro lado, s\'i $z \in V+x_0$,
+    entonces $z=\sum{t_i(p_i-p_0)}+x_0=\sum{t_i(p_i-p_0)}+p_0=\sum{t_ip_i}$ y
+    vemos que $\sum{t_i}=1$, as\'i que $z \in Z$.
+\end{proof}
+
+\begin{definition}
+    Sea $x_0, \dots, x_m \in \R^n$ af\'in indpendientes. S\'i $t_0, \dots, t_m
+    \in \R$ tales que $x=\sum{t_ix_i}$, llamamos a los $t_ia_i$ las
+    \textbf{coordinadas baricentricas} de $x \in \R^n$ y lo representamos como
+    $(t_0x_0, \dots, y_m,x_m)$.
+\end{definition}
+
+\begin{definition}
+    Sea $x_0, \dots, x_m \in \R^n$ af\'in independiente. Llamamos al casco
+    convexo, $[x_0, \dots, x_m]$ abarcado por los puntos un
+    \textbf{$m$-simplejo} con \textbf{v\'ertices} $x_0, \dots, x_m$. Llamamos el
+    $m$-simplejo  $[e_0, \dots, e_m]$ el $m$-simplejo \textbf{estandar}, donde
+    $\{e_0, \dots, e_m\}$ es el base estandar de $\R^{m+1}$, y lo denotamos
+    $\Delta^{m}$.
+\end{definition}
+
+\begin{lemma}\label{10.27}
+    Sea $[e_0, \dots, e_m]$ el $m$-simplejo estandar. Entonces las coordinadas
+    baricentricas de un punto $x \in [e_0, \dots, e_m]$ coenciden con las
+    coordinadas cartesianas de $x$.
+\end{lemma}
+
+\begin{definition}
+    Sea $[x_0, \dots, x_m]$ un $m$-simplejo. La \textbf{cara opuesta} a $x_i$,
+    para  $0 \leq i \leq m$ es el $m-1$-simplejo, denotado  $[x_0, \dots, \hat{x_i},
+    \dots, x_m]=\{\sum{a_jx_j} : a_j \geq 0, \sum{a_j}=1, a_i=0\}$. Para $0 \leq
+    k \leq m-1$, una \textbf{$k$-cara} es un $k$-simplejo formado por $k+1$
+    elementos de un $m$-simplejo.
+\end{definition}
+
+\begin{definition}
+    Definimos el \textbf{borde} de un $m$-simplejo  $[x_0, \dots, x_m]$ de ser
+    la union de todas las caras opuestas a $x_i$, para  $0 \leq i \leq m$. Lo
+    denotamos como  $\partial{[x_0, \dots, x_m]}$.
+\end{definition}
+
+\begin{example}\label{}
+    Las $1$-caras del  $3$-simplejo  $[x_0,x_1,x_2,x_3]$ son $[x_0,x_1],
+    [x_0,x_3],[x_1,x_2], [x_1,x_3]$, $[x_2,x_3]$, y $[x_0,x_3]$. Nota que hay
+    ${4 \choose 2}=6$ $1$-caras. Nota que los $1$-caras son los aristas del
+    tetrahedo.
+\end{example}
