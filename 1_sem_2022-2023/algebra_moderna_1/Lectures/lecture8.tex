@@ -84,3 +84,102 @@
     mapa es bien definida, y que es 1--1. Por lo tanto $\ord{P} \leq |S|=p^r$.
     Por lo tanto $P$ es un  $p$-subugrupo de Sylow.
 \end{proof}
+
+\begin{example}\label{}
+    Sea $GL(n,\F_p)$, y escoje una matriz $A \in GL(n,\F_p)$. Note que para la
+    fila $k$ de  $A$, hay  $p^n-p^k$ posubles entradas, asi que
+    $\ord{GL(n,\F_p)}=\Prod{p^n-p^k}=p^{\frac{n(n-1)}{2}}\Prod{p^j-1}$. Entonces
+    cualquier $p$-Sylow de  $GL(n,\F_p)$ tiene orden $p^{\frac{n(n-1)}{2}}$.
+\end{example}
+
+\begin{theorem}[El Teorema de Cauchy]\label{8.34}
+    S\'i $p$ es un primo y  $p|\ord{G}$, entonces $G$ tiene un elemento de orden
+     $p$.
+\end{theorem}
+\begin{proof}
+    Sea $P$ un $p$-Sylow de $G$ y escoja  $g \in P$ tal que  $g \neq e$.
+    Entonces $\ord{g}=p^l$ para $l \in \Z^+$. S\'i  $l=1$, terminamos, y s\'i
+    $l>1$, note que  $(g^p^{l-1})^p=g^{p^l}=e$.
+\end{proof}
+
+\begin{lemma}\label{8.35}
+    Sean $H$ y $K$ subgrupos de un grupo $G$. Entonces:
+    \begin{equation*}
+        \ord{HK}=\frac{\ord{H}\ord{K}}{|H \cap K|}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Considere la mapa $f:H \times K \xrightarrow{} HK$ dado por $(h,k)
+    \xrightarrow{} hk$. Entonces $f$ es sobre y  $\ord{HK} \leq |H \times K|$.
+    Sea entonces $h_1k_1, dots, h_dk_d$ los elementos distintos de $HK$.
+    entoncece  $H \times K=\bigcup{\inv{f}(h_ik_i)}$, para todo $1 \leq i \leq
+    d$. Ahora,  $\inv{f}(hk)=\{(hk,\inv{g}k) : g \in H \cap K\}$. Entonces
+    $|\inv{f}(hk)|=|H \cap K|$. Entonces tenemos que $|H \times
+    K|=\ord{H}\ord{K}|H \cap K|=\ord{HK}|H \cap K|$.
+\end{proof}
+
+\begin{theorem}[El Segundo Teorema de Sylow]\label{8.36}
+    Sea $G$ un grupo finito con orden  $p^rm$ donde $p$ es primo y $p \not| m$.
+    Sea  $n_p(G)$ el numero de todos los $p$-subgrupos de Sylow de $G$,
+    entonces:
+    \begin{equation*}
+        n_p(G) \equiv 1 \mod{p}
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Considere $X=\{P \leq G : P \text{ es } p \text{-Sylow}\}$. Por el primer
+    teorema de Sylow, $X \neq \emptyset$. Entonces $|X|=n_p(G)$. Sea que $P \in X$
+    actua sobre  $X$ mediante conjugacion. Sea $Q$ ub  $p$-Sylow de  $G$,
+    entonces por el teorema \'orbita-estabilizador, tenemos que
+    \begin{equation*}
+    |\Oc(Q)|=\frac{p^r}{\ord{\stab{Q}}} \in \Z^+
+    \end{equation*}
+    as\'i que $|\Oc(Q)||p^r$. As'\i que $\Oc(Q)$ tiene largo $1$, o tiene largo
+     $p$. Ahora, como
+     \begin{equation*}
+         |X|=\sum{|\Oc(Q)|}=\sum{|\Oc(Q')|}+\sum{|\Oc(Q'')|}
+     \end{equation*}
+     donde $Q'$ y  $Q''$ son subgrupos cuyas orbitas tiene $1$ o  $2$ elementos,
+     respectivamente, tenemos que  $p|\sum{|\Oc(Q'')|}$, por lo tanto
+     \begin{equation*}
+         |X| \equiv |\Oc''| \mod{p}
+     \end{equation*}
+     donde $\Oc''$ es la coleccion de todas las orbitas de largo $1$.
+
+     Ahora, nota que $\Oc(P)-\{P\}$. Suponga entonces que existe un $p$-Sylow
+     $Q$ tal que  $g \cdot Q=gQ\inv{g}=Q$ para todo $g \in P$. Entonces,
+     $gQ=Qg$, as\'i que  $PQ=QP$ y  $PQ \leq G$. Entonces por el lema de arriba,
+     tenemos que
+     \begin{equation*}
+         \ord{PQ}=\frac{\ord{P}\ord{Q}}{|P \cap Q|}
+     \end{equation*}
+     Pero $p^r \leq \ord{PQ} \leq p^r$, por lo tanto $Q \subseteq P$. Somo  $P$
+     y  $Q$ tienen el mismo orden, tenemos que  $P=Q$, as'\i que  $|\Oc''|=1$
+\end{proof}
+
+\begin{theorem}[El Tercer Teorema de Sylow]\label{8.37}
+    Sea $G$ un grupo finito con orden  $p^rm$, donde  $p$ es primo y  $p
+    \not|m$. Entonces todos los $p$-subgrupos de Sylow son conjugados.
+\end{theorem}
+\begin{proof}
+    Sea $P$ un  $p$-Sylow de  $G$ y  $R$ un  $p$-subgrupo de  $G$. Deje que  $R$
+    actua sobre $\faktor{G}{P}$ (no necesariamente el grupo cociente) mediante
+    multiplicacion. Por el teorema de Lagrange, tenemos que
+    $\ord{\faktor{G}{P}}=[G:P]=\frac{p^rm}{p^r}=m$. Tambien nota que
+     $\faktor{G}{P}=\bigcup{\Oc(gP)}$, as\'i que
+     \begin{equation*}
+         \sum{|\Oc(gP)|}=m
+     \end{equation*}
+     y existe una orbita cuya longitud no esta dividido por $p$, como  $p \not|
+     m$. Por el teorema del \'orbita-establilizador, tenemos que $|\Oc(gP)| |
+     \ord{R}=p^l$, para $l \in \Z^+$. As\'i que  $\Oc(gP)$ tiene largo $1$, o
+     $p^l$. Ahora, sea  $gP \in \faktor{G}{P}$, un elemento cuya orbita tiene
+     largo $1$. Entonces  $g \cdot gP=(hg)P=gP$, para todo $h \in R$, lo que
+     dice que  $\inv{g}hg \in P$, por lo tanto $h \in gP\inv{g}$ lo que hace $R
+     \subseteq gP\inv{g}$. El resultado entonces se obtiene escogiendo a $R$ un
+      $p$-Sylow.
+\end{proof}
+\begin{corollary}
+    Todo $p$-subgrupo de  $G$ est\'a contenido en un  $p$-subgrupo de Sylow.
+    Ademas, tenemos que  $n_p(G)|m$
+\end{corollary}
