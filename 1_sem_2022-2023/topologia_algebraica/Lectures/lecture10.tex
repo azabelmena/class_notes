@@ -201,3 +201,62 @@
     ${4 \choose 2}=6$ $1$-caras. Nota que los $1$-caras son los aristas del
     tetrahedo.
 \end{example}
+
+\begin{definition}
+    Definimos al \textbf{baricentro} de un $m$-simplejo $[x_0, \dots, x_m]$ de
+    ser el punto $\frac{1}{m+1}\sum{x_i}$
+\end{definition}
+
+\begin{theorem}\label{10.28}
+    Denote al $n$-simplejo  $[x_0, \dots, x_n]$ por $S$. Entonces:
+    \begin{enumerate}
+        \item[(1)] S\'i $u,v \in S$, entonces $\|u-v\| \leq \sup_i{\|u-x_i\|}$.
+
+        \item[(2)] $\diam{S}=\sup_{i,j}{\|x_i-x_j\|}$.
+
+        \item[(3)] S\'i $b$ es el baricentro de  $S$, entonces  $\|b-x_i\| \leq
+            \frac{n}{n+1}\diam{S}$
+\end{theorem}
+\begin{proof}
+    Sean $u,v \in S$ y  $v=\sum{t_ix_i}$ donde $\sum{t_i}=1$ y $t_i \geq 0$.
+    Entonces $\|u-v\|=\|u\sum{t_i}=\sum{t_iv_i}\| \leq \sumd{t_i\|u-x_i\|} \leq
+    \sum{t_i}\sup_i{\|i-x_i\|}=\sup_i{u-x_i}$.
+
+    Ahora, note que por la condicion de arriba, $\|u-x_i\| \leq
+    \sup_j{\|x_i-x_j\|} \leq
+    \sup_i{(\sup_j{\|x_i-x_j\|})}=\sup_{i,j}{\|x_i-x_j\|}$. Por lo tanto,
+    $\diam{S} \leq \sup_{i,j}{\|x_i-x_j\|}$.
+
+    Por ultimo, sea $b=\frac{1}{n+1}{\sum{x_i}}$. Entonces tenemos que
+    $\|b-x_i\|=\|\sum{\frac{1}{n+1}{x_j}}-p_i\|=\|\sum{\frac{1}{n+1}x_j}-
+    \sum{\frac{1}{n+1}}x_i\| \leq \frac{1}{n+1}\sum{\|x_j-x_i\|} \leq
+    \frac{1}{n+1}\sum{\sup_{i,j}{\|x_j-x_i\|}} \leq
+    \frac{n}{n+1}\sup{\|x_j-x_i\|}$.
+\end{proof}
+
+\begin{definition}
+    Sea $x_0, \dots, x_m \in \R^n$ af\'in independientes y sea $A$ el conjunto
+    af\'in abarcado por estos puntos. Una  \textbf{aplicaci\'on af\'in} es una
+    mapa $T:A \xrightarrow{} \R^k$, para $1 \leq k \leq n$ tal que:
+    \begin{equation*}
+        T(\sum{t_ix_i})=\sum{t_it(x_i)}
+    \end{equation*}
+    donde $\sum{t_i}=1$.
+\end{definition}
+
+\begin{lemma}\label{10.29}
+    Una aplicaci\'on af\'in preserva las combinaciones convexos.
+\end{lemma}
+
+\begin{theorem}\label{10.30}
+    Sean $[x_0, \dots, x_m]$ y $[y_0, \dots, y_n]$ $m$ y $n$-simplejos,
+    respectivamente. S\'i $f:\{x_0, \dots, x_m\} \xrightarrow{} [y_0, \dots,
+    y_n]$ es una mapa, entonces existe una unica aplicaion afin $T:[x_0, \dots,
+    x_m] \xrightarrow{} [y_0, \dots, y_n]$ tal que $T(x_i)=f(x_i)$ para todo $1
+    \leq i \leq m$.
+\end{theorem}
+\begin{proof}
+    Defina $T(\sum{t_ix_i})=\sum{t_if(x_i)}$, donde $\sum{t_i}=1$. Esta mapa es
+    una aplicacion afin, y su unicidad es consequencia de la unicidad de las
+    coordenadas baricentricas.
+\end{proof}

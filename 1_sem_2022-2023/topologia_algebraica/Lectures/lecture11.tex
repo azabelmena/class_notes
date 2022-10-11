@@ -1,0 +1,76 @@
+\section*{Lectura 11: El Grupo Fundamental.}
+
+\begin{definition}
+    Sea $X$ un espacio topologico y  $f:[0,1] \xrightarrow{} X$ y $g:[0,1]
+    \xrightarrow{} X$ caminos en $X$ con  $f(1)=g(0)$. Definimos el
+    \textbf{producto de caminos} de ser la operacion $\ast$ que lleva  $(f,g)
+    \xrightarrow{} f \ast g$ tal que
+    \begin{equation*}
+        f \ast g(t)=\begin{cases}
+                f(2t), & \text{ s\'i } 0 \leq t \leq \frac{1}{2}    \\
+                g(2t-1), & \text{ \s'i } \frac{1}{2} \leq t \leq 1  \\
+            \end{cases}
+    \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{11.31}
+    El producto de caminos es una mapa continua.
+\end{lemma}
+\begin{proof}
+    Esto sigue del teorema del empaste.
+\end{proof}
+\begin{corollary}
+    El producto de caminos es un camino.
+\end{corollary}
+
+\begin{definition}
+    Sea $X$ un espacio topologico, y  $A$ subespacio de  $X$. Sean  $f_0:X
+    \xrightarrow{} Y$ y $f_1:X \xrightarrow{} Y$ mapas continuas con
+    $f_0|_A=f_1|_A$. Decimos que $f_0$ es \textbf{relativamente homotopico} a
+    $f_1$, relativo a $A$ s\'i existe una mapa continua $F:X \times [0,1]
+    \xrightarrow{} Y$ tal que $F:f_0 \simeq f_1$ y $F(a,t)=f_0(a)=f_1(a)$ para
+    todo $a \in A$. Escribimos  $f_0 \simeq f_1 \rel{A}$ y llamamos a $F:f_0
+    \simeq f_1 \rel{A}$ la \textbf{homotopia relativa} entre $f_0$ y $f_1$.
+\end{definition}
+
+\begin{example}\label{}
+    Sea $X$ un espacio topologico y  $A=\emptyset$. Entonces la relacion  $f_0
+    \simeq f_1 \rel{A}$ es nada mas que la homotopia usual $f_0 \simeq f_1$.
+    Llamamos a este homotopia relativa la \textbf{homotopia libre}.
+\end{example}
+
+\begin{lemma}\label{11.32}
+    La relacion $\simeq_A$ de homotopia relativa es una relacion de
+    equivalencia.
+\end{lemma}
+
+\begin{definition}
+    Sea $\partial{I}$ el borde de $I=[0,1]$. Llamaos las clases de equivalencias
+    de la homotopia relativa $\simeq_{\partial{I}}$ \textbf{clases de caminos}.
+    S\'i $f$ es un camino, denotamos el clase de caminos de  $f$ por  $[f]$.
+\end{definition}
+
+\begin{theorem}\label{11.32}
+    Suponga que $f_0,f_1$ y $g_0,g_1$ son caminos en un espacio topologico $X$
+    tales que  $f_0 \simeq f_1 \rel{\partial{I}}$ y $g_0 \simeq g_1
+    \rel{\partial{I}}$. S\'i $f_0(1)=g_0(0)$ y $f_1(1)=g_1(0)$, entonces
+    $f_0 \ast g_0 \simeq f_1 \ast g_1 \rel{\partial{I}}$.
+\end{theorem}
+\begin{proof}
+    Sean $F:f_0 \simeq f_1 \rel{\partail{I}}$ y $G:g_0 \simeq g_1
+    \rel{\partail{I}}$ homotopias relativas entres  $f_0$ y $f_1$, y $g_0$ y
+    $g_1$. Defina la mapa $H:[0,1] \times [0,1] \xrightarrow{} Y$ dado por
+    \begin{equation*}
+     H(s,t)=\begin{cases}
+                 F(2s,t), & \text{ s\'i } 0 \leq s \leq \frac{1}{2} \\
+                 G(2s-1,t), & \text{ s\'i } \frac{1}{2} \leq s \leq 1   \\
+            \end{cases}
+    \end{equation*}
+    Por el teorema del empaste, vemos que $H$ es continua, ademas vemos que
+    $H(0,t)=F(0,t)=f_0 \ast g_0(t)$, y $H(1,t)=G(1,t)=f_1 \ast g_1(t)$. As\'i
+    que $H:f_0 \ast g_0 \simeq f_1 \ast g_1 \rel{\partial{I}}$ es una homotopia
+    relativa.
+\end{proof}
+\begin{corollary}
+    $[f_0 \ast g_0]=[f_1 \ast g_1]$.
+\end{corollary}
