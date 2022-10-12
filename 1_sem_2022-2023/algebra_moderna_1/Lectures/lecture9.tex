@@ -1,0 +1,139 @@
+\section*{Lectura 9: Grupos Simples}
+
+\begin{definition}
+    Un grupo $G \neq \langle e \rangle$ es \textbf{simple} s\'i sus unicons
+    subgrupos normales son el mismo y $\langle e \rangle$.
+\end{definition}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] $\faktor{\Z}{5\Z}$ tiene como subgrupos $\langle 0 \rangle$ y
+            $\faktor{\Z}{5\Z}$. Entonces $\faktor{\Z}{5\Z}$ es simple.
+
+        \item[(2)] El grupo dihedral $D_n$ no es normal porque tiene  $\langle r
+            \rangle$ como subgrupo simple; pues $[D_n:\langle r \rangle]=2$.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{9.38}
+    S\'i $P$ es un  $p$-grupo finito no trivial, entonces $Z(P)$ no es trivial.
+\end{lemma}
+\begin{proof}
+    Deje que $P$ actue sobre si mismo via conjugacion. Las \'orbitas de este
+    accion son las clases de conjugacion $\cl{g}$, donde $g \in P$. Tenemos que
+    $x \in P$ esta en una clase de tama\~no  $1$ s\'i y solo s\'i $x \in Z(P)$.
+    Por el teorema del \'orbita-estabilizador, tenemos que el tama\~no de los
+    $\cl{g}$ divide a $\ord{P}=p^r$, donde $p,r \in \Z^+$ y $p$ es primo.
+
+    Ahora, s\'i  $Z(P)=\langle e \rangle$, entonces hay una sola \'orbita de
+    tama\~no $1$. Entonces los demas $\ord{\cl{x}} | \ord{P}$. Esto es una
+    contradicci\'on de que $P$ es un $p$-grupo.
+\end{proof}
+\begin{corollary}
+    S\'i $P$ es un $p$-grupo  no isomorfo a $\faktor{\Z}{p\Z}$, para $p$ primo,
+    entonces  $P$ no es simple.
+\end{corollary}
+\begin{proof}
+    Nota que $Z(P) \unlhd P$.
+\end{proof}
+
+\begin{lemma}\label{9.39}
+    El subgrupo $P$ de un grupo $G$ es un $p$-Sylow normal de $G$ s\'i y solo
+    s\'i es el \'unico $p$-Sylow de $G$.
+\end{lemma}
+
+\begin{lemma}\label{9.40}
+    Sea $G$ un grupo finito noabeliano y simple. S\'i  $p|\ord{G}$, para $p$
+    primo, entonces  $n_p(G)>1$.
+\end{lemma}
+\begin{proof}
+    S\'i $p$ es unico, entonces $\ord{G}=p^r$ y $G$ es un  $p$-grupo no trivial.
+    Entonces  $Z(G)$ tambien no es trivial. Como $Z(G) \unlhd G$ y $G$ es
+    simple entonces $Z(G)=G$, lo cual no puede pasar.
+
+    Ahora, s\'i $P$ es un  $p$-Sylow de $G$, entonces  $\langle e \rangle \leq P
+    \leq G$, donde la segundo inclusi\'on es estricta. S\'i $n_p(G)=1$, entonces
+     $P \unlhd G$, lo cual no puede pasar. Por lo tanto  $n_p(G)>1$.
+\end{proof}
+
+\begin{lemma}\label{9.31}
+    Sea $G$ un grupo de orden $pq$, donde $p$ y  $q$ son primos distintos.
+    Entonces:
+    \begin{enumerate}
+        \item[(1)] S\'i $q \not\equiv 1 \mod{p}$, entonces $G$ tiene un
+            $p$-Sylow normal.
+
+        \item[(2)] S\'i $q \not\equiv 1 \mod{p}$, y $p \not\equiv 1 \mod{q}$,
+            entonces $G$ es ciclico.
+
+        \item[(3)] $G$ no es simple.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    Note que $n_p(G) \equiv 1 \mod{p}$ y $n_p(G)|q$ por el tercer teorema de
+    Sylow. Entonces o $n_p(G)=1$, o $n_p(G)=q$. Como $q \not\equiv 1 \mod{p}$,
+    tenemos que $n_p(G)=1$ y $G$ tiene un unico  $p$-Sylow, y es normal.
+
+    Ahora, suponga que $q \not\equiv 1 \mod{p}$ y $p \not\equiv 1 \mod{q}$.
+    Tenemos que $G$ tiene un  $p$-Sylow unico $P$, y un  $q$-Sylow unico $Q$.
+    Mas a\'un $P$ y  $Q$ son ciclicos. Existen  $x \in P$ y  $y \in Q$ con
+    $P=\langle x \rangle$ y $Q=\langle y \rangle$. Por supuesto $\ord{P}=p$ y
+    $\ord{Q}=q$. Ahora, como $P,Q \unlhd G$ y $P \cap Q=\langle e \rangle$
+    entonces tenemos que $xy=yx$; entonces  $(xy)^n=x^ny^n$. Por lo tanto
+    $(xy)^{pq}=e$. Esto hace $G$ ciclico.
+
+    Por ultimo, sin perder la generalidad, asume que  $p>q$. Por lo tanto,
+    tenemos que  $p \not|q-1$ y  $q \not\equiv 1 \mod{p}$. Por arriba, $G$ tiene
+    un unico  $p$-Sylow normal, lo que hace que $G$ no sea simple.
+\end{proof}
+
+\begin{lemma}\label{9.42}
+    Sea $G$ un grupo con noabeliano orden $p^2q$ con  $p$ y  $q$ primos
+    distintos. Entonces $G$ contiene un  $p$-Sylow normal o un $q$-Sylow normal.
+\end{lemma}
+\begin{proof}
+    Supong lo contrario. Sea $n_p(G)>1$ y $n_q(G)>1$. Note que un $q$-Sylow
+    tiene orden $q$, y por lo tanto es ciclico. Entonces tenemos  $q-1$
+    elementos de orden $q$. Entonce cualquier $y$ del  $q$-Sylow genera un unico
+     $q$-Sylow. Por lo tanto  $q=n_q(q-1)$. Ahora, $n_q(G)|p^2$ as\'i que o
+     $n_q(G)=p$ o  $n_q(G)=p^2$. S\'i $n_q(G)=p^2$, entonces el unmero de
+     elementos de orden diferente a $q$ es  $p^2q-p^2(q-1)=p^2$ lo que dice que
+     hay un $p$-Sylow unico. Por lo tanto, $G$ no es simple.
+
+     Por otro lado, s\'i  $n_q(G)=p$, entonces $n_q(G) \equiv 1 \mod{q}$ y $p
+     \equiv 1 \mod{q}$, lo que dice $p>q$. Peron  $n_p(G)|q$ y como $q$ es
+     primo, entonces $n_p(G)=q$, luego, $n_p(G) \equiv 1 \mod{p}$ implica que $q
+     \equiv 1 \mod{p}$ lo que dice que $q>p$.  Una contradiccion.
+\end{proof}
+\begin{corollary}
+    $G$ no es simple.
+\end{corollary}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] Por los resultados arriba, el primer grupo noabeliano simple
+            es el grupo $A_5$ de orden $60=2^2 \cdot 3 \cdot 5$.
+
+        \item[(2)] Suponga que $G$ es u grupo de orden  $2552=2^3 \cdot 11 \cdot
+            29$. Suponiendo que  $G$ es simple, entonces  $n_{11}>1$ y
+            $n_{29}>1$. Ahora, como $n_{11}(G) \equiv 1 \mod{11}$, y
+            $n_{11}(G)|2^3 \cdot 29$. los divisores positivos de $8 \cdot 29$
+            son dados por
+            \begin{align*}
+                1   &&  2   &&  4   &&  8   &&  29  &&  58  &&  116 &&  232 \\
+            \end{align*}
+            Por lo tanto $n_{11}(G)=232$, y hay $232$  $11$-Sylows. Como el
+            orden de cada uno de ellos es  $11$, entonces ellos son ciclicos,
+            con interseccion trivial entre ellos, y por lo tanto $G$ tiene
+            $2320$ elementos de orden  $11$.
+
+            Por el mismo lado, tenemos  $n_{29} \equiv 1 \mod{29}$ y  $n_{29}|8
+            \cdot 11$ lo que tiene divisores
+            \begin{align*}
+                1   &&  2   &&  4   &&  8   &&  11  &&  22  &&  44  &&  88  \\
+            \end{align*}
+            As\'i que $n_{29}=88$ y $G$ tiene  $2464$ elementos de orden  $29$.
+            Por lo tanto  $\ord{G} \geq 2320+2464>2552$ una contradiccion. As\'i
+            que $G$ no es simple.
+    \end{enumerate}
+\end{example}
