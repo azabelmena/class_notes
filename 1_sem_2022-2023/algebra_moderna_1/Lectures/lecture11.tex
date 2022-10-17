@@ -1,0 +1,26 @@
+\section*{Lectura 11: Grupos Resolubles y Nilpotentes}
+
+\begin{definition}
+    SEa $G$ un grupo. Un subgrupo $H$ de $G$ se llama \textbf{characteristica}
+    s\'i para cada automorfismo $\phi$ de $G$, $\phi(H)=H$; es decir que $\phi$
+    restringido a $H$ es sobre. Escribimos $H \Char{G}$
+\end{definition}
+
+\begin{lemma}\label{11.46}
+    Sea $G$ un grupo y  $H \leq K \leq G$ subgrupos. Entonces
+    \begin{enumerate}
+        \item[(1)] S\'i $H \Char{K}$ y $K \Char{G}$, entonces $H \Char{G}$.
+
+        \item[(2)] S\'i $H \Char K$ y  $K \unlhd G$, entonces  $H \unlhd G$.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    Suponga que $H \leq K \leq G$. Sea  $\phi$ un automorfismo de $G$, entonces
+    $\phi(K)=K$. Es decir que $\phi'=\phi|_K$ es sobre. Entonces vemos tambien
+    que $\phi'(H)=H$, pero $\phi'(H)=\phi(H)$, as\'i que $H \Char{G}$.
+
+    Ahora considere el automorfismo de $K$ dado por  $k \xrightarrow{}
+    gk\inv{g}$ para $g \in G$. Para cualquier $g$ tenemos un automorfismo bien
+    definido de $K$. Por lo tanto esta preserva a  $H$, como  $H \Char{K}$, es
+    decir que $gH\inv{g}=H$.
+\end{proof}

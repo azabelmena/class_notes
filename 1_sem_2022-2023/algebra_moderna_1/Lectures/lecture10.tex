@@ -14,3 +14,87 @@
         \rangle$, $G_3=\langle r^4 \rangle$ y $G_4=\langle e \rangle$. Entonces
         $G_4 \unlhd G_3 \unlhd G_2 \unlhd G_1 \unlhd G_0$.
 \end{example}
+
+\begin{definition}
+    Sea $G$ un grupo y  $\{G_i\}_{i=0}^n$ una coleccion de subgrupos de $G$
+    tales que $G_n=\langle e \rangle$, y $G_{i+1} \unlhd G_i$ son subgrupos
+    normales maximales. Entonces la serie subnormal
+    \begin{equation*}
+        \langle e \rangle=G_n \unlhd \dots \unlhd G_0=G
+    \end{equation*}
+    se llama una \textbf{serie de composicion} para $G$. Llamamos los factores
+    $\faktor{G_i}{G_{i+1}}$ los \textbf{factores} de la serie.
+\end{definition}
+
+\begin{lemma}\label{10.43}
+    En cualquier serie de composicion, los factores son grupos simples.
+\end{lemma}
+\begin{proof}
+    Esto viene por el teorema de la correspondencia, junto a que los $G_{i+1}
+    \unlhd G_i$ son normales maximales.
+\end{proof}
+
+\begin{lemma}\label{10.44}
+    Sea $G$ un grupo con serie de composicion  $\langle e \langle>=G_n \unlhd
+    \dots \unlhd G_0=G$. Para cualquier $K \unlhd G$, removiendo las
+    repeticiones de la serie  $\langle e \rangle=K \cap G_n \unlhd \dots \unlhd
+    K \cap G_0=K$, obtenemos una serie de composicion para $K$.
+\end{lemma}
+\begin{proof}
+    Sea $x \in K \cap G_i$ y  $g \in K \cap G_{i+1}$. Entonces $xg\inv{x} \in K$
+    y $xg\inv{x} \in G_{i+1}$, pues $G_{i+1} \unlhd G_i$. Por lo tanto $K \cap
+    G_{i+1} \unlhd K \cap G_i$.
+
+    Ahora miremos a $\faktor{(K \cap G_i)}{(K \cap G_{i+1})}$. Como
+    $\faktor{G_i}{G_{i+1}}$ es simple, entonces $G_{i+1}$ es normal maximal en
+    $G_i$. Entonces los unicos subgrupos de  $G_i$ que contienen a  $G_{i+1}$ so
+    $G_i$ \'o  $G_{i+1}$. Ahora $K \cap G_i \unlhd G_i$, y por lo tanto
+    $G_{i+1} \unlhd (K \cap G_i)G_{i+1} \unlhd G_i$. Por lo tanto $G_{i+1}=(K
+    \cap G_i)G_{i+1}$, o $G_i=(K \cap G_i)G_{i+1}$. Por el segundo toerema del
+    isomorfismo,
+    \begin{equation*}
+        \faktor{((K \cap G_i)G_{i+1})}{G_{i+1}} \simeq \faktor{(K \cap G_i)}{(K
+        \cap G_i \cap G_{i+1})}=\faktor{(K \cap G_i)}{(K \cap G_{i+1})}
+    \end{equation*}
+    S\'i $G_{i+1}=(K \cap G_i)G_{i+1}$, entonces  $K \cap G_i=K \cap G_{i+1}$ y
+    tenemos una repeticion. S\'i $G_i=(K \cap G_i)G_{i+1}$, entonces tenemos que
+    $\faktor{G_i}{G_{i+1}} \simeq \faktor{(K \cap G_i)}{(K \cap G_{i+1})}$ y
+    terminamos.
+\end{proof}
+
+\begin{example}\label{}
+    Considere el serie de composicion $\langle 0 \rangle \unlhd \langle 6
+    \rangle \unlhd \langle 2 \rangle \unlhd \faktor{\Z}{12\Z}$. Escoja $\langle
+    3 \rangle \unlhd \faktor{\Z}{12\Z}$ y obtenemos la serie de composicion para
+    $3$ de ser  $\langle 0 \rangle \unlhd \langle 6 \rangle \unlhd \langle 3
+    \rangle$.
+\end{example}
+
+\begin{theorem}[El Teorema Jordan-H\"older]\label{10.45}
+    Sea $G$ un grupo que tiene una serie de composicion. Entonces cualquier dos
+    series de composicion para $G$ tiene el mismo largo, mas a\'un s\'i
+    \begin{equation*}
+        \langle e \rangle=G_n \unlhd \dots \unlhd G_0=G \text{ y }
+        \langle e \rangle=H_n \unlhd \dots \unlhd H_0=G
+    \end{equation*}
+    son series de composiciones para $G$, y  $s \in S_n$ es una permutacion,
+    entonces
+    \begin{equation*}
+        \faktor{G_i}{G_{i+1}} \simeq \faktor{H_{s(i)}}{H_{s(i)+1}}
+    \end{equation*}
+\end{theorem}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] Sea $\langle e \rangle \unlhd \langle r^4 \rangle \unlhd
+            \langle r^2 \rangle \unlhd D_8$ Escoja tambien $H=\{e,r^4,t,r^4t\}$
+            normal y maximas, entones tenemos que $\langle e \rangle \unlhd
+            \langle r^4 \rangle \unlhd H \unlhd D_8$.
+
+        \item[(2)] Sea $\langle 0 \rangle \unlhd \langle 6 \rangle \unlhd
+            \langle 2 \rangle \unlhd \faktor{\Z}{12\Z}$ escoja $\langle 0
+            \rangle \unlhd \langle 6 \rangle \unlhd \langle 3 \rangle \unlhd
+            \faktor{\Z}{12\Z}$ y $\langle 0 \rangle \unlhd \langle 4 \rangle
+            \unlhd \langle 2 \rangle \unlhd \faktor{\Z}{12\Z}$.
+    \end{enumerate}
+\end{example}
