@@ -1,7 +1,7 @@
 \section*{Lectura 11: Grupos Resolubles y Nilpotentes}
 
 \begin{definition}
-    SEa $G$ un grupo. Un subgrupo $H$ de $G$ se llama \textbf{characteristica}
+    Sea $G$ un grupo. Un subgrupo $H$ de $G$ se llama \textbf{characteristica}
     s\'i para cada automorfismo $\phi$ de $G$, $\phi(H)=H$; es decir que $\phi$
     restringido a $H$ es sobre. Escribimos $H \Char{G}$
 \end{definition}
@@ -24,3 +24,167 @@
     definido de $K$. Por lo tanto esta preserva a  $H$, como  $H \Char{K}$, es
     decir que $gH\inv{g}=H$.
 \end{proof}
+
+\begin{definition}
+    El \textbf{subgrupo commutador} $G'$ de un grupo $G$ es el subgrupo de $G$
+    generado por todos los elements commutadores de $G$,
+    $[x,y]=xy\inv{x}\inv{y}$. Tambien llamamos a $G'$ la  \textbf{derivada} de
+    $G$.
+\end{definition}
+
+\begin{lemma}\label{11.47}
+    El subgrupo commutador de un grupo verdaderamente es un subgrupo.
+\end{lemma}
+
+\begin{lemma}\label{11.48}
+    Sea $G'$ el commutador de $G$. Entonces los sigueintes enunciados son
+    ciertos.
+    \begin{enumerate}
+        \item[(1)] $G' \Char G$.
+
+        \item[(2)] S\'i $G$ es abeliano, entonces  $G'=\langle e \rangle$.
+
+        \item[(3)] $\faktor{G}{G'}$ es abeliano.
+
+        \item[(4)] S\'i $N \unlhd G$, entonces  $\faktor{G}{N}$ es abeliano s\'i
+            y solo s\'i $G' \leq N$.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    \begin{enumerate}
+        \item[(1)] Sea $\phi \in \Aut{G}$, entonces $\phi([x,y])
+            =\phi(xy\inv{x}\inv{y})=\phi(x)\phi(y)\inv{\phi}(x)\inv{\phi}(y)
+            =[\phi(x),\phi(y)]$. As\'i que $\phi(G')=G$.
+
+        \item[(2)] Suponga que $G$ es abeliano, entonces para todo  $[x,y] \in
+            G'$, $xy\inv{x}\inv{y}=x\inv{x}y\inv{y}=e$.
+
+        \item[(3)] Como $G' \unlhd G$,  $\faktor{G}{G'}$ es un grupo. Ahora,
+            sean $xG',yG' \in \faktor{G}{G'}$, entonces $xG'yG'=xyG'$ lo que
+            dice que  $xy\inv{x}\inv{y}=(xy)\inv{(yx)} \in G'$, entonces
+            $(xy)G'=(yx)G'$.
+
+        \item[(4)] Por ultimo, s\'i $N \unlhd G$ y  $\faktor{G}{N}$ es abeliano,
+            entonces $xNyN=xyN=yxN=yNxN$, lo que dice que  $(xy)\inv{(yx)} \in
+            N$, lo que dice $[x,y] \in N$; as\'i que $G' \leq N$. Por otro lado,
+            s\'i  $G' \leq N$, entonces  $[x,y]=(xy)\inv{(yx)} \in N$ lo que
+            dice que $xyN=yxN$.
+    \end{enumerate}
+\end{proof}
+\begin{corollary}
+    $\faktor{G}{G'}$ es el grupo abeliano mas grande que se puede formar por
+    factores.
+\end{corollary}
+
+\begin{lemma}\label{11.49}
+    S\'i $G$ es un grupo, y  $H \leq G$ un subgrupo de  $G$ entonces  $H' \leq
+    G'$.
+\end{lemma}
+\begin{proof}
+    Como $H \leq G$,  $x,y,g,h \in H$ implica $(xg)(yh)\inv{(xg)}\inv{(yh)} \in
+    H$, as\'i que $[xg,yh] \in H'$ cuando $[x,y],[g,h] \in H'$. Mas a\'un s\'i
+    $[x,y] \in H'$, entonces $xy\inv{x}\inv{y} \in H$, as\'i que
+    $\inv{y}\inv{x}yx \in H$ entonces $[\inv{y},\inv{x}] \in H'$.
+\end{proof}
+
+\begin{definition}
+    Sea $G$ un grupo. Para cualquier $n \in \N$, definimos recursivamente el
+    \textbf{$n$-esima derivada} de $G$ como:
+    \begin{enumerate}
+        \item[(1)] $G^{(0)}=G$ y $G^{(1)}=G'$.
+
+        \item[(2)] $G^{(n+1)}=(G^{(n)})'$ para todo $n \geq 0$.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    Llamamos una serie subnormal $\langle e \rangle=G_n \unlhd \dots \unlhd
+    G_0=G$ una \textbf{serie normal} s\'i para todo $0 \leq i \leq j \leq n$,
+    tenemos $G_j \unnlhd G_i$.
+\end{definition}
+
+\begin{definition}
+    Un grupo $G$ se llama \textbf{resoluble} s\'i en algun momento la $n$-esima
+    derivada de $G$ es trivial para alg\'un $n \geq 0$. Mas precisamente,
+    existe una serie normal
+    \begin{equation*}
+        \langle e \rangle=G^{(n)} \unlhd G^ {(n-1)} \unlhd \dots \unlhd G^{(0)}=G
+    \end{equation*}
+\end{definition}
+
+\begin{lemma}\label{11.50}
+    Todo grupo abeliano es resoluble.
+\end{lemma}
+\begin{proof}
+    Por supuesto, s\'i $G$ es un grupo abeliano, entonces $G'=\langle e \rangle$
+    lo cuale es la $1$-esmia derivada. Pues  $G$ tiene el serie normal  $\langle
+    e \rangle=G^{(1)}=G' \unlhd G^{(0)}=G$.
+\end{proof}
+\begin{corollary}
+    $G$ es un grupo simple y resoluble s\'i  $G$ es ciclico de orden  $p$,  $p$
+    un primo.
+\end{corollary}
+\begin{proof}
+    Con $G$ simple y resoluble. Entonces los unicos subgrupos normales de  $G$
+    so  $\langle e \rangle$ y si mismo, as\'i que $G'=G$ o  $G'=\langle e
+    \rangle$. Pero como $G$ es resoluble,  $G' \neq G$, al contrario $G^{(n)}=G$
+    para todo $n \geq 0$ seria cierto. Por lo tanto $G$ es abeliano, lo que dice
+    que  $G \simeq \faktor{\Z}{p\Z}$ para $p$ primo.
+\end{proof}
+\begin{corollary}
+    Un grupo noabeliano y simple no puede ser resoluble.
+\end{corollary}
+\begin{proof}
+    Al no ser abeliano, tenemos $G' \neq \langle e \rangle$, as\'i que $G'=G$.
+\end{proof}
+
+\begin{theorem}\label{11.51}
+    Las siguientes enunciados son equivalentes.
+    \begin{enumerate}
+        \item[(1)] $G$ es un grupo resoluble.
+
+        \item[(2)] $G$ tiene una serie normal
+            \begin{equation*}
+                \langle e \rangle=G_n \unlhd \dots \unlhd G_0=G
+            \end{equation*}
+            con todos los factores abelianas.
+
+        \item[(3)] $G$ tiene una serie subnormal
+            \begin{equation*}
+                \langle e \rangle=G_n \unlhd \dots \unlhd G_0=G
+            \end{equation*}
+            con todos los factores abelianas.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Ciertamente, s\'i $G$ es resoluble, entonces la serie $\langle e
+    \rangle=G^{(n)} \unlhd \dots \unlhd G^{(0)}=G$ es una serie normal cuyas
+    factores son abelianas. Ademas, de esto ser cierto, tenemos que todo serie
+    normal es subnormal; as\'i que $\langle e \rangle=G_n \unlhd \dots \unlhd
+    G_0=G$ es una serie subnormal con los factores abelianas.
+
+    Ahora, suponga que $\langle e \rangle=G_n \unlhd \dots \unlhd G_0=G$ es una
+    serie subnormal donde $\faktor{G_i}{G_{i+1}}$ es abeliana para todo $0 \leq
+    i \leq n-1$. Para  $i=0$, tenemos que  $G_1 \unlhd G$ y  $\faktor{G}{G_1}$
+    es abeliano, por lo tanto $G'=G^{(1)} \leq G_1$. Por inducci\'on, suponga
+    que para todo $i \geq 0$ que  $G^{(i)} \leq G_i$. Como
+    $G^{(i+1)}=(G^{(i)})'$, por hipotesis tenemos que $G^{(i+1)} \unlhd G_i'$
+    Mas a\'un, $G'_i \leq G_{i+1}$ pues $\faktor{G_i}{G_{i+1}}$ es abeliano y
+    $G^{(i+1)} \leq G_{i+1}$. Por lo tanto existe una $n \geq 0$ tal que
+    $G^{(n)}=\langle e \rangle$, lo que hace $G$ resoluble.
+\end{proof}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] $D_8$ es resoluble. Escoja $\langle e \rangle \unlhd
+            \langle r^4 \rangle \unlhd \langle r^2 \rangle D_8$.
+
+        \item[(2)] Tenemos la serie subnormal $\langle e \rangle \unlhd C_2
+            \times C_2 \unlhd A_4 \unlhd S_4$. Donde $C_2 \times C_2=\{(1), (1 \
+            2)(3 \ 4), (1 \ 3)(2 \ 4)\}$ Nota que $\faktor{C_2 \times
+            C_2}{\langle e \rangle}=C_2 \times C_2 \simeq V_4$, que
+            $\faktor{A_4}{C_2 \times C_2} \simeq \faktor{\Z}{3\Z}$ y
+            $\faktor{S_4}{A_4} \simeq \faktor{\Z}{2\Z}$. As\'i que $S_4$ es
+            resoluble.
+    \end{enumerate}
+\end{example}
