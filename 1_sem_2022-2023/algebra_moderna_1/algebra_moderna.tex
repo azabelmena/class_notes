@@ -26,49 +26,8 @@
 
 \input{Library/Fonts/BlackboardBold.tex}
 \input{Library/Fonts/MathCalligraphy.tex}
-
-\renewcommand\qedsymbol{$\blacksquare$}
-\renewcommand{\bar}[1]{\overline{#1}}
-\renewcommand{\epsilon}{\varepsilon}
-
-\newcommand{\ita}[1]{\textit{#1}}
-\newcommand{\com}[2]{#1\backslash#2}
-\newcommand{\oneton}{\{1,2,3,...,n\}}
-\newcommand\idea[1]{\begin{gather*}#1\end{gather*}}
-\newcommand\ef{\ita{f} }
-\newcommand\eff{\ita{f}}
-\newcommand\proofs[1]{\begin{proof}#1\end{proof}}
-\newcommand\inv[1]{#1^{-1}}
-\newcommand\setb[1]{\{#1\}}
-\newcommand\en{\ita{n }}
-\newcommand{\vbrack}[1]{\langle #1 \rangle}
-\DeclareMathOperator{\rank}{rank}
-\DeclareMathOperator{\ord}{ord}
-\DeclareMathOperator{\Aut}{Aut}
-\DeclareMathOperator{\Span}{span}
-\DeclareMathOperator{\Char}{char}
-\DeclareMathOperator{\Int}{Int}
-\DeclareMathOperator{\cl}{cl}
-\DeclareMathOperator{\diam}{diam}
-\DeclareMathOperator{\stab}{stab}
-
-\theoremstyle{plain}
-\newtheorem{theorem}{Teorema}
-\newtheorem{axiom}{Axioma}
-\newtheorem{lemma}[theorem]{Lema}
-\newtheorem{proposition}[theorem]{Proposici\'on}
-\newtheorem{postulate}{Postulado}
-\newtheorem*{corollary}{Corolario}
-
-\theoremstyle{definition}
-\newtheorem*{definition}{Definici\'on}
-\newtheorem{conjecture}{Conjetura}
-\newtheorem{example}{Ejemplo}
-\newtheorem*{homework}{Tarea}
-
-\theoremstyle{remark}
-\newtheorem*{claim}{Reclamo}
-\newtheorem*{note}{Nota}
+\input{Library/definitions.tex}
+\input{Library/styles.tex}
 
 \pretitle{
     \begin{center}
