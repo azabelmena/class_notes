@@ -1,0 +1,47 @@
+\section*{Lectura 12: Anillos}
+
+\begin{definition}
+    Un \textbf{anillo} $R$ es un grupo abeliano bajo una operacion binaria  $+$
+    junto a una operacion binarai $\cdot:(a,b) \xrightarrow{} ab$ tal que
+    \begin{enumerate}
+        \item[(1)] $\cdot$ es associativa.
+
+        \item[(2)] $a(b+c)=ab+ac$ y $(a+b)c=ac+bc$.
+    \end{enumerate}
+    S\'i existe un elemento $1 \in R$ tal que  $a_1=1a=a$, entonces llamamos a
+    $R$ un anillo con  \textbf{unidad}. Denotamos el elemento de identidad de
+    $R$ bajo  $+$ como  $0$. S\'i $ab=ba$ para todo  $a,b \in R$, entonces
+    llamamos  $R$  \textbf{commutativa}.
+\end{definition}
+
+\begin{definition}
+    Sea $R$ un anillo con unidad, y  $a,b \in R$. S\'i $ab=0$ donde  $a\neq 0$,
+     y $b \neq 0$, entonces llamamos a $a$ y  $b$  \textbf{divisores de cero}.
+     S\' $ab=ba=1$, entonces llamamos a  $a$ y  $b$  \textbf{unidades}.
+\end{definition}
+
+\begin{definition}
+    Un \textbf{dominio integral} es un anillo commutativa sin divisores de $0$.
+    Llamamos la  \textbf{characteristica} de un anillo $R$ de ser el entero mas
+    peque\~no $n$ tal que $na=\underbrace{a+\dots+a}_{n-\text{veces}}=0$, para
+    todo $a \in R$.
+\end{definition}
+
+\begin{definition}
+    Sean $R$ y  $S$ anillos. Llamamos a un mapa  $\phi:R \xrightarrow{} S$ un
+    \textbf{homomorfismo de anillos} s\'i
+    \begin{enumerate}
+        \item[(1)] $\phi(a+b)=\phi(a)+\phi(b)$
+
+        \item[(2)] $\phi(ab)=\phi(a)\phi(b)$
+    \end{enumerate}
+\end{definition}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] Sea $\phi:\faktor{\Z}{6\Z} \xrightarrow{} \faktor{\Z}{6\Z}$
+            dado por $n \xrightarrow{} 3n$. Entonces $\phi(x+y)=3(x+y)=3x+3y$ y
+            $\phi(xy)=3(xy)=3x_3y$, como $3 \cdot 3 \equiv 3 \mod{6}$. As\'i que
+            $\phi$ es un homomorfismo de anillos.
+    \end{enumerate}
+\end{example}

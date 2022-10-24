@@ -234,13 +234,5 @@
     llama  \textbf{nilpotente}.
 \end{definition}
 
-\begin{lemma}\label{11.54}
-    Todos los subgrupos abelianos, y $p$-grupos son nilpotentes.
+\begin{lemma}\label{}
 \end{lemma}
-\begin{proof}
-    Vemos que un grupo abeliano solo tiene $p$-Sylows normales, as\'i que por
-    lemma \ref{11.53}, los abelianos son nilpotentes.
-
-    Sea $P$ un  $p$-grupo finito. Entonces  $P$ tiene un solo $p$-subgrupo de
-    Sylow, as\'i que es nilpotente.
-\end{proof}
