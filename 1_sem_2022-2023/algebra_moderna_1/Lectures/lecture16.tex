@@ -1,0 +1,147 @@
+\section*{Lectura 16: Factorizaci\'on \'Unica}
+
+\begin{definition}
+    Sea $R$ un dominio integral. Dos elementso  $a,b \in R$ son
+    \textbf{asociados} s\'i $a=ub$ para alg\'un unidad  $U \in R$. S\'i  $a \neq
+    0$ y no es unidad, entonces llamamos a $a$ \textbf{irreducible} s\'i $a=bc$
+    implica que $b$ \'o $c$ es unidad. Llamamos a $a$ \textbf{primo} s\'i $a|bc$
+    implica que $a|b$ \'o  $a|c$.
+\end{definition}
+
+\begin{lemma}\label{16.67}
+    S\'i $a$ es primo, entonces $a$ es irreducible.
+\end{lemma}
+\begin{proof}
+    Sea $a$ primo con $a=bc$. Suponga que  $a|b$, lo que dces que
+    $ba=bcd=b(1-cd)=0$, entonces $1=cd$ lo que hace  $c$ unidad. De igual manera
+    s\'i  $c|a$, entonces $b$ es unidad.
+\end{proof}
+
+\begin{example}\label{}
+    Sea $\Z(\sqrt{-3})=\{a+ib\sqrt{3} : a,b \in \Z\}$. Sea
+    $2=(a+ib\sqrt{3})(c+id\sqrt{3})$. Como $2 \in \R$, tenemos que  $4=2 \cdot
+    \bar{2}=(a+ib\sqrt{3})(c+id\sqrt{3})(a-ib\sqrt{3})(c-id\sqrt{3})=(a^2+3b^2)
+    (c^2+3d^2)$. Entonces $(a^2+3b^2)|4$ pero $(a^2+3b^2) \nmid 2$; en seguida,
+    tenemos $4a^2+3b^2=4$ implica que  $c^2+3d^2=1$, lo que nos lleva a $d=0$ y
+    $c=\pm 1$ y $2$ es irreducible en  $\Z(\sqrt{-3})$. Ahora nota que
+    $2|(1+i\sqrt{3})(1-i\sqrt{3})=4$, pero $2 \nmid (1+i\sqrt{3})$ y $2 \nmid
+    (1-i\sqrt{3})$, as\'i que $2$ no es primo en  $\Z(\sqrt{-3})$.
+\end{example}
+
+\begin{definition}
+    Un \textbf{dominio de factorizaci\'on unica} es un dominio integral $R$, que
+    satisface las siguentes
+    \begin{enumerate}
+        \item[(1)] Para todo $a \neq 0$, se puede escribir $a$ como el producto
+            de irreducibles, salvo a unidad; es decir:
+            \begin{equation*}
+                a=up_1 \dots p_n \text{ para } p_1, \dots p_n \in R \text{
+                irreducibles.}
+            \end{equation*}
+            Sea llama a este producto una \textbf{factorizaci\'on} de $a$.
+
+        \item[(2)] El factorizaci\'on de $a$ es \'unica.
+    \end{enumerate}
+\end{definition}
+
+\begin{lemma}\label{16.68}
+    En un dominio de factorizaci\'on \'unica, $R$,  $a$ es irreducible s\'i y
+    solo s\'i $a$ es primo.
+\end{lemma}
+\begin{proof}
+    Por supuesto, s\'i $a$, es irreducible. Ahora, suponga que $a$ es
+    irreducible, y que $a|bc$ Entonces $bc=ad$ para alg\'uin  $d \in R$.
+    Descomponga, entonces,  $b$, $c$, y $d$ en productios de irreducibles:
+    \begin{equation*}
+        a(ud_1 \dots d_r)=(vb_1 \dots b_s)(wc_1 \dots c_k)
+    \end{equation*}
+    donde $u,v,w \in R$ son unidades. Por unicidad de la factorizaci\'on, $a$
+    tiene que ser asociado de alg\'un $b_i$ \'o  $c_j$, entonces $a|b$ \'o $a|c$
+    haciendo a $a$ primo.
+\end{proof}
+
+\begin{definition}
+    Sea $R$ un dominio integral y suponga que $a_1, a_2, a_3, \dots \in R$ tales
+    que
+    \begin{equation*}
+        (a_1) \subseteq (a_2) \subseteq (a_3) \subseteq \dots (a_n) \subseteq \dots
+    \end{equation*}
+    se estabiliza; es decir, $(a_n)=(a_{n+1})=\dots$ para alg\'un $n \in \Z^+$
+    Entonces decimos que $R$ satiface la  \textbf{condicion de cadena
+    acendiente} para ideales primos. S\'i sateifaces esta condicion
+    para todo ideal, llamamos a $R$ un anillo \textbf{Noeteriano}.
+\end{definition}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] $\R[x_1,x_2,x_3, \dots]$ tiene la cadena $(x_1) \subseteq
+            (x_1,x_2) \susbeteq (x_1,x_2,x_3) \subseteq \dots$ que se
+            estabiliza.
+
+        \item[(2)] $\Z+x\Q[x]$ tiene la cadena $(x) \subseteq (\frac{x}{2})
+            \subseteq \frac{x}{4} \subseteq \dots$ que no establiza.
+    \end{enumerate}
+\end{example}
+
+\begin{theorem}\label{16.69}
+    Sea $R$ un dominio integral. Entonces las siguentes enunciadas son ciertos.
+    \begin{enumerate}
+        \item[(1)] S\'i $R$ es un dominio de factorizaci\'on \'unica, entonces
+            satisfaces la condici\'on de la cadena acendiente.
+
+        \item[(2)] S\'i $R$ satisface la condici\'on acendiente, entonces todo
+            $a \in R$ se puede factorizar en irreducibles (no necesariamente de
+            forma \'unica).
+
+        \item[(3)] S\'i $R$ es tal que todo $a \in \com{R}{\{0\}}$ se puede
+            factorizar en irreducibles primos, entonces $R$ es un dominio de
+            factorizaci\'on \'unica.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item[(1)] COnsidere la cadena $(a_1) \subseteq (a_2) \subseteq (a_3)
+            \subseteq \dots$, donde $R$ es un dominio de factorizaci\'on
+            \'unica. Tenemos enconces que cada  $a_{i+1}|a_i$. Por lo tanto, los
+            factores primos de $a_{i+1}$ consiste de algunos primos de $a_i$.
+            Como $a_1$ tiene factorizaci\'on \'unica,entonces los factores
+            primos en la cadena terminar\'an sinendo los mismos y la cadena
+            estabiliza.
+
+        \item[(2)] Tome $a_1 \neq 0$. S\'i $a_1$ es irreducible, terminamos. De
+            lo contrario, $a_1=a_2b_2$, no unidades. Como $a_2|a_1$, $(a_1)
+            \subseteq (a_2)$. S\'i $a_2$ es irreducible, terminamos. De lo
+            contrario, procede recursivamente, y siempre que tengamos un factor
+            no irreducible, podemos a\~nadir un nuevo ideal principal al a
+            cadena:
+            \begin{equation*}
+                (a_1) \subseteq (a_2) \subseteq (a_3) \subseteq \dots
+            \end{equation*}
+            lo cual tiene que estabilizar. Por lo tanto, $a_1$ se puede
+            factorizar.
+
+        \item[(3)] Ahora, por lo anterior, sabemos que podemos factorizar los
+            elements $a \neq 0$ de  $R$. Sea que $a=up_1 \dots p_n$ y $a=vq_1,
+            \dots q_m$ con $u,v \in R$ unidades, y los  $p_i,q_j$ irreducibles
+            para todo  $1 \leq i \leq n$ y  $1 \leq j \leq m$. Ahora, $p_1$ es
+            irreducible y tambien es primo.....
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}\label{16.70}
+    S\'i $R$ es un dominio de ideal principal, entonces  $R$ es un dominio de
+    factorizac\'on \'unica.
+\end{theorem}
+\begin{proof}
+    Considere la cadena $(a_1) \subseteq (a_2) \subseteq (a_3) \subseteq \dots$.
+    Sea $I=\bigcup{(a_i)}$. Note que $I$ es un ideal de $R$, as\'i que $I=(b)$
+    para alg\'un $b \in R$. Entonces  $b \in I$, lo que dice $b \in (a_n)$ para
+    alg\'un $n$, entonces  $I=(b) \subseteq (a_n)$. Por lo tanto la cadena
+    estabiliza.
+
+    Suponga ahora que $a \in R$ es irreducible. S\'i $(a)=R$, entonces $1 \in
+    (a)$ y $a$ es unidad, lo cual es imposible. Entonces $(a)$ est\'a contenido
+    en un ideal maximal $M$, entonces $M=(b)$ y $(a) \subseteq (b)$, y $b|a$. Es
+    decir  $a=bd$. Como $a$ es irreducible, y  $b$ no es unidad, entonces $d$
+    est\'a forzado a ser unidad.
+\end{proof}

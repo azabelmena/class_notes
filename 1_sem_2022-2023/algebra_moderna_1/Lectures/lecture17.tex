@@ -1,0 +1,63 @@
+\section*{Lectura 17: Dominios Euclideos}
+
+\begin{definition}
+    Sea $R$ un dominio integral. Llamamos a  $R$ un  \textbf{dominio Euclideo}
+    s\'i existe una mapa $d:\com{R}{\{0\}} \xrightarrow{} \N$ donde para todo
+    $a,b \in R$, existen $q,r \in R$ \'unicos tales que
+    \begin{equation*}
+        a=qb+r \text{ donde } r=0 \text{ \'o } d(r)<d(b)
+    \end{equation*}
+\end{definition}
+
+\begin{theorem}\label{17.71}
+    S\'i $R$ es un dominio Euclideo, entonces $R$ es un dominio de ideal
+    principal.
+\end{theorem}
+\begin{proof}
+    Sea $I$ un ideal de $R$, S\'i $I=(0)$, terminamos; pues, suponga que $I \neq
+    (0)$. Considere entonces el conjunto
+    \begin{equation*}
+        \Dc=\{d(b) : b \in I \text{ y } b \neq 0\}
+    \end{equation*}
+    Nota que $\Dc \subseteq \N$, as\'i que por el principio de buen orden,
+    tenemos que hay un elemento minimo $m \in \Dc$. Sea entonces $b \in I$, con
+     $b \neq 0$ tal que  $d(b)=m$. Sea $a \in I$, entonces existen $q,r \in R$
+     \'unicas tales que
+     \begin{equation*}
+         a=qb+r \text{ donde } r=0 \text{ \'o } d(r)<d(b)
+     \end{equation*}
+     Ahora, note que como $d(b)=m$ es minimo, $d(r) \not{<} d(b)$, mas a\'un,
+     tenemos que
+     \begin{equation*}
+         r=a-qb \in I
+     \end{equation*}
+     lo que nos dice que $r=0$, y  $a=qb$. Es decir  $I=(a)$.
+\end{proof}
+
+\begin{example}\label{}
+    Considere $\Z(\sqrt{D})=\{a+b\sqrt{D} : a,b \in \Z\}$, donde $D$ no tiene
+    cuadrados. Y sea $d(a+b\sqrt{D})=|a^2-Db^2|$. Note que $\Z(\sqrt{D})$ es
+    dominio integral, pues, tome $a,b \neq 0$. Considere entonces el cuerpo
+    $\Q(\sqrt{D})$ que contenga a $\Z(\sqrt{D})$. Entonces
+    \begin{equation*}
+        \frac{a}{b}=q' \text{ con } q'=x+y\sqrt{D}, \text{ y } x,y \in \Q
+    \end{equation*}
+    Sean $x_0, y_0$ tal que $|x-x_0| \leq \frac{1}{2}$ y $|y-y_0| \leq
+    \frac{1}{2}$. Tome $q=x_0+y_0\sqrt{D}$ y $r=b((x-x_0)+(y-y_0)\sqrt{D})$.
+    Pues, tenemos que
+    $q \in \Z(\sqrt{D})$ mas a\'un
+    \begin{equation*}
+        a=bq+r
+    \end{equation*}
+     As\'i que $r \in \Z(\sqrt{D})$, y
+     \begin{align*}
+         d(r)       &= d(b)d((x-x_0)+(y-y_0)\sqrt{D})  \\
+                    &= d(b)|(x-x_0)^2-D(y-y_0)^2|   \\
+                    & \leq d(b)|(x-x_0)^2|+|D||(y-y_0)^2|
+                    & \leq d(b)(\frac{1}{4}+\frac{|D|}{4})  \\
+     \end{align*}
+     Pues, s\'i $D=-2,-1,2$ entonces $d(r) \leq d(b)$ y $\Z(\sqrt{D})$ es un
+     dominio Euclideo. En el caso de que $D=-1$, poniendo  $i=\sqrt{D}$,
+     llamamos a $\Z(i)$ los \textbf{enteros Gaussianos}. Nota que $\Z(i)
+     \subseteq \C$.
+\end{example}

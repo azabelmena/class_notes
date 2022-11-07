@@ -1,0 +1,51 @@
+\section*{Lectura 18: Polinomios Irreducibles}
+
+En el caso de un cuerpo $F$, las unidades de  $F[x]$ son las unidades de $F$ no
+cero y los polinomios irreducibles son aquellos de grado $\deg=1$ o grado
+$\deg>1$ que no se puede factorizar en polinomios de grado menor.
+
+\begin{example}\label{}
+    $4x+2$ es irreducible en  $\Q$, pero $4x+2=2(2x+1)$ en $\Z$.
+\end{example}
+
+\begin{theorem}\label{18.72}
+    Sea $R$ un dominio integral, y defina la relaci\'on de equivalencia $\sim$
+    sobre $R \times \com{R}{\{0\}}$ dado por
+    \begin{equation*}
+        (a,b) \sim (c,d) \text{ s\'i y solo s\'i } ad-bc=0
+    \end{equation*}
+    Sea $Q=\faktor{R \times \com{R}{\{0\}}}{\sim}$ el conjunto factor y defina
+    las operaciones $+$ y  $\cdot$ dados por
+    \begin{equation*}
+        (a,b)+(c,d) &=  (ad+bc,bd)  \\
+        (a,b)(c,d)  &= (ac,bd)  \\
+    \end{equation*}
+    Entonces $Q$ forma un cuerpo bajo estos operaciones.
+\end{theorem}
+\begin{proof}
+    Nota que $(Q,+)$ forma un grupo abeliano con identidad $(0,1)$ y inversos
+    $(-a,b)$. De igaul forma, $(Q,\cdot)$ forma un grupo abeliano con la
+    identidad $(1,1)$ y inversos $(b,a)$. Por ultimo, note que
+    \begin{equation*}
+        (a,b)((c,d)+(e,f))=(a,b)(cf+de,df)=(acf+ade,bdf)=(a,b)(c,d)+(a,b)(e,f)
+    \end{equation*}
+\end{proof}
+
+\begin{definition}
+    Sea $R$ un dominio integral y considera la relaci\'on de equivalencia
+    $\sim$ dado sobre $R \times \com{R}{\{0\}}$ por
+    \begin{equation*}
+        (a,b) \sim (c,d) \text{ s\'i y solo s\'i } ad-bc=0
+    \end{equation*}
+    Entonces llamamos al cuerpo $Q=\faktor{R \times \com{R}{\{0\}}}{\sim}$ el
+    \textbf{cuerpo de fracciones} sobre $R$.
+\end{definition}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] El cuerpo de fracciones de $\Z(\sqrt{D})$ es precisamente el
+            cuerpo $\Q(\sqrt{D})$.
+
+        \item[(2)] El cuerpo de fracciones de $\Z$ es $\Q$.
+    \end{enumerate}
+\end{example}

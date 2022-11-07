@@ -1,0 +1,59 @@
+\section*{Lectura 15: Anillos de Polinomios}
+
+\begin{lemma}\label{15.63}
+    S\'i $R$ es un anilloc commutativo con identidad, entonces el conjunto
+    $R[x]$, definido por
+    \begin{equation*}
+        R[x]=\{f(x)=\sum_{i=0}^n : a_i \in R \text{ para } 0 \leq i \leq n
+            \text{ y } n \geq 0\}
+    \end{equation*}
+    Es un anillo commutatativa con identidad bajo la suma y multiplicaci\'on de
+    polinomios.
+\end{lemma}
+
+\begin{definition}
+    Sea $R$ un anillo commutativo con identidad. Llamamos al anillo  $R[x]$ el
+    \textbf{anillo de polinomios} con \textbf{coeficientes} en $R$.
+\end{definition}
+
+\begin{lemma}\label{15.64}
+    La mapa valuaci\'on $R[x] \xrightarrow{} R$ dado por $f(x) \xrightarrow{}
+    f(0)$ es un homomorfismo de anillos.
+\end{lemma}
+
+\begin{definition}
+    Sea $R$ un anillo. El \textbf{grado} de un polinomio $f \in R[x]$ es la
+    potencia del termino l\'ider de $f$; es decir, s\'i
+    $f(x)=a_0+a_1x+\dots+a_nx^n$, y $a_n \neq 0$, entonces  $\deg{f}=n$.
+    Definimos el grado del polinomio $0=0(x)$ de ser $\deg{0}=-\infty$. Llamamos
+    a $f$ \textbf{m\'onico} s\'i $a_n=1$.
+\end{definition}
+
+\begin{theorem}\label{15.65}
+    S\'i $f,g \in R[x]$ son polinomios m\'onicos, entonces existen $q,r \in
+    R[x]$, \'unicos, tales que
+    \begin{equation*}
+        f(x)=q(x)g(x)+r(x), \text{ y } $\deg{r} < \deg g$.
+    \end{equation*}
+\end{theorem}
+
+\begin{definition}
+    Sea $f \in R[x]$ un pol\'inomio. Llamamos a un elemento $a \in R$ un
+    \textbf{ra\'iz} (\'o una \textbf{cero}) de $f$ s\'i  $f(a)=0$.
+\end{definition}
+
+\begin{theorem}\label{15.66}
+    S\'i $f \in R[x]$, y $a \in R$, existe un unico $q \in R[x]$ tal que
+    \begin{equation*}
+        f(x)=q(x)(x-a)+f(a)
+    \end{equation*}
+    y $f(a)=0$ s\'i y solo s\'i $(x-a)|f$.
+\end{theorem}
+\begin{proof}
+    S\'i $f$ no tiene ra\'ices, terminamos. Ahora s'i $f$ tiene al menos una
+    ra\'iz  $a_1 \in R$, entonces $f(x)=q_1(x)(x-a_1)^{n_1}$ donde $q_1(a_1)
+    \neq 0$ y $\deg{q_1}=n-n_1$, como $R$ es dominio integral. S\'i $a_1$ es la
+    \'unica ra\'iz de $f$, terminamos. S\'i no, procede recursivamente usando el
+    teoram \ref {15.65}. Este recursi\'on concluye, y por lo tanto se enumera
+    las raices de $f$.
+\end{proof}

@@ -1,0 +1,78 @@
+\section*{Lectura 14: Ideales Maximales y Primos.}
+
+\begin{definition}
+    El ideal generado por el conjunto no vacio $X$, de un anillo $R$ escrito
+    $I=(X)$, es el ideal mas peque\~no de $R$ tal que  $X \subseteq I$, y se
+    llama el ideal  \textbf{generado} por $X$.
+\end{definition}
+
+\begin{definition}
+    Un ideal \textbf{maximal} en un anillo $R$ es un ideal propio que no esta
+    contenido en ningun otro ideal propio. Es decir si $M$ es maximal y  $M
+    \subseteq I$, entonces  $M=I$ o  $M=R$.
+\end{definition}
+
+\begin{theorem}\label{14.61}
+    Sea $M$ un ideal de un anillo commutativo con identidad. Entonces  $M$ es
+    maximal si y solo si  $\faktor{R}{M}$ es un cuerpo.
+\end{theorem}
+\begin{proof}
+    Suponga que $M$ es maximal. Entonces como $\faktor{R}{M}$ es un anillo
+    commutativo con identidad, sea $a+M \in \faktor{R}{M}$ donde $a+M \neq M$
+    note que  $M \subseteq Ra+M$, y como $M$ es maximal, tenemos que $Ra+M=R$.
+    Por lo tanto,  $1 \in Ra+M$, y existen  $r, \, \im M$ tales que  $1=ra+m$.
+    Note que  $(r+M)(a+M)=ra+M=(1-m)+M=1+M$. Por lo tanto $\inv{(a+M)}=r+M \in
+    \faktor{R}{M}$. Esto hace a $\faktor{R}{M}$ un cuerpo.
+
+    Suponga, por otro lado, que $\faktor{R}{M}$ es cuerpo, sea $N$ un ideal tal
+    que  $M \subseteq N \subseteq R$, con  $N \neq R$. Considere la mapa  $\pi:R
+    \xrightarrow{} \faktor{R}{M}$ dado por $a \xrightarrow{} a+M$. Como $N$ es
+    ideal, entonces por el teoream de la correspondencia $\pi(N)$ es un ideal de
+    $\faktor{R}{M}$ Por lo tanto $\pi(N)=(0)$, \'o $\pi(N)=\faktor{R}{M}$. Como
+    $\pi$ es 1--1, tenemos que  $\pi(N) \neq \faktor{R}{M}$, as\'i que
+    $\pi(N)=(0)$. Esto hace $N=M$, $M$ es maximal.
+\end{proof}
+
+\begin{definition}
+    Un ideal $P$ en un anillo commutativo con identidad es \textbf{primo} s\'i
+    para todo $a,b \in R$, s\'i  $ab \in P$ implica que $a \in P$, \'o $b \in P$.
+\end{definition}
+
+\begin{theorem}\label{14.62}
+    Sea $R$ un anillo commutativo con identidad. Entonce un ideal $P$ de $R$ es
+    primo s\'i, y solo s\'i  $\faktor{R}{P}$ es un dominio integral.
+\end{theorem}
+\begin{proof}
+    Suponga que $P$ es primo, y suponga que $(a+P)(b+P)=ab+P=0+P=P$. Entonces
+    tenemos que $ab \in P$. Como $P$ es primo, $a \in P$ \'o  $b \in P$, as\'i
+    que  $a+P=P$ o  $b+P=P$, es decir, o  $a=0$ \'o  $b=0$.
+
+    Por otro lado, suponga que  $\faktor{R}{P}$ es un dominio integral. Entonces
+    $P$ es un ideal propio, es decir,  $P \neq R$, y s\'i  $(a+P)(b+P)=ab+P=P$,
+    entonces tenemos que $a+P=P$ \'o  $b+P=P$. Es decir, s\'i  $ab \in P$,
+    entonces  $a \in P$ \'o  $b \in P$.
+\end{proof}
+\begin{corollary}
+    Todo ideal maximal es primo.
+\end{corollary}
+\begin{corollary}
+    Sea $\phi:R \xrightarrow{} S$ un homomorfismo de anillos 1--1 con identidad.
+    Las siguentes enunciadas son ciertos
+    \begin{enumerate}
+        \item[(1)] S\'i $S$ es un cuerpo, entonces $\ker{\phi}$ es un ideal
+            maximal de $R$.
+
+        \item[(2)] S\'i $S$ es un dominio integral, entonces  $\ker{\phi}$ es un
+            ideal primo de $R$.
+    \end{enumerate}
+\end{corollary}
+\begin{proof}
+    Por el primer teorema del isomorfismo, nota que $S \simeq
+    \faktor{R}{\ker{\phi}}$.
+\end{proof}
+
+\begin{example}\label{}
+    Sean $\phi:\Z[x] \xrightarrow{} \Z$ dado por $f(x) \xrightarrow{} f(0)$, es
+    decir, la mapa valuaci\'on. Entonces tenemos que $\Z \simeq
+    \faktor{\Z[x]}{(x)}$.
+\end{example}
