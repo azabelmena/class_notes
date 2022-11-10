@@ -49,3 +49,89 @@ $\deg>1$ que no se puede factorizar en polinomios de grado menor.
         \item[(2)] El cuerpo de fracciones de $\Z$ es $\Q$.
     \end{enumerate}
 \end{example}
+
+\begin{lemma}\label{18.73}
+    Un dominio integral $R$ se puede encrustar en su cuerpo de fracciones.
+\end{lemma}
+\begin{proof}
+    Toma la mapa $a \xrightarrow{} \frac{a}{1}$.
+\end{proof}
+
+Suponga que $D$ es un dominio de factorizaci\'on \'unoca, y tome  $f(x)=a+abx$,D
+con $a \neq 0$ y  $a$ no una unidad. Entonces
+\begin{equation*}
+    f(x)=a(1+bx)
+\end{equation*}
+y $f$ es irreducible.
+
+\begin{definition}
+    Sea $D$ un dominio de factorizaci\'on \'unica, y sea $f \in D[x]$ con
+    $f(x)=\sum_{i=0}^n{a_ix^i}$. Llamamos al gcd $(a_0, \dots, a_n)$ de los
+    coeficientes de $f$ el \textbf{contenido} de $f$ y escribimos
+    \begin{equation*}
+        c(f)=(a_0, \dots, a_n)
+    \end{equation*}
+    S\'i $c(f)$ es unidad, entonces llamamos a $f$ un polinomio
+    \textbf{primitivo} y en la factorizaci\'on $f=c(f)f^*$, llamamos a $f^*$ la
+     \textbf{parte primitiva} de $f$.
+\end{definition}
+
+\begin{lemma}\label{18.74}
+    Sea $D$ un dominio de factorizaci\'on \'unica, y sea $f \in D[x]$,  $f \neq
+    0$, tal que  $pf=gh$ para $g,h \in D$ y $p \in \Z^+$ un primo. Entonces $p$
+    divida a $c(g)$ \'o a $c(h)$.
+\end{lemma}
+\begin{proof}
+    Sea que $pf=gh$, y suponga lo contrario. Sea  $g(x)=g_0+g_1x+\dots+g_sx^s$,
+    y $h(x)=h_0+h_1x+\dots+h_tx^t$. Suponga que $p \nmid c(g)$ y que $p \nmid
+    c(h)$. Sean $g_u$ y  $h_u$ los coefficientes de los terminos con los
+    potencias mas peque\~nas que no son dividios por $p$. Nota, que el
+    coefficiente del termino $x^{u+v}$ en $gh$ es
+    $\sum_{i=0}^{u+v}{g_ih_{u+v-i}}$. Entonces por definici\'on de $g_u$ y
+    $h_v$, $p$ divide a todos los terminos de la suma que no sean $g_uh_v$. Por
+    lo tanto  $p \nmdi \sum{g_ih_{u+v-i}}$ y por lo tanto los coeficientes no
+    son divisibles pop $p$. Pero $pf=gh$, esto es una contradicci\'on.
+\end{proof}
+
+\begin{lemma}[Lemma de Gauss]\label{18.75}
+    Sean $f,g \in D[x]$ polinomios no constantes y $D$ un dominio integral.
+    Entonces $c(fg)=c(f)c(g)$. En particular, el producto de polinomios
+    primitivos son primitivos.
+\end{lemma}
+\begin{proof}
+    Nota, que $f=c(f)f^*$, y $g=c(g)g^*$, con $f^*,g^*$ las partes primitivas de
+     $f$ y  $g$ respectivamente. Entoncec $fg=c(f)c(g)=f^*g^*$. Como
+     $c(f)c(g)|fg$, entionces $c(f)c(g)|c(fg)$. Suponga pues, sea $p^a$
+     cualquier potencia de un primo que aparece en la factorizaci\'on de
+     $c(fg)$. omo $fg=c(fg)(fg)^*$, $(fg)^*$ la parte primitiva de $fg$,
+     entonces tenemos que  $c(fg)|fg$. Es decir que $p^a|fg$. Entonces $p^a|f$
+     \'o $p^a|g$. En cualquier de los casos, tenemos que $p^a|c(f)c(g)$. Por lo
+     tanto $c(fg)|c(f)c(g)$. Por lo tanto $c(fg)=c(f)c(g)$.
+\end{proof}
+
+\begin{theorem}\label{18.76}
+    Sea $D$ un dominio de factorizaci\'on \'unica con cuerpo de fracciones $F$.
+    S\'i $f \in D[x]$, no es una constante, entonces $f$ es irreducible sobre
+    $D$ s\'i y solo s\'i $f$ es primitivo en $D[x]$, y irreducible en $F[x]$.
+\end{theorem}
+\begin{proof}
+    Suponga, que $f$ es irreducible en $D[x]$.  Entonces $f$ es primitivo. Mas
+    a\'un, por lo contrario, factoriza a  $c(f)$ de $f$. Supong ahora que
+    $f=gh$ en  $f$, con $g,h \in F[x]$ no unidades con $\deg{g}<\deg{f}$ y
+    $\deg{h}<\deg{f}$. Como $F$ es cuerpo de fracciones, tenemos
+    \begin{equation*}
+        g(x)\frac{a}{b}g^*(x) \text{ y } h(x)=\frac{e}{d}h^*
+    \end{equation*}
+    Con $a,b,e,d \in D$ y  $g^*,h^* \in D[x]$ las partes primitivos de $g$ y
+    $h$. Es decir que  $c(g)=\frac{a}{b}$ y $c(h)=\frac{e}{d}$. Por lo tanto,
+    \begin{equation*}
+        f=c(g)c(h)g^*h^*=c(gh)g^*h^*=\frac{ae}{bd}g^*h^*
+    \end{equation*}
+    Por el lema de Gauss,  $g^*h^*$ es primitivo. Como $f$ es primitivo, tenemos
+    $c(f)=c(gh)=1$, as\'i que $\frac{ae}{db}=1$ implica $a,b,e,d$ son unidades.
+    Esto contradice que  $f$ sea irreducible en $D[x]$.
+
+    Por otro lado, sea $f$ primitivo en $D[x]$, y irreducible en  $F[x]$. Como
+    se puede encrustar a $D$ en  $F$, y por ende encrustar a  $D[x]$ en $F[x]$,
+    pues tenemos que $f$ es irreducible en  $D[x]$.
+\end{proof}

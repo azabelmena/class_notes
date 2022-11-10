@@ -35,29 +35,40 @@
 \end{proof}
 
 \begin{example}\label{}
-    Considere $\Z(\sqrt{D})=\{a+b\sqrt{D} : a,b \in \Z\}$, donde $D$ no tiene
-    cuadrados. Y sea $d(a+b\sqrt{D})=|a^2-Db^2|$. Note que $\Z(\sqrt{D})$ es
-    dominio integral, pues, tome $a,b \neq 0$. Considere entonces el cuerpo
-    $\Q(\sqrt{D})$ que contenga a $\Z(\sqrt{D})$. Entonces
-    \begin{equation*}
-        \frac{a}{b}=q' \text{ con } q'=x+y\sqrt{D}, \text{ y } x,y \in \Q
-    \end{equation*}
-    Sean $x_0, y_0$ tal que $|x-x_0| \leq \frac{1}{2}$ y $|y-y_0| \leq
-    \frac{1}{2}$. Tome $q=x_0+y_0\sqrt{D}$ y $r=b((x-x_0)+(y-y_0)\sqrt{D})$.
-    Pues, tenemos que
-    $q \in \Z(\sqrt{D})$ mas a\'un
-    \begin{equation*}
-        a=bq+r
-    \end{equation*}
-     As\'i que $r \in \Z(\sqrt{D})$, y
-     \begin{align*}
-         d(r)       &= d(b)d((x-x_0)+(y-y_0)\sqrt{D})  \\
-                    &= d(b)|(x-x_0)^2-D(y-y_0)^2|   \\
-                    & \leq d(b)|(x-x_0)^2|+|D||(y-y_0)^2|
-                    & \leq d(b)(\frac{1}{4}+\frac{|D|}{4})  \\
-     \end{align*}
-     Pues, s\'i $D=-2,-1,2$ entonces $d(r) \leq d(b)$ y $\Z(\sqrt{D})$ es un
-     dominio Euclideo. En el caso de que $D=-1$, poniendo  $i=\sqrt{D}$,
-     llamamos a $\Z(i)$ los \textbf{enteros Gaussianos}. Nota que $\Z(i)
-     \subseteq \C$.
+    \begin{enumerate}
+        \item[(1)] Considere $\Z(\sqrt{D})=\{a+b\sqrt{D} : a,b \in \Z\}$, donde
+            $D$ no tiene cuadrados. Y sea $d(a+b\sqrt{D})=|a^2-Db^2|$. Note
+            que $\Z(\sqrt{D})$ es dominio integral, pues, tome $a,b \neq 0$.
+            Considere entonces el cuerpo $\Q(\sqrt{D})$ que contenga a
+            $\Z(\sqrt{D})$. Entonces
+            \begin{equation*}
+                \frac{a}{b}=q' \text{ con } q'=x+y\sqrt{D}, \text{ y } x,y \in \Q
+            \end{equation*}
+            Sean $x_0, y_0$ tal que $|x-x_0| \leq \frac{1}{2}$ y $|y-y_0| \leq
+            \frac{1}{2}$. Tome $q=x_0+y_0\sqrt{D}$ y $r=b((x-x_0)+(y-y_0)\sqrt{D})$.
+            Pues, tenemos que
+            $q \in \Z(\sqrt{D})$ mas a\'un
+            \begin{equation*}
+                a=bq+r
+            \end{equation*}
+             As\'i que $r \in \Z(\sqrt{D})$, y
+             \begin{align*}
+                 d(r)       &= d(b)d((x-x_0)+(y-y_0)\sqrt{D})  \\
+                            &= d(b)|(x-x_0)^2-D(y-y_0)^2|   \\
+                            & \leq d(b)|(x-x_0)^2|+|D||(y-y_0)^2|
+                            & \leq d(b)(\frac{1}{4}+\frac{|D|}{4})  \\
+             \end{align*}
+             Pues, s\'i $D=-2,-1,2$ entonces $d(r) \leq d(b)$ y $\Z(\sqrt{D})$ es un
+             dominio Euclideo. En el caso de que $D=-1$, poniendo  $i=\sqrt{D}$,
+             llamamos a $\Z(i)$ los \textbf{enteros Gaussianos}. Nota que $\Z(i)
+             \subseteq \C$.
+
+         \item[(2)] Los enteros $\Z$ son un dominio Euclideano con  $d=|\cdot|$.
+
+         \item[(3)] Para cualquier cuerpo $K$, $K[x]$ es un dominio Euclideano
+             con $d(f)=\deg{f}$ para todo $f \in K[x]$.
+
+         \item[(3)] El anillo $\Z[\frac{1+i\sqrt{19}}{2}]$ es un dominio de
+             ideal principal, pero no un dominio Euclideano.
+    \end{enumerate}
 \end{example}
