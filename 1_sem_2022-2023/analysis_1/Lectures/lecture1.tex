@@ -1,108 +1,139 @@
-\section*{Lecture 1: Review}
-
-We begin with a review of some prelimanary results of set theory and advanced
-calculus.
+\section*{Lecture 1: Semi-Algebras, Algebras, and $\sigma$-Algebras}
 
 \begin{definition}
-    Let $A$ and $B$ be sets, and let $f:A \rightarrow B$ be a map of $A$ into
-   $B$. We say that $f$ is  \textbf{1--1} if for every  $x,y \in X$,  $f(x)=f(y)$
-   implies $x=y$. We say $f$ is \textbf{onto} if for every $y \in B$, there is
-   an  $x \in A$ for which $y=f(x)$. We say that $f$ is a  \textbf{1--1
-   correspondence} of $A$  \textbf{onto} $B$ if  $f$ is both 1--1 and onto and
-   onto.
-\end{definition}
-
-\begin{theorem}[Beinstern's Theorem]\label{thm_1}
-    Let $A$ and  $B$ be sets. If there is a 1--1 map of $A$ into  $B$, and a
-    1--1 map of  $B$ into $A$, then there exists a 1--1 correspondence of
-    $A$ onto  $B$.
-\end{theorem}
-
-\begin{axiom}[The Axiom of Choice]\label{axm_1}
-    Suppose that $\{A_\alpha\}_{\alpha \in \Lambda}$ is a collection of nonmepty
-    sets indexed by the set $\Lambda$. Then there exists a map $f:\Lambda
-    \rightarrow \bigcup{A_\alpha}$ called a \textbf{choice function}, defined by
-    the rule $f(\alpha) \in A_\alpha$ for all $\alpha \in \Lambda$.
-\end{axiom}
-\begin{remark}
-    What this axiom says is that given any (not necesarrily countable)
-    collection of sets, one can ``choose '' an element from each set.
-\end{remark}
-
-\begin{definition}
-    We define an \textbf{partial order} on a set $A$ to be a relation $<$
-    satisfying the following properties for all $a,b,c \in A$:.
+    Let $R$ be a set, we call a set  $S \subseteq 2^R$ a  \textbf{semi-algebra}
+    if
     \begin{enumerate}
-        \item[(1)] $a<a$  (Reflexive).
+        \item[(1)] $R \in S$.
 
-        \item[(2)] If $a<b$ and  $b<a$, then  $a=b$  (Antisymmetry).
+        \item[(2)] If $A,B \in S$, then  $A \cap B \in S$.
 
-        \item[(3)] If $a<b$ and  $b<c$, then  $a<c$  (Transitivity).
+        \item[(3)] If $A \in S$, then there is a finite collection of disjoints
+            elements $\{E_i\}_{i=1}^n$ for which
+            \begin{equation*}
+                \com{S}{A}=\bigcup_{i=1}^n{E_i}
+            \end{equation*}
     \end{enumerate}
-     We say that elements $a,b \in A$ are \textbf{comparable} under $<$ if
-     either $a<b$ or $b<a$. If every element of $A$ is comparable, then  $<$ is
-     called a  \textbf{total order}.
+\end{definition}
+
+\begin{example}\label{example_1}
+    Consider $\R$ the real numbers, and let $S$ be the collection
+    \begin{equation*}
+        S=\{(a,b] : a<b, \text{ and } a,b \in \R\} \cup \{(-\infty,b]\}_{b \in
+        \R} \cup \{(a,\infty)\}_{a \in \R} \cup \emptyset
+    \end{equation*}
+    Then $S$ is a semi-algebra on $\R$.
+\end{example}
+
+\begin{definition}
+    Let $R$ be a set, and let  $S \subseteq 2^\R$. We call $S$ an
+    \textbf{algebra} if
+    \begin{enumerate}
+        \item[(1)] $R \in S$.
+
+        \item[(2)] If $A,B \in S$, then  $A \cap B \in S$.
+
+        \item[(3)] If $A \in S$, then  $\com{S}{A} \in S$.
+    \end{enumerate}
 \end{definition}
 
 \begin{definition}
-    Let $A$ be a set with partial order  $<$. We call an element  $x \in A$ a
-    \textbf{maximum} of $A$ if  $x<a$ implies  $x=a$ for all $a \in A$. If $B
-    \subseteq A$, then we call an element $a \in A$ an \textbf{upper bound} of
-    $B$ if  $b<a$ for all  $B$ in  $B$; and we say  $B$ is  \textbf{bounded
-    above}. If $b<a'$ implies that  $a<a'$ for any  $a' \in A$, then we call
-    $a$ a  \textbf{least upper bound} of $B$ and write  $\sup{B}=a$.
+    Let $R$ be a set, and let  $S \subseteq 2^\R$. We call $S$ an
+    \textbf{$\sigma$-algebra} if
+    \begin{enumerate}
+        \item[(1)] $R \in S$.
+
+        \item[(2)] If $\{A_j\}$ is a countable collection of elements of $S$,
+            then $\bigcap{A_n} \in S$.
+
+        \item[(3)] If $A \in S$, then  $\com{S}{A} \in S$.
+    \end{enumerate}
 \end{definition}
 
-\begin{definition}
-    Let $A$ be a set with partial order  $<$. We call an element  $x \in A$ a
-    \textbf{minimum} of $A$ if  $a<x$ implies  $x=a$ for all $a \in A$. If $B
-    \subseteq A$, then we call an element $a \in A$ an \textbf{lower bound} of
-    $B$ if  $a<b$ for all  $B$ in  $B$; and we say  $B$ is  \textbf{bounded
-    below}. If $a'<b$ implies that  $a'<a$ for any  $a' \in A$, then we call
-    $a$ a  \textbf{greatest lower bound} of $B$ and write  $\inf{B}=a$.
-\end{definition}
+\begin{lemma}\label{lemma_1}
+    For any set $R$, if  $S$ is a $\sigma$-algebra, then it is an algebra.
+\end{lemma}
 
-\begin{theorem}[Zorn's Lemma]\label{thm_2}
-    Let $A$ be a set with partial order  $<$. If every totally ordered subset of
-    $A$ under  $<$ has an upperbound, then  $A$ has a maximum element.
-\end{theorem}
-\begin{remark}
-    It can be shown that Zorn's lemma and the axiom of choice are equivalent
-    statements. That is you can prove Zorn's lemma from the axiom of choice, and
-    you can prove the axiom of choice from Zorn's lemma.
-\end{remark}
-
-\begin{theorem}\label{thm_3}
-    For any sets $A$ and  $B$, there is either a 1--1 map of  $A$ into  $B$, or
-    a 1--1 map of  $B$ into  $A$.
-\end{theorem}
+\begin{lemma}\label{lemma_2}
+    For any set $R$, if  $S$ is an algebra, then it is closed under finite
+    unions.
+\end{lemma}
 \begin{proof}
-    Consider the collection of all triples $C=\{(X,Y,f) : f:X \rightarrow Y
-    \text{ is 1--1 and onto, where }\\ X \subseteq A, Y \subseteq B\}$, and
-    define a partial order $<$ on  $C$ by: $(X,Y,f)<(X',Y',g)$ if, and only if
-    $X \subseteq X'$,  $Y \subseteq Y'$, and  $g|_X=f$. Now suppose that the
-    collection  $\{(X_\alpha, Y_\alpha,f_\alpha)\}$ is a totally ordered subset
-    of $C$. Then define
-    \begin{align*}
-        \tilde{X}   &=      \bigcup_{\alpha}{X_\alpha} \\
-        \tilde{Y}   &=      \bigcup_{\alpha}{Y_\alpha} \\
-    \end{align*}
-    and since for all $x \in \tilde{X}$, there is an $\alpha$  for which $x \in
-    X_\alpha$, define the map $\tilde{f}:\tilde{X} \rightarrow \tilde{Y}$ by the
-    rule $\tilde{f}(x)=f_\alpha(x) \in Y_\alpha$. This map is well defined by
-    the total order on $\{(X_\alpha,Y_\alpha,f_\alpha)\}$.
+    Notice that $A \cup B=\com{S}{(\com{S}{A} \cap \com{S}{B})}$.
+\end{proof}
+\begin{corollary}
+    algebras are closed under arbitrary unions.
+\end{corollary}
 
-    Now, notice that $\tilde{f}$ is an upperbound of the collection
-    $\{(X_\alpha,Y_\alpha_f_\alpha)\}$, therefore, by Zorn's lemma there is a
-    maximum element $(X,Y,f)$ of $C$. By definition we get that $f$ is a 1--1
-    correspondence of $X$ onto $Y$, and by maximality, we get that either $X=A$
-    or $Y=B$. Suppose on the contary that this is not true. Then there is an  $a
-    \in \com{A}{X}$ and a $b \n \com{B}{Y}$. Letting $X'=X \cup a$ and  $Y'=Y
-    \cup b$, and  $f':X' \rightarrow Y'$ defined by $f'|_X=f$ and  $f'(a)=b$.
-    Then $(X,Y,f)<(X',Y',f')$, which contradicts the maximality of $(X,A,f)$.
+\begin{lemma}\label{lemma_3}
+    Let $R$ be a set and $\{S_\alpha\}$ a collection (not necessarily countable)
+    of $\sigma$-algebras of $R$. Then the set
+    \begin{equation*}
+        $S=\bigcap{S_\alpha}$
+    \end{equation*}
+    is a $\sigma$-algebra.
+\end{lemma}
+\begin{proof}
+    Since $R \in S_\alpha$ for all  $\alpha$,  $R \in S$, moreover if  $A,B \in
+    S$, then  $A,B \in S_\alpha$ for all  $\alpha$, so that  $A \cap B \in
+    \alpha$, this makes $A \cap B \in S$.
 
-    Therefore, we must have that either $X=A$ or  $Y=B$. Now, if  $X=A$, then
-    $f:A \rightarrow Y$ is 1--1 and onto, taking the extension of $Y$ to  $B$,
-    $f_B:A \rightarrow B$, we see it must be 1--1 as well. By the same reasoning
-    we can assure there is a 1--1 map $f_A:B \rightarrow A$ of $B$ into  $A$.
+    Lastly, let  $A \in S$, then  $A \in S_\alpha$ for all $\alpha$, so that
+    $\com{S_\alpha}{A} \in S_\alpha$, Since $\sigma$-algebras are closed under
+    arbitrary unions, we get
+    $\bigcup{(\com{S_\alpha}{A})}=\com{(\bigcap{S_\alpha})}{A}=\com{S}{A} \in S$.
+\end{proof}
+
+\begin{definition}
+    Let $R$ be a set, and  $\Cc \subseteq 2^R$. We call the algebra $S$ the
+    algebra \textbf{generated} by $\Cc$ if  $\Cc \subseteq S$ and if $\B$ is an
+    algebra containing $\Cc$, then  $S \subseteq B$. That is,  $S$ is the
+    smallest algebra that contains  $\Cc$.
+\end{definition}
+
+\begin{lemma}\label{lemma_4}
+    Let $\{S_\alpha\}$ a collection of algebras on a set $R$, containing $\Cc
+    \subseteq 2^R$. Then $S=\bigcap{S_\alpha}$ is the algebra generated by
+    $\Cc$.
+\end{lemma}
+\begin{proof}
+    We have that $S$ is an algebra by a similar proof to that of lemma
+    \ref{lemma_3}, Moreover, by definition, $\Cc \in S$. Now, let  $B$ be an
+    algebra, containing  $\Cc$. Then $B$ is in the collection $\{S_\alpha\}$, so
+    that $S \subseteq B$.
+\end{proof}
+
+\begin{definition}
+    Let $R$ be a set, and  $\Cc \subseteq 2^R$. We call the $\sigma$-algebra $S$
+    the $\sigma-$algebra \textbf{generated} by $\Cc$ if  $\Cc \subseteq S$ and
+    if $\B$ is an $\sigma$-algebra containing $\Cc$, then  $S \subseteq B$. That
+    is,  $S$ is the smallest $\sigma$-algebra that contains  $\Cc$.
+\end{definition}
+
+\begin{lemma}\label{lemma_5}
+    Let $R$ be a set and $S$ a semi-algebra of $R$. Let  $T(S)$ be the algebra
+    generated by $S$. Then $A \in T(S)$ if, and only if there exists a finite
+    collection $\{E_i\}_{i=1}^n$ of disjoint elements of $S$ for which
+    \begin{equation*}
+        A=\bigcup_{i=1}^n{E_i}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Observe that if $A=\bigcup{E_i}$, since $E_i \in S$ for all  $1 \leq i \leq
+    n$, then $E_i \in T(S)$. This makes $A \in T(S)$.
+
+    Conversely, suppose that $A \in T(S)$. Consider the collection
+    \begin{equation*}
+        \Bc=\{\bigcup{F_j} : F_j \in S \text{ and } F_i \cap F_j=\emptyset
+        \text{ whenever } i \neq j\}
+    \end{equation*}
+    Notce that $S \subseteq \Bc$, and hence, so is $R$. Now, let
+    $A=\bigcup{F_i}$ and $B=\bigcup{F_j}$. Then $A \cap B=(\bigcup{F_j}) \cap
+    (\bigcup{F_i})=\bigcup{(F_i \cap F_j)}$, which is a disjoint union of
+    elements in $S$. So  $A \cap B \in \Bc$ whenever  $A,B \in \Bc$.
+
+    Lastly, let  $A=\bigcap{F_j}$, then
+    $\com{\Bc}{A}=\bigcap{(\com{\Bc}{F_j})}=\bigcap{\bigcap_{k_i}^{l_i}{F_{i,k_i}}}$.
+    Since $F_{i,k_i} \in S$, we get $\com{\Bc}{A} \in \Bc$, so that $\Bc$ is an
+    algebra. This makes $A=T(S) \subseteq \Bc$.
 \end{proof}

@@ -1,142 +1,248 @@
-\section*{Lecture 2: Smallest Infinite Cardinality}
+\section*{Lecture 2: Set Functions}
 
 \begin{definition}
-    A set $A$ is  \textbf{countably infinite} if there exists a $1-1$ map $f:\N
-    \rightarrow A$ of $\N$ onto  $A$.
-\end{definition}
-\begin{remark}
-    That is we can put $A$ into countable order and represent it as an
-    increasing sequence $A=\{a_n\}_{n \in \N}$ where each $a_n$ is distinct for
-    all  $n$.
-\end{remark}
-
-\begin{example}\label{}
-    Both $\N$ and  $2\N$ are countable. Consider the identity map  $i:\N
-    \rightarrow \N$ and the map $f:\N \rightarrow 2\N$ defined by $n \rightarrow
-    2n$.
-\end{example}
-
-\begin{theorem}\label{thm_2.1}
-    A set $A$ is finite if, and only if there is no  $1-1$ map of $A$ onto a
-    subset of itself.
-\end{theorem}
-\begin{corollary}
-    Every infinite set countains a countable subset.
-\end{corollary}
-
-\begin{theorem}\label{}
-    A countable union of sets is countable.
-\end{theorem}
-\begin{proof}
-    Let $A$ and  $B$ be nonempty countable sets. Then there exists nonrepeating
-    increaseing sequences  $A=\{a_n\}$ and $B=\{b_m\}$. Then take $A \cup
-    B=\{a_n,b_m\}$, and delete any repeated members. Then we can say that $A
-    \cup B=\{c_k\}$ where $c_k=a_k$ for  $k$ odd, and  $c_k=b_k$ for  $k$ even.
-    Then  $A \cup B$ is countable.
-
-    Now suppose that  $\{A_n\}$ is a collection of countable sets. Then we have
-    the following:
-    \begin{align*}
-        A_1     &=      a_{11} \ a_{12} \ \dots \ a_{1n} \ \dots \\
-        A_2     &=      a_{21} \ a_{22} \ \dots \ a_{2n} \ \dots \\
-        A_3     &=      a_{31} \ a_{32} \ \dots \ a_{3n} \ \dots \\
-                \vdots                              \\
-        A_n     &=      a_{n1} \ a_{n2} \ \dots \ a_{nn} \ \dots \\
-                \vdots                                \\
-    \end{align*}
-    Construct the set:
+    Let $\Cc \subseteq 2^R$ for some set $R$. We call a function $\mu:\Cc
+    \xrightarrow{} \R^+_{\infty}$ \textbf{additive} if for any finite disjoint
+    collection $\{E_i\}_{i=1}^n$, we have
     \begin{equation*}
-        A=\{a_{11},a_{12},a_{21},a_{13},a_{22},a_{31}, \dots\}
+        \mu(\bigcup_{i=1}^n{E_i})=\sum_{i=1}^n{\mu(E_i)}
     \end{equation*}
-    Then $A$ is countable and $A=\bigcup{A_n}$.
-\end{proof}
+\end{definition}
 
-\begin{example}\label{}
-    \begin{enumerate}
-        \item[(1)] $-\N$ is countable, then  $-\N \cup \N=\Z$ is also countable,
-            which makes $\Z$ countable.
+Suppose there is an $A \in \Cc$ for which $\mu(A)$ is finite. By additivity, we
+have that
+\begin{equation*}
+    \mu(A)=\mu(A \cup \emptyset)=\mu(A)+\mu(\emptyset)
+\end{equation*}
+Subtracting $\mu(A)$ from both sides of the equations then yields
+\begin{equation*}
+    \mu(\emptyset)=0
+\end{equation*}
+Moreover, if $A \subseteq B$, then notice that  $B=A \cup \com{B}{A}$, so that
+\begin{equation*}
+    \mu(B)=\mu(A \cup \com{B}{A})=\mu(A)+\mu(\com{B}{A})
+\end{equation*}
+So that
+\begin{equation}
+    \mu(A) \leq \mu(B)
+\end{equation}
+Now, in the case where $\mu(B)$ is infinite, we must also have that $\mu(A)$ is
+infinite, in which case we still get the inequality.
 
-        \item[(2)]  Consider the rational numbers $\Q=\{\frac{p}{q} : p,q \in
-            \Z\}$. Let $\frac{\Z}{n}=\{\frac{p}{n} : p \in \Z\}$ for some $n \in
-            \com{\N}{\{0\}}$. Then notice that  $\frac{\Z}{n}$ is countable and
-            that $\Q=\bigcup{\frac{\Z}{n}}$, which makes $\Q$ countable as well.
-    \end{enumerate}
+\begin{example}\label{example_2}
+    Let $R$ a set, and  $\{x_n\}$ a sequence of points of $R$. Let  $\{p_n\}$ a
+    sequence of nonnegative numbers, and let $\Cc \subseteq 2^R$. Define the
+    function  $\mu:\Cc \xrightarrow{} \R^+_\infty$ by $\mu(x)=\sum{p_nx_n}$
+    Then $\mu$ is additive.
 \end{example}
 
-\begin{lemma}\label{}
-    Let $A$ and  $B$ be two countably finite sets. Then  $A \times B$ is
-    countable.
+\begin{definition}
+    Let $R$ a set and $\Cc \subseteq 2^R$ with $\emptyset \in \Cc$. We say that
+    a function $\mu:\Cc \xrightarrow{} \R^+_\infty$ is
+    \textbf{$\sigma$-additive} if for any countable disjoint collection
+    $\{E_n\}$, we have
+    \begin{equation*}
+        \mu(\bigcup{E_n})=\sum{\mu(E_n)}
+    \end{equation*}
+\end{definition}
+
+\begin{example}\label{example_3}
+    Let $R=(0,1)$ and define
+    \begin{equation*}
+        \Cc=\{(a,b] : 0 \leq a<b<1\} \cup \{\emptyset\}
+    \end{equation*}
+    and define $\mu:\Cc \xrightarrow{} \R^+_\infty$ by
+    \begin{equation*}
+        \mu((a,b])=\begin{cases}
+                    b-a, \text{ if } a=0    \\
+                    \infty, \text{ if } a>0 \\
+                 \end{cases}
+    \end{equation*}
+    Then $\mu$ is additive, but it is not  $\sigma$-additive. Let  $\{x_n\}
+    \xrightarrow{} 0$ a decreasing sequence, with $x_1=\frac{1}{2}$. Then take
+    \begin{equation*}
+        (0,\frac{1}{2}]=\bigcup{(x_{i+1},x_i]}
+    \end{equation*}
+\end{example}
+
+\begin{definition}
+    Let $\Cc$ a collection of subsetes of a set $R$. We say a function $\mu:\Cc
+    \xrightarrow{} \R^+_\infty$ is \textbf{continuous from below} at $E$
+    provided that for any increasing seqeuence $\{E_n\}$ of subsets of $R$, we
+    have $\{\mu(E_n)\} \xrightarrow{} \mu(E)$ whenever $\{E_n\} \xrightarrow{}
+    E$.
+\end{definition}
+
+\begin{definition}
+    Let $\Cc$ a collection of subsetes of a set $R$. We say a function $\mu:\Cc
+    \xrightarrow{} \R^+_\infty$ is \textbf{continuous from above} at $E$
+    provided that for any decreasing seqeuence $\{E_n\}$ of subsets of $R$, we
+    have $\{\mu(E_n)\} \xrightarrow{} \mu(E)$ whenever $\{E_n\} \xrightarrow{}
+    E$ and where $\mu(E_{n_0})$ if finite for some $n_0 \in \Z^+$.
+\end{definition}
+
+\begin{definition}
+    Let $\Cc$ a collection of subsetes of a set $R$. We say a function $\mu:\Cc
+    \xrightarrow{} \R^+_\infty$ is \textbf{continuous} at $E$ provided it is
+    continuous from below at $E$, and continuous from above at $E$.
+\end{definition}
+
+\begin{lemma}\label{lemma_7}
+    Let $S$ an algebra on  $R$ and  $\mu:S \xrightarrow{} \R^+_\infty$ be
+    additive. Then the following are true
+    \begin{enumerate}
+        \item[(1)] If $\mu$ is $\sigma$-additive, then it is continuous at $E$
+            for all  $E \in S$.
+
+        \item[(2)] If $\mu$ is continuous from below, then  $\mu$ is
+            $\sigma$-additive.
+
+        \item[(3)] If $\mu$ is continuous from above at  $\emptyset$, with
+            $\mu(R)$ finite, then it is $\sigma$-additive.
+    \end{enumerate}
 \end{lemma}
 \begin{proof}
-    Take $A \times B=(\bigcup{A_n}) \times \{b_n\}$, where $b_n \in B$.
+    \begin{enumerate}
+        \item[(1)] Suppose that $\mu$ is sigma additive. Let  $\{E_n\}$ an
+            increasing sequence of subsets of $R$ convergine to $E$.
+            \begin{figure}[h]
+                \centering
+                \includegraphics[scale=1]{Figures/increasing_cover.eps}
+                \caption{}
+                \label{figure_2}
+            \end{figure}
+            Let $F_1=E_1$, $F_2=\com{E_2}{E_1}$, $\dots$,
+            $F_n=\com{E_n}{E_{n-1}}$, in accordance to figure \ref{figure_2}.
+            Notice then that ${F_k}$ is a disjoint collection with
+            $\bigcup{F_k}=\bigcup{E_n}=E$.
+            Then
+            \begin{equation*}
+                \mu(E)=\sum{\mu(F_k)}=\lim_{n \xrightarrow{}
+                \infty}{\sum_{k=1}^n{\mu(F_k)}}=\lim{\mu(F_k)}=\lim{\mu(E_n)}
+            \end{equation*}
+            Thus $\mu$ is continuous from below at  $E$.
+
+            Now let $E \in S$ and let $\{E_n\}$ a decreasing sequence converging
+            to $E$, and which  $\mu(E_{n_0})$ is finite for some $n_0 \in \Z^+$.
+            In similar manner to what was defined for figure \ref{figure_2},
+            define $G_1=\com{E_{n_0}}{E_{n_0+1}}, \dots,
+            G_k=\com{E_{n_0}}{E_{n_0+k}}$. Then $\{G_k\}$ is an increasing
+            sequence of disjoint subsets of $R$ with  $\{G_k\} \xrightarrow{}
+            \com{E_{n_0}}{E}$. Now, since $\mu$ is  $\sigma$-additive, and
+            continuous from below, we get that  $\{\mu(G_k)\} \xrightarrow{}
+            \mu(\com{E_{n_0}}{E})$. So we have that
+            \begin{align*}
+                \mu(\com{E_{n_0}}{E}) &=  \lim{\mu(\com{E_{n_0}}{E_{n_0+k}})} \\
+                                    &=  \lim{\mu(E_{n_0})}-\lim{\mu(E_{n_0+k})} \\
+            \end{align*}
+            then
+            \begin{equation*}
+                \mu(E_{n_0})-\mu(E)=\mu(E_{n_0})-\lim{\mu(E_{n_0+k})}
+            \end{equation*}
+            Subtracting and rearranging terms gives us the result.
+
+        \item[(2)] Suppose that $\mu$ is continuous from below. Let
+            $E=\bigcup{E_k}$ a disjoint union. Then notice that
+            \begin{equation*}
+                \bigcup_{k=1}^n \subseteq E
+            \end{equation*}
+            so that
+            \begin{align*}
+                \mu(\bigcup_{k=1}^n{E_k}) &\leq \mu(E), \text{ so that} \\
+                \sum_{k=1}^{n}{\mu(E_k)} &\leq \mu(E), \text{ then as } n
+                \xrightarrow{} \infty \\
+                \sum{\mu(E_k)} &\leq \mu(E)
+            \end{align*}
+            Now, let $F=\bigcup_{k=1}^n{E_k} \in S$. Then $\{F_n\}
+            \xrightarrow{} E$ is an increasing sequence, and since $\mu$ is
+            continuous from below, we have that  $\{\mu(F_n)\} \xrightarrow{}
+            \mu(E)$ so that
+            \begin{equation*}
+                \sum_{k=1}^n{\mu(F_k)} \xrightarrow{} \mu(E)
+            \end{equation*}
+            making $\mu(E) \leq \sum{\mu(E_k)}$, making $\mu$ $\sigma$-additive.
+
+        \item[(3)] Lastly, suppose that $\mu$ is continuous from below at
+            $\emptyset$, with  $\mu(R)$ finite. Let $\{E_k\}$ be an increasing
+            sequence and $F_n=\bigcup_{k \geq n}{E_k}$ which defines a
+            decreasing sequence $\{F_n\} \xrightarrow{} \emptyset$. By
+            finiteness of $\mu(R)$, we have that $\mu(F_1)$ is also finite, and
+            by continuity, that $\{m(F_n)\} \xrightarrow{} 0$. Now,
+            \begin{align*}
+                \mu(E) &= \mu( \bigcup_{k=1}^n{E_k} \cup \bigcup_{k \geq n}{E_k}) \\
+                     &= \sum_{k=1}^n{\mu(E_k)}+\mu(F_{n+1}) \\
+            \end{align*}
+            Now, since $\{F_n\} \xrightarrow{} 0$, we get that
+            \begin{equation*}
+                \mu(E)=\sum{\mu(E_k)}
+            \end{equation*}
+    \end{enumerate}
 \end{proof}
 
-\begin{example}\label{}
-    \begin{enumerate}
-        \item[(1)] Let $P$ be the set of all polynomials with integer
-            coefficients. Let  $P_i$ be the set of all polynomials of degree
-            $\deg=i$. Then we have the following:
-            \begin{align*}
-                P_0     &\simeq     \Z      \\
-                P_1     &\simeq     \Z \times \Z        \\
-                        \vdots              \\
-                P_n     &\simeq     \Z \times \Z \times \dots \times \Z        \\
-                        \vdots                      \\
-            \end{align*}
-            Then we have that $P \simeq \bigcup{P_i}$. Since each $P_i$ is
-            countable, so is  $\bigcup{P_i}$, so by isomorphism, $P$ must also
-            be countable.
-
-        \item[(2)] Let $\Ac=\{x \in \C : \text{ there exists a polynomial with
-                integer coefficients } p \text{ such that } p(x)=0\}$ be the set
-                of all algebraic numbers over $\C$. Then we have  $\Q \subseteq
-                \Ac$, since the polynomial $z^2+1=0$ has complex roots. $\Ac$
-                is countable.
-    \end{enumerate}
+\begin{example}\label{example_4}
+    Refering to example \ref{example_3}, we have that $\mu$ is additive, but not
+     $\sigma$-additive. Take $\{E_n\} \xrightarrow{} \emptyset$ decreasign, with
+     $E_n=(a_{n_1},b_{n_1}] \cup (a_{n_k},b_{n_k}]$, with $a_{n_j}<a_{n_{j+1}}$.
+     If $a_{n_1}=0$, for all $n$, then we have $\mu((a_{n_1},b_{n_1}])$ is
+     infinite, and there is nothing to prove. Now, if $a_{n_{k_0}}>0$ for all
+     $k_0$, then $\mu$ is continuous from below at  $\emptyset$, but  $\mu$ is
+     infinite.
 \end{example}
 
-\begin{theorem}\label{}
-    Let $A$ be a set, then  $|A|<|2^A|$.
+\begin{theorem}\label{theorem_8}
+    Let $S$ be a semialgebra on  $R$ and $\mu:S \xrightarrow{} \R^+_\infty$
+    additive. Then there exists a function $\nu:Q(S) \xrightarrow{} \R^+_\infty$
+    which is additive such that
+    \begin{enumerate}
+        \item[(1)] $\nu(A)=\mu(A)$ for all $A \in S$.
+
+        \item[(2)] $\nu$ is unique.
+    \end{enumerate}
+    where $Q(S)$ is the algebra generated by $S$.
 \end{theorem}
 \begin{proof}
-    We have that by definition, $|A|>|2^A|$ is impossible, so suppose that
-    $|A|=|2^A|$. Then there exists a $1-1$ map  $f:A \rightarrow 2^A$ of $A$
-    onto its powerset. Then we have that for each  $a \in A$,  $f(a) \subseteq
-    A$. Now, let $A_0=\{x \in A : x \notin f(x)\}$. Since $f$ is onto, there is
-    an  $x_0 \in A$ with $f(x_0)=A_0$. Now, if $x \in f(x_0)$, we get that $x
-    \in A_0$, which means that $x_0 \notin f(x_0)$. This cannot happen; so it
-    must be that $x_0 \notin f(x_0)$, but then we get that $x_0 \in A_0$, which
-    forces $x_0 \in f(x_0)$. A contradiction! Therefore it must be that
-    $|A|<|2^A|$
+    Recall that if $A \in Q(S)$, then
+    \begin{equation*}
+        A=\bigcup_{k=1}^n{E_k}
+    \end{equation*}
+    where $\{E_k\}_{k=1}^n$ is a finite disjoint collection of elements of $S$.
+
+    Define  $\nu:Q(S) \xrightarrow{} \R^+_\infty$ by
+    \begin{equation*}
+        \nu(A)=\sum{\nu(E_n)} \text{ where } \nu(E_n)=\mu(S_n) \text{ for all }
+        E_n \in S
+    \end{equation*}
+    Let $A=\bigcup_{i=1}^m{F_i}$, then
+    $\nu(A)=\sum_{i=1}^m{\mu(F_k)}=\sum_{k=1}^n{\mu(E_k)}$. Since $\mu$ is
+    additive on $S$, and $E_k \subseteq S$, then
+    \begin{equation*}
+        E_k=E_k \cap \bigcup_{i=1}^m{F_i}=\bigcup_{i=1}^m{(E_k \cap F_i)}
+    \end{equation*}
+    Then
+    \begin{equation*}
+        \mu(E_k)=\sum{\mu(E_k \cap F_i)}
+    \end{equation*}
+    So that
+    \begin{equation*}
+        \nu(A)=\sum_{k=1}^n{\sum_{i=1}^m{\mu(E_k \cap F_i)}}
+    \end{equation*}
+    which makes $\sum{\mu(F_i)}=\sum{\mu(E_k)}$. Therefore $\nu$ is well
+    defined.
+
+    Now let  $A,B \in Q(S)$. Then $A=\bigcup_{i=1}^n{E_i}$ and
+    $B=\bigcup_{j=1}^m{F_j}$ with $A$ and $B$ disjoint. Then we have that
+    \begin{equation*}
+        \nu(A \cup B)=\mu(A \cup B)=\mu(A)+\mu(B)=\nu(A)+\nu(B)
+    \end{equation*}
+    So that $\nu$ is additive.
+
+    Lastly, suppose that  $\nu':Q(S) \xrightarrow{} \R^+_\infty$ is additive
+    such that $\nu'(A)=\mu(A)$ for any $A \in S$. Since  $\nu(A)=\mu(A)$, take
+    $B \in Q(S)$ so that $B=\bigcup_{k=1}^n{E_k}$. Then
+    $\nu(B)=\sum{\nu(E_k)}=\sum{\mu(E_k)}$ and
+    $\nu'(B)=\sum{\nu'(E_k)}=\sum{\mu(E_k)}$ so that $\nu(B)=\nu'(B)$ for all $B
+    \in S$.
 \end{proof}
-
-\begin{example}\label{}
-    $|\N|<|2^\N|$
-\end{example}
-
-Now consider the set of real numbers $\R$. We have the following theorems.
-
-\begin{theorem}\label{}
-    $\R$ is a field.
-\end{theorem}
-
-\begin{theorem}\label{}
-    $\R$ is a totally ordered set.
-\end{theorem}
 \begin{corollary}
-    The following are true for all $a,b,c \in \R$.
-    \begin{enumerate}
-        \item[(1)] $a>b$ impl ies that $a+c>b+c$.
-
-        \item[(2)] $a>b$ and  $c>0$ implies  $ac>bc$.
-
-        \item[(3)] For all $a>0$ and  $b>0$, there exists an  $n \in \N$ such
-            that  $an>b$  (Property of Archimedes).
-    \end{enumerate}
+    If $\mu$ is  $\sigma$-additive, then so is  $\nu$.
 \end{corollary}
-
-\begin{theorem}\label{}
-    $\R$ has the least upperbound property. That is, if  $\{a_n\}$ is an
-    increasing sequence of real numbers bounded above by $b$, then  $\sup{\{a_n\}}
-    \in \R$.
-\end{theorem}
