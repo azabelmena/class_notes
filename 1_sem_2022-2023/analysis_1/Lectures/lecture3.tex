@@ -1,1 +1,232 @@
 \section*{Lecture 3: Caratheodory's Theorem}
+
+\begin{definition}
+    Let $R$ be a set. Define the function $m^*(2^R) \xrightarrow{} \R^+_\infty$
+    by
+    \begin{equation*}
+        m^*(A)=\inf{\{\sum{\nu(E_n)} : A \subseteq \bigcup{E_n} \}}
+    \end{equation*}
+    where $\nu$ is a sigma-additive function. We call  $m^*$ the  \textbf{outer
+    measure} of $A$.
+\end{definition}
+
+\begin{theorem}\label{thoerem_9}
+    Let $R$ be a set. Then the outermeasure of a subset of $R$ satisfies the
+    following:
+    \begin{enumerate}
+        \item[(1)] $m^*(\emptyset)=0$.
+
+        \item[(2)] $m^*(A) \leq m^*(B)$ whenever $A \subseteq B$.
+
+        \item[(3)] If $\{E_n\}$ is a disjoint collection of subsets of $R$, then
+            \begin{equation*}
+                m^*(\bigcup{E_n}) \leq \sum{m^*(E_n)}
+            \end{equation*}
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Notice that since $\nu$ is  $\sigma$-additive, then  $\nu(\emptyset)=0$.
+    Now, let $E$ a covering for  $\emptyset$, then
+    \begin{equation*}
+        m^*(E)<\sum{\nu(E)}+\epsilon
+    \end{equation*}
+    for some $\epsilon>0$ small enough. This follow by definition of $m^*$.
+    Indeed, we have $m^*(\emptyset) \leq 0$. Since $m^*$ takes only nonnegative
+    values, we have  $m^*(\emptyset)=0$.
+
+    Now, let $A \subseteq B$, and let  $\{E_n\}$ be a cover of $B$, then it is
+    also a cover of  $A$ and we have
+    \begin{align*}
+        m^*(A)  &=  \inf{\{\sum{\nu(E_n)} : A \subseteq \bigcup{E_n}\}}  \\
+        m^*(B)  &=  \inf{\{\sum{\nu(E_n)} : B \subseteq \bigcup{E_n}\}}  \\
+    \end{align*}
+    since $A \subseteq B$, we get the result.
+
+    Lastly, suppose that  $\{E_n\}$ is a disjoiunt collection covering a set
+    $E$, i.e. $E \subseteq \bigcup{E_n}$, and suppose without loss of generality
+    that each $m^*(E_n)$ is finite. Let $\epsilon>0$ and let  $\{H_{n_k}\}$ be a
+    coverning for $E_n$. Then we have
+    \begin{equation*}
+        m^*(E_n) \leq \sum{\nu(H_{n_k})} \leq m^*(E_n)+\frac{\epsilon}{2^n}
+    \end{equation*}
+    for some $\epsilon>0$. Now, since  $\{H_{n_k}\}$ covers each $E_n$, it also
+    covers $\bigcup{E_n}$, and hence $\{H_{n_k}\}$ also covers $E$. Then by
+    monotonicity, we have
+    \begin{equation*}
+        m^*(E) \leq \sum{\nu(H_{n_k})} \leq m^*(E_n)+\frac{\epsilon}{2^n} \leq
+        \sum{m^*(E_n)+\frac{\epsilon}{2^n}}=\sum{m^*(E_n)}+\epsilon
+    \end{equation*}
+\end{proof}
+
+\begin{definition}
+    Let $R$ be a set. We say a subsete $E$ of $R$ is  \textbf{measurable} if for
+    any $A \subseteq R$ we have
+    \begin{equation*}
+        m^*(A)=m^*(A \cap E)+m^*(A \cap \com{R}{E})
+    \end{equation*}
+    we denote the collection of all measurable sets of $R$ as  $\Mc$.
+\end{definition}
+
+\begin{lemma}\label{lemma_10}
+    For any subset $E$ of a set $R$, we have
+    \begin{equation*}
+        m^*(E) \leq m^*(E \cap A)+m^*(E \cap \com{R}{A})
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Indeed, notice that for any $A \subseteq R$, that $E=(E \cap A) \cup (E \cap
+    \com{R}{A})$. The result follows by subadditivity.
+\end{proof}
+
+\begin{theorem}\label{thoerem_11}
+    For any algebra $Q$ of a set $R$, the collection of all measurable subsets
+    of $R$, $\Mc$, contains $Q$. Moreover, $\Mc$ is an algebra.
+\end{theorem}
+\begin{proof}
+    Let $A \in Q$, and let  $E \subseteq R$. Assume, without loss of
+    generality, that  $m^*(E)$ is finite. Now, let $\epsilon>0$. Then there is a
+   cover $\{E_n\}$ of $E$, of subsets of $Q$ for which
+    \begin{equation*}
+        m^*(E) \leq \sum{\nu(E_n)} \leq m^*(E)+\epsilon
+    \end{equation*}
+    Notice that since $Q$ is an algebra, then $E_n \cap A \in Q$, and  $E_n \cap
+    \com{R}{A} \in Q$. Then we have
+    \begin{equation*}
+        E \cap A \subseteq \bigcup{(E_n \cap A)}
+    \end{equation*}
+    so that
+    \begin{equation*}
+        m^*(E \cap A) \leq \sum{\nu(E_n \cap A)}
+    \end{equation*}
+    Similarly, we get $m^*(E \cap \com{R}{A}) \leq \sum{\nu(E_n \cap
+    \com{R}{A})}$. So we get
+    \begin{equation*}
+        m^*(E \cap A)+m^*(E \cap \com{R}{A}) \leq \sum{\nu(E_n \cap
+        A)}+\sum{\nu(E \cap \com{R}{A})}=\sum{\nu(E_n)} \leq m^*(E)+\epsilon
+    \end{equation*}
+    This makes $A$ measurable, and so $Q \subseteq \Mc$.
+
+    Notice, moreover, that
+    \begin{equation*}
+        m^*(E)=m^*(E \cap R)+m^*(E \cap \com{R}{R})
+    \end{equation*}
+    This makes $R$ and $\emptyset$ measurable sets. Moreover, the de inition of
+    a measurable set also implies that if $A$ is measurable, so is $\com{R}{A}$.
+
+    Lastly, let $A,B \in \Mc$, and let $E \subseteq R$. Then we have
+    \begin{align*}
+        m^*(E)  &=  m^*(E \cap A)+m^*(E \cap \com{R}{A})    \\
+        m^*(\com{E}{A})  &=  m^*(\com{E}{A} \cap B)+m^*(\com{E}{A} \cap \com{R}{B})    \\
+    \end{align*}
+    Notice that $E \cap \com{R}{A}=E \com{E}{A}$, then we have
+    \begin{equation*}
+        m^*(E) \geq m^*(E \cap A)+m^*(\com{E}{A} \cap B)+m^*(\com{E}{(A \cup
+        B)}) \geq m^*(E \cap (A \cup B))+m^*(\com{E}{(A \cup B)})
+    \end{equation*}
+    This makes $A \cup B$ measurable. So that  $\Mc$ is atleast an algebra.
+\end{proof}
+\begin{corollary}
+    $\Mc$ is a  $\sigma$-algebra.
+\end{corollary}
+\begin{proof}
+    Let $\{A_n\}$ be a collection of measurable sets, and let $A=\bigcup{A_n}$.
+    By above, we have that for some $N \geq 0$, the finite union
+    $\bigcup_{k=1}^N{A_k}$ is measurable, and for some $E \subseteq R$, we have
+    \begin{equation*}
+        m^*(E)=m^*(E \cap \bigcup_{k=1}^N{A_k})+m^*(\bigcap_{k=1}^N{\com{E}{A_n}})
+    \end{equation*}
+    Notice that $\bigcap{\com{E}{A_n}} \subseteq \bigcap_{k=1}^N{\com{E}{A_k}}$,
+    so that
+    \begin{equation*}
+        m^*(E) \geq m^*(E \cap \bigcup_{k=1}^N{A_k})+m^*(\com{E}{A})
+    \end{equation*}
+    Define, then the sequence $F_1=A_1$, $F_2=\com{A_2}{A_1}$, $\dots$,
+    $F_n=\com{A_n}{A_{n-1}}$. Then we have
+    $\bigcup_{k=1}^N{A_k}=\bigcup_{k=1}^N{F_k}$, and that $\{F_n\}$ is a
+    disjoint collection. Then
+    \begin{equation*}
+        m^*(E) \geq m^*(E \cap \cup_{k=1}^N{F_k})+m^*(\com{E}{A})
+    \end{equation*}
+    By induction on $n$, it can be shown that
+    \begin{equation*}
+        m^*(E \cap \bigcup_{k=1}^N{F_k})=\sum_{k=1}^N{m^*(E \cap F_k)}
+    \end{equation*}
+    Then we have
+    \begin{equation*}
+        m^*(E) \geq \sum_{k=1}^N{E \cap F_k}+m^*(\com{E}{A})
+    \end{equation*}
+    Then, for any $n \geq N$, and taking  $N$ large enough, by subadditivity,
+    we have
+    \begin{equation*}
+        m^*(E) \geq m^*(E \cap A)+m^*(\com{E}{A})
+    \end{equation*}
+    which makes $A=\bigcup{A_n}$ measurable.
+\end{proof}
+\begin{corollary}
+    $m^*$ is an extension of $\nu$.
+\end{corollary}
+\begin{proof}
+    By definition, we have $m^*(A) \leq \nu(A)$. Now, let $\{E_n\}$ a covering
+    of $A$, and define the sequence $\{F_n\}$ by $F_i=\com{E_i}{(E_1 \cup \dots
+    \cup E_{i-1})}$. Then $\bigcup{E_n}=\bigcup{F_n}$ and $\{F_n\}$ is a
+    disjoint collection. So we have $A=A \cap \bigcup{F_n}$. By
+    $\sigma$-additivity of  $\nu$, we get
+    \begin{equation*}
+        \nu(A)=\sum{\nu(F_n \cap A)} \leq \sum{\nu(E_n)} \leq m^*(A)+\epsilon
+    \end{equation*}
+    for some $\epsilon>0$.
+\end{proof}
+\begin{corollary}
+    $m^*$ restricted to the measurable sets $\Mc$ is $\sigma$-additive.
+\end{corollary}
+\begin{proof}
+    For any collection $\{A_n\}$ of measurable sets, we have
+    \begin{equation*}
+        m^*(\bigcup{A_n}) \leq \sum{m^*(A_n)}
+    \end{equation*}
+    Now, since $m^*$ is monotone, we have for any  $N \geq 0$, that
+    \begin{equation*}
+        m^*(\bigcup_{k=1}^N{A_k}) \leq m*(\bigcup{A_n})
+    \end{equation*}
+    Then
+    \begin{equation*}
+        \sum_{k=1}^n{m^*(A_k)} \leq m*(\bigcup{A_n})
+    \end{equation*}
+    so that when $n \geq N$, we get the result.
+\end{proof}
+
+\begin{definition}
+    Let $R$ be a set. We call a subset $G$ of  $R$ a  \textbf{monotone class} if
+    the following hold
+    \begin{enumerate}
+        \item[(1)] If $\{A_n\} \subseteq G$, is an increasing sequence then
+            $\bigcup{A_n} \subseteq G$.
+
+        \item[(1)] If $\{B_n\} \subseteq G$, is an decreasing sequence then
+            $\bigcap{B_n} \subseteq G$.
+    \end{enumerate}
+\end{definition}
+
+\begin{lemma}\label{lemma_12}
+    Let $\{G_\alpha\}$ a collection of monotone classes. Then
+    $\bigcap{G_\alpha}$ is also a monotone class.
+\end{lemma}
+
+\begin{definition}
+    Let $C$ be a subset of a set  $R$. We cal l the smallest monotone class
+    $G(C)$, containing $C$ the monotone class  \textbf{generated} by $C$, and is
+    precisely
+    \begin{equation*}
+        G(C)=\bigcap{G_\alpha}
+    \end{equation*}
+    Where $\{G_\alpha\}$ is a collection of monotone classes all containing $C$.
+\end{definition}
+
+\begin{lemma}\label{lemma_13}
+    For any algebra $Q$ on a set  $R$, the monotone class generated by  $Q$ is
+    preciesly the $\sigma$-algebra generated by $Q$.
+\end{lemma}
+
+\begin{theorem}[Caratheodory's Theorem]\label{theorem_14}
+    The outer measure of subsets of a set $R$ is unique.
+\end{theorem}
