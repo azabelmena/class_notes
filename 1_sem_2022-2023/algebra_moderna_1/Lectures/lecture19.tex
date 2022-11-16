@@ -1,0 +1,213 @@
+\section*{Lectura 19: Extensiones de Cuerpos}
+
+\begin{definition}
+    Sea $F$ y  $E$ cuerpos tal que  $F \subseteq E$. Entonces decimos que  $E$
+    es un  \textbf{extensi\'on} de $F$ y escribimos $\faktor{E}{F}$ como el
+    extensi\'on.
+\end{definition}
+
+\begin{example}\label{}
+    Los sigueintes son extensiones de cuerpos.
+    \begin{enumerate}
+        \item[(1)] $\faktor{\C}{\R}$.
+
+        \item[(2)] $\faktor{\R}{\Q}$
+
+        \item[(4)] $\faktor{\Q(i)}{\Q}$ donde $\Q(i)=\{a+ib : a,b \in \Q\}$, y
+            $i^2+1=0$.
+
+        \item[(5)] $\faktor{\F_2[x]}{(p)}$ es una extensi\'on de $\F_2$, donde
+            $p(x)=x^3+x+1$.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    Sea $E$ un extension de  $F$. El  \textbf{grado} de $\faktor{E}{F}$,
+    denotatdo $[E:F]$ es la dimension de  $E$ como espacio vectorial sobre  $F$,
+    es decir, $\dim_F{E}=[E:F]$. S\'i $[E:F]$ es finita, entonces llamamos a
+    $\faktor{E}{F}$ una extensi\'on \textbf{finita}.
+\end{definition}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] $[\C:\R]=2$, note que $\C$ y  $\R$ son ambos conjuntos finitos.
+
+        \item[(2)] $[\R:\Q]$ es infinito.
+
+        \item[(3)] $[\Q(i):\Q]=2$.
+
+        \item[(4)] $[\faktor{\F_2[x]}{(p)}:\F_2]=3$, donde $p(x)=x^3+x+1$.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{19.78}
+    Sea $F$ y $E$ cuerpos, $E$ no necesariamente una extensi\'on de $F$, y sea
+    $\phi:F \xrightarrow{} E$ un homomorfismo de cuerpos. Entonces $\phi$ es
+    1--1.
+\end{lemma}
+\begin{proof}
+    Note que, como $F$ es un cuerpo, los unicos ideales que tienes es $(0)$ y
+    $(1)=F$. Nota que, como $F$ tiene al menos  $0,1 \in F$, las identidades,
+    entonces tenemos que  $\phi:0_F \xrightarrow{} 0_E$ y $\phi:1_F
+    \xrightarrow{} 1_E$. As'i que tenemos que $\ker{\phi}=(0)$.
+\end{proof}
+\begin{corollary}
+    S\'i $E$ es extensi\'on de $F$, se puede encrustar a $F$ en  $E$.
+\end{corollary}
+
+\begin{theorem}\label{19.79}
+    Sea $f(x)$ un polinomio no constante sobre el cuerpo $F$, entonces existe
+    una extensi\'on  $\faktor{E}{F}$ y un $\alpha \in E$ tal que  $f(\alpha)=0$.
+\end{theorem}
+\begin{proof}
+    Sabemos que $F[x]$ es un dominio de factorizaci\'on \'unica, as\'i que $f$
+    tiene factorizaci\'on \'unica en irreducibles. Entonces suponga s\'in perder
+    la generalidad que $f$ es irreducible. Considere ahora el ideal $(f)$, como
+    $f$ es irreducible, y $F$ es dominio de factorizaci\'on \'unica, entonces
+    $f$ es primo, es decir, que $(f)$ es primo. Ahora, como $F[x]$ es un dominio
+    de ideales principales, tenemos que $(f) \subseteq (q)$, donde $(q)$ es un
+    ideal maximal. Entonces $q|f$ y como  $f$ es irreducible, tenemos que $q=f$
+    y $(q)=(f)$. Como $f$ no es constante, y $(q) \neq F[x]$, $q$ no es unidad,
+    as\'i que, sea
+    \begin{equation*}
+        E=\faktor{F[x]}{(f)}
+    \end{equation*}
+    encrusta a $F$ en  $E$ v\'ia el homomorfismo  $a \xrightarrow{} a+(f)$.
+    Entonces sea $\alpha=x+(f)$ y sea $f(x)=a_0+a_1x+\dots+a_nx^n$, entonces
+    \begin{align*}
+        f(\alpha) &=  (a_0+(f))+(a_1+(f))(x+(f))+\dots+(a_n+(f))(x+(f))^n   \\
+             &= (a_0+(f))+(a_1x+(f))+\dots+(a_nx^n+(f)) \\
+             &= (a_0+a_1x+\dots+a_nx^n)+(f) \\
+             &= f+(f)   \\
+             &= (f) \\
+    \end{align*}
+    Por lo tanto $f(\alpha)=0$.
+\end{proof}
+
+\begin{definition}
+    S\'i $f$ es un polinomio sobre un cuerpo $F$, y $\faktor{E}{F}$ es una
+    extensi\'on, llamamos a un $\alpha \in \faktor{E}{F}$ una \textbf{ra\'iz} de
+    $f$ s\'i  $f(\alpha=0)$. S\'i todo elemento de $\faktor{E}{F}$ es ra\'iz de
+    un polinomio, entonces llamamos a $\faktor{E}{F}$ \textbf{algebraico}, y
+    decimos que sus elementos tambien son \textbf{algebraicos}. De lo contrario,
+    decimos que $\alpha \in \faktor{E}{F}$ es \textbf{transcendental}.
+\end{definition}
+
+\begin{example}\label{}
+    $\C$ es algebraico sobre $\R$, lo que dicta la teorema fundamental del
+    \'algebra, pero $\R$ no es algbraico sobre $\Q$. Considere $\pi,e \in
+    \com{\R}{\Q}$.
+\end{example}
+
+\begin{definition}
+    Sea $F$ un cuerpo y  $\faktor{E}{F}$ una extensi\'on algebraico. El
+    \textbf{polinomio minimo} de $F$ es el polinomio $m$ m\'onico, y minimo tal
+    que  $E=\faktor{F[x]}{(m)}$.
+\end{definition}
+
+\begin{lemma}\label{19.80}
+    Sean $f$ y $g$ polinomios distintos sobre un cuerpo $F$. Entonces $f$ y $g$
+    son coprimos s\'i y solo s\'i no tienen un ra\'iz en com\'un. Mas a\'un,
+    s\'i $f$ y  $g$ son m\'onicos y irreducibles, entonces no tienen ra\'iz en
+    comun en ningun extension de  $F$.
+\end{lemma}
+\begin{proof}
+    Suponga que $(f,g)=c$, donde $c(x)$ es constante. Entonces existen $a,b \in
+    F[x]$ taleq que
+    \begin{equation*}
+        a(x)f(x)+b(x)g(x)=c(x)
+    \end{equation*}
+    S\'i $\alpha$ es ra\'iz comun, obtendriamos que  $c(x)=0$, lo que no puede
+    pasar.
+
+    Por otro lado, sea $(f,g)=d$ y $d(x)$ no constante. Entonces existe una
+    extensi\'on $\faktor{E}{F}$  con un ra\'iz $\alpha$ de  $d(x)$. Por
+    definici\'on, tenemos que $\alpha$ es ra\'iz comun de $f$ y  $g$.
+
+    Ahora, suponga que  $f$ y $g$ son monicos y irreducibles. Suponga que
+    $(f,g)=d$, con $d(x)$ no constante. Entonces $f(x)=f'(x)d(x)$ y
+    $g(x)=g'(x)d(x)$. Como $f$ y $g$ son irreducibles, entonces $f'$ y  $g'$ son
+    constantes, as\'i que tenemos que
+    \begin{equation*}
+        d(x)=\frac{f}{f'}(x)=\frac{g}{g'}(x)
+    \end{equation*}
+    Y $f=\frac{f'}{g'}g$. Como $f$ y $g$ son monicos, $\frac{f'}{g'}=1$ lo que
+    lleva a $f=g$, una contradicci\'on.
+\end{proof}
+
+\begin{definition}
+    Sea $\faktor{E}{F}$ una extension y $\alpha \in E$ una ra\'iz de un  $f \in
+    F[x]$. Llamamos a $F(\alpha)$, mas peque\~no que contiene a $F$ y a
+    $\alpha$ el \textbf{cuerpo generado} p or $F$ y  $\alpha$.
+\end{definition}
+
+\begin{lemma}\label{19.81}
+    Sea $F$ un cuerpo y  $\alpha \in E$ una ra\'iz de $f \in F[x]$, donde
+    $\faktor{E}{F}$ es extensi\'on. Entonces $F(\alpha)$ es el cuerpo de
+    fracciones de $F[x]$.
+\end{lemma}
+
+\begin{theorem}\label{19.82}
+    Sea $\alpha$ algebraico sobre $F$, y $m(x)$ el polinomio minimo de $\alpha$
+    sobre  $F$, con  $\deg{m}=n$. S\'i $f(x)$ es un polinomio sobre  $F$, con
+    $\deg{f} \leq n-1$, entonces $m$ y  $f$ son coprimos y  $f$ es invertible.
+\end{theorem}
+\begin{corollary}
+    SEa $F_{n-1}[\alpha]$ el conjunto de polinomios en $\alpha$ con grado a lo
+    sumo  $n-1$. Entonces  $F_{n-1}[\alpha]$ es un cuerpo.
+\end{corollary}
+\begin{corollary}
+    $F(\alpha)=F_{n-1}[\alpha]$
+\end{corollary}
+\begin{corollary}
+    El extensi\'on $\faktor{F(\alpha)}{F}$ tiene grado $[F(\alpha):F]=n$, con
+    base $\{1, \alpha, \dots, \alpha^{n-1}\}$
+\end{corollary}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] Considere $\F_2[x]$ y sea $m(x)=x^3+x+1$. $m$ es monico, y
+            por el criterio de Eisenstein, es irreducible, as\'i que es
+            polinomio minimo de un $\alpha$. Entonces $[\F_2(\alpha):\F_2]=3$ y
+            tenemos que
+            \begin{equation*}
+                \F_2(\alpha)=\{a_0+a_1x+a_2x^2 : a_i \in \F_2 \text{ y }
+                \alpha^3=\alpha+1\}
+            \end{equation*}
+            y $\F_2(\alpha)$ tiene $8$ elementos. Lo esribimos como
+            \begin{equation*}
+                \F_8=\F_2(\alpha)=\faktor{\F_2}{(m)}
+            \end{equation*}
+
+        \item[(2)] Sea $\xi$ la quinta ra\'iz unitaria primitiva, es decir que
+            $\xi^5=1$, y  $\xi^k \neq 1$ para todo  $1 \leq k \leq 5$. Tenemos
+            que $\xi \in \Q(\xi)$ y $\xi$ es algebraico sobre  $\Q$ con
+            polinomio minimo $x^4+x^3+x^2+x+1$; note que $x^5-1=(x-1)
+            (x^4+x^3+x^2+x+1)$. Entonces $[\Q(\xi):\Q]=4$ y tiene un infinitud
+            de elementos.
+    \end{enumerate}
+\end{example}
+
+\begin{lemma}\label{19.83}
+    Considere la torre de extensiones $E$--$K$--$F$. Entonces s\'i $\{\alpha_i\}$
+    es base para $\faktor{E}{K}$, y $\{\beta_j\}$ es base para $\faktor{K}{F}$,
+    entonces $\{\alpha_i\beta_j\}$ es base para $\faktor{E}{F}$.
+\end{lemma}
+\begin{proof}
+    Sea $\gamm \in \faktor{E}{K}$. Entonces
+    $\gamma=\sum{a_i\alpha_i}=\sum{(\sum{b_{ij}\beta_j})\alpha_i}$, as\'i que
+    $\Span{\{\alpha_i\beta_j\}}=E$. Ahora, suponga que
+    \begin{equation*}
+        \sum{\lambda_{ij}\alpha_i\beta_j}=0
+    \end{equation*}
+    entonces $\sum{\lambda_{ij}\beta_j}=0$, y como $\{\beta_j\}$ es base,
+    entonces $\lambda_{ij}=0$ para todo $i$ y  $j$. Por lo tanto
+    $\{\alpha_i\beta_j\}$ es base de $\faktor{E}{F}$.
+\end{proof}
+\begin{corollary}
+    $[E:F]=[E:K][K:F]$. Es decir el grado de extensiones es multiplicativo.
+\end{corollary}
+\begin{proof}
+    Como $\{\alpha_i\beta_j\}$ es base de $\faktor{E}{F}$, entonces si $[E:K]=m$
+    y $[K:F]=n$, entonces $[E:F]=mn=[E:K][K:F]$.
+\end{proof}

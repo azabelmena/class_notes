@@ -135,3 +135,29 @@ y $f$ es irreducible.
     se puede encrustar a $D$ en  $F$, y por ende encrustar a  $D[x]$ en $F[x]$,
     pues tenemos que $f$ es irreducible en  $D[x]$.
 \end{proof}
+
+\begin{theorem}[El Criterio de Eisenstein]\label{18.77}
+    Sea $f$ un polinomio no constante en $D$, de la forma
+    $f(x)=a_0+a_1x+\dots+a_nx^n$ donde $a_n \neq 0$. S\'i  $p \in \Z^+$ es primo
+    tal que  $p|a_0$, pero $p^2 \nmid a_n$, entonces  $f$ es irreducible.
+\end{theorem}
+\begin{proof}
+    S\'in perder la generalidad, suponga que $f$ es irreducible en $D[x]$.
+    Suponga que $f=gh$ con
+    \begin{align*}
+        g(x)    &=  g_0+g_1x+\dots+g_rx^r       \\
+        h(x)    &=  h_0+h_1x+\dots+h_sx^s       \\
+    \end{align*}
+    Note, que $r \neq 0$, pues tendriamos que $g_0=g|f$ y que es unidad, lo que
+    contradice que $f$ sea irreducible.
+
+    Ahora, sea  $p|a_0=g_0h_0$ y que $p^2 \nmid a_0$, entonces $p | g_0$ o $p |
+    h$, pero no los dos. Suponga que  $p|g_0$. Como $a_n=g_rh_s$, entonces  $p
+    \nmid g_r$, seea  $i \in \Z^+$ el entero menor tal que  $p \nmid g_i$.
+    Entonces note que para  $1 \leq i \leq r$
+    \begin{equation*}
+        a_i=g_0h_i+g_1h_{i-1}+\dots+g_ih_0
+    \end{equation*}
+    y por selecci\'on, $p|(g_0, \dots, g_{i-1})$. Como $p|a_i$, entonces
+    $p|g_ih_0$, que es una contradicci\'on.
+\end{proof}
