@@ -1,0 +1,149 @@
+\section*{Lectura 22: Separabilidad.}
+
+\begin{definition}
+    Sea $F$ un cuerpo. Un polinomio  $f \in F[x]$ irreducible es
+    \textbf{separable} s\'i $f$ no tiene raices repetidas. S\'i  $f$ no es
+    irreducible, entonces es  \textbf{separable} si todo sus factores
+    irreducibles son separables.
+\end{definition}
+
+\begin{example}\label{}
+    $f(x)=(x-1)^2(x-2)(x^2+1)$ es separable sobre $\Q$.
+\end{example}
+
+\begin{definition}
+    Sea $F$ un cuerpo y  $f \in F[x]$ de la forma $f(x)=a_0+a_1x+\dots+a_nx^n$.
+    Definimos la \textbf{derivada} de $f$ de ser el polinomio $D{f} \in F[x]$,
+    con la forma
+    \begin{equation*}
+        D{f}(x)=a_1+2a_2x+\dots+na_nx^{n-1}
+    \end{equation*}
+    La derivada tambien lo denotamos $f'(x)$.
+\end{definition}
+
+\begin{lemma}\label{lemma_89}
+    Sea $F$ un cuerpo, y considere el polinomio  $f \in F[x]$, junto a su
+    derivada $D{f}$. Entonces $f$ tiene al menos una raice repetida en su cuerpo
+    de descomopsici\'on s\'i y solo s\'i  $\deg{(f,D{f})} \geq 1$, donde
+    $(f,D{f})$ es le maximum com\'un divisor de $f$ y $D{f}$.
+\end{lemma}
+\begin{proof}
+    Suponga que $f$ tiene una raiz repetida  $\alpha$. Entonces
+    $f(x)=(x-\alpha)^rh(x)$, donde $r \geq 2$. Entonces su derivada tiene la
+    forma
+    \begin{equation*}
+        D{f}(x)=r(x-\alpha)^{r-1}h(x)+(x-\alpha)^rD{h}(x)
+    \end{equation*}
+    como $r-1 \geq 1$, entonces $\alpha$ es raiz de $D{f}$ y
+    $(x-\alpha)^{r-1}|D{f}$. Por lo tanto, $\deg{(f,D{f})} \geq r-1 \geq 1$.
+
+    Reciprocamente, suponga que $\deg{(f,D{f})} \geq 1$. Sea $\alpha$ ra\'iz de
+    $(f,D{f})$. Por definici\'on, tenemos que $(f,D{f})|f$ y $(f,D{f})|D{f}$;
+    mas a\'un $(x-\alpha)|(f,D{f})$, por lo tanto, $\alpha$ es raiz de  $f$ y de
+     $D{f}$, por lo tanto, es raiz repetida de $f$ por el argumento de arriba.
+\end{proof}
+\begin{corollary}
+    Las siguentes enunciados son ciertos.
+    \begin{enumerate}
+        \item[(1)] Todo polinomio es separable sobre un cuerpo de
+            characteristica $\Char=0$.
+
+        \item[(2)] Sobre todo cuerpo de $\Char=p$,  $p$ primo, un polinomio
+            irreducible es inseparable s\'i y solo s\'i $D{f}=0$.
+    \end{enumerate}
+\end{corollary}
+\begin{proof}
+    Suponga, que $f$ es irreducible sobre  $F[x]$, donde $\Char{F}=0$. S\'i $f$
+    es un polinomio de  $\deg{f}=n$, entonces $\deg{D{f}}=n-1$. Como $f$ es
+    irreducible, entonces  $(f,D{f})$ es constante \'o  $f$. Pero $(f,D{f})=f$
+    es imposible, por lo tanto $(f,D{f})$ es constante y $f$ no tiene raices
+    repetidas. Por lo tanto es separable.
+
+    Suponga ahora que  $\Char{F}=p$, con $p$ primo. Suponga que $f \in F[x]$ es
+    irreducible de grado $\deg{f}=n$. S\'i $D{f} \neq 0$ podemos usar el mismo
+    argumento del lemma \ref{lemma_89}. Ahora, s\'i $D{f}=0$ enconces tenemos
+    que $(f,D{f})=p \equiv 0 \mod{p}$. Por lemma \ref{lemma_89}, tenemos que $f$
+    tiene raices repetidas, y como  $f$ es irreducible, esto hace a  $f$
+    inseparable.
+\end{proof}
+
+\begin{lemma}[El Automorfismo de Frobenius]\label{lemma_90}
+    Sea $F$ un cuerpo finito de $\Char{F}=p$. Considere el mapa de $F
+    \xrightarrow{} F$ dado por $\alpha \xrightarrow{} \alpha^p$. Entonces esta
+    mapa es un automorfismo. En particular, para todo $\alpha \in F$, existe una
+     $\beta \in F$ con  $\alpha=\beta^p$.
+\end{lemma}
+\begin{proof}
+    Nota que $1 \xrightarrow{} 1^p=1$. Mas a\'un $(\alpha+\beta) \xrightarrow{}
+    (\alpha+\beta)^p=\alpha^p+\beta^p$ y $(\alpha\beta) \xrightarrow{}
+    (\alpha\beta)^p=\alpha^p\beta^p$. Mas a\'un, nota, que por definici\'on, que
+    la mapa $\alpha \xrightarrow{} \alpha^p$ es sobre. Ahora, si
+    $\alpha^p=\beta^p$, entonces $\alpha^p-\beta^p=(\alpha-\beta)^p=0$, lo que
+    hace $\alpha=\beta$, y la mapa es 1--1.
+\end{proof}
+
+\begin{definition}
+    Sea $F$ un cuerpo finito de $\Char{F}=p$. Llamamos a la mapa de $F
+    \xrightarrow{} F$ dado por $\alpha \xrightarrow{} \alpha^p$ el
+    \textbf{automorfismo de Frobenius}.
+\end{definition}
+
+\begin{lemma}\label{lemma_91}
+    Todo polinomio es separable sobre un cuerpo finito.
+\end{lemma}
+\begin{proof}
+    Sea $F$ un cuerpo finito con  $\Char{F}=p$, y sea $f \in F[x]$ irreducible,
+    que, pro contradicci\'on, tiene raices repetidas. Entonces nota que $f \in
+    F[x^p]$, y $f(x)=a_0+a_1x^p+\dots+a_nx^{np}$. Ahora, por el automorfismo de
+    Frobenius, tenemos que $f(x)=\beta^p$ para alg\'un $\beta \in F$. Es decir
+    que
+    $a_0+a_1x^+\dots+a_nx^{np}=b_0^p+b_1^px^p+\dots+b_n^px^{np}=(b_0+b_1x+\dots+
+    b_nx^n)^p$ lo que dice que $f$ no es irreducible; una contradicci\'on. Por
+    lo tanto, $f$ no puede tener raices repetidas, y como es irreducible, esto
+    lo hace separable.
+\end{proof}
+
+\begin{definition}
+    S\'i $\faktor{E}{F}$ es una extensi\'ion, llamamos a un $\alpha \in E$
+    \textbf{separable} s\'i su polinomio minimo es separable. S\'i todo elemento
+    de $E$ es separable, entonces llamamos a  $E$  \textbf{separable} sobre $F$.
+\end{definition}
+
+\begin{lemma}\label{lemma_92}
+    S\'i tenemos la torre de extensiones $E$--$K$--$F$, y  $E$ es saparable
+    sobre  $F$, entonces  $K$ es separable sobre $F$  y $E$ es separable sobre
+    $K$.
+\end{lemma}
+\begin{proof}
+    Nota que como $E$ es separable sobre  $F$ y  $K \subseteq E$, pues  $K$ es
+    separable sobre  $F$. Toma,  $\alpha \in E$. Como  $\faktor{E}{F}$ es
+    separable, entonces $\alpha$ es algebraico. Sea  $\mu$ el polinomio minimo
+    de  $\alpha$ sobre  $F$, y  $\eta$ lo mismo sobre  $K$. Entonces
+    $\mu(\alpha)=\eta(\alpha)=0$, y $\mu|\eta$. Como  $\eta$ es el minimo de $E$
+    sobre $K$, y  $\mu$ es separable, entonces  $\eta$ tambien es separable; de
+    lo contrario, $\mu$ teniendo raices repetidas iimplica raices repetidas en
+    $\eta$. Como $\eta$ es separable, esto hace $ \faktor{E}{K}$ separable.
+\end{proof}
+
+\begin{example}\label{}
+    Considere el cuerpo $\F_p(t)$. Note que $\Char{\F_p(t)}=p$, pero que
+    $\F_p(t)$ es infinito. Considere $ \F_p(t,\alpha)$, donde $\alpha$ es ra\'iz
+    del polinomio  $x^p-t \in \F_p(t)[x]$. Note que
+    $x^p-t=x^p-\alpha^p=(x-\alpha)^p$ y $x^p-t$ tiene raices repetidas. Mas
+    a\'un, como  $x^p-t$ es irreducible por el criterio de Eisenstein, esto
+    hace a  $F(t,\alpha)$ inseparable sobre $\F_p(t)$. De hecho, $\F_p(t)$ es
+    inseparable sobre $\F_p$.
+\end{example}
+
+\begin{lemma}[Galois]\label{lemma_93}
+    Sea $E$ un extensi\'on de un cuerpo  $F$ y sea $\sigma:E \xrightarrow{} E$ un
+    $F$-homomorfismo 1--1. Suponga que $f \in F[x]$ se descomponga en  $E[x]$.
+    Entonces $\sigma$ permuta a los raices de  $f$.
+\end{lemma}
+\begin{proof}
+    Sea que $f(x)=a_0+a_1x+\dots+a_nx^n$ y sea $\alpha$ ra\'iz de $f$. Nota que
+    $f(\alpha)=0=a_0+a_1\alpha+\dots+a_n\alpha^n$. Pues, nota que
+    $\sigma(f(\alpha))=\simga(0)=0=\sigma(a_0)+\sigma(a_1)\sigma(\alpha)+\dots+
+    \sigma(a_n)\sigma(\alpha)^n=a_0+a_1\sigma(\alpha)+\dots+a_n\sigma(\alpha)^n$,
+    lo que hace $\sigma(\alpha)$ ra\'iz de $f$.
+\end{proof}

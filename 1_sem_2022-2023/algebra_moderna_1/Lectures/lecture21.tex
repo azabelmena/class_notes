@@ -1,0 +1,111 @@
+\section*{Lectura 21: Clausuras Algebraicas.}
+
+\begin{definition}
+    S\'i $E$ y  $K$ son extensiones de $F$ y $\iota:E \xrightarrow{} K$ es una
+    homomorfismo, entonces decimos que $\iota$ es un \textbf{$F$-homomorfismo}
+    s\'i $\iota(a)=a$ para todo $a \in F$. Es decir que $\iota|_F$ es una
+    inclusi\'on. S\'i $\iota$ es un isomorfismo, entonces llamamos a $\iota$ un
+    \textbf{$F$-isomorfismo}.
+\end{definition}
+
+\begin{lemma}\label{lemma_86}
+    S\'i $C$ es un cuerpo, las saiguentes enunciados son equivalentes.
+    \begin{enumerate}
+         \item[(1)] Todo polinomio no constante sobre $C$ tiene al menos una
+             ra\'iz en $C$.
+
+         \item[(2)] Todo polinomio no constante sobre $C$ se descompone sobre
+             $C$.
+
+         \item[(3)] Todo polinomio irreducible en $C$ tiene $\deg=1$.
+
+         \item[(4)] $C$ no tiene extensi\'on algebraica propia.
+    \end{enumerate}
+\end{lemma}
+
+\begin{definition}
+    Un cuerpo que satisface uno de los enunciados de lemma \ref{lemma_86} se
+    llama \textbf{algebraicamente cerrado}. S\'i $F$ es un cuerpo, entonces
+    llamamos el cuerpo mas peque\~no  $C$ que contine a  $F$, y que sea
+    algebraicamente cerrado la  \textbf{clausura algebraica} de $F$, y lo
+    denotamos como  $C=\cl{F}$ \'o $C=\bar{F}$.
+\end{definition}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] $\R$ no es algebraicamente cerrado. Note que el polinomio
+            $x^2+1$ no tiene raices en $\R$.
+
+        \item[(2)] Los numeros complejos $\C$ son algebraicamente cerrado. De
+            hecho, $\C=\cl{\R}$.
+
+        \item[(3)] Todo cuerpo finito $\F_{n}$ no es algebraicamente cerrado.
+            Escoje el polinomio $(x-\alpha_1)(x-\alpha_2) \dots (x-\alpha_n)+1$,
+            lo cual no tiene raices.
+    \end{enumerate}
+\end{example}
+
+\begin{theorem}\label{theorem_87}
+    Las siguientes enunciados son ciertos.
+    \begin{enumerate}
+        \item[(1)] Todo cuerpo $F$ tiene clausura algebraica.
+
+        \item[(2)] Cualquieras dos clausuras de $F$,  $C$ y  $C'$ son
+            $F$-isomorfos.
+
+        \item[(3)] S\'i $E$ es una extensi\'on de  $F$, $C$ la clausura
+            algebraica de $F$, y $i:F \xrightarrow{} C$ un encrustamiento,
+            entonces $i$ se puede extender a un encrustamiento de  $E
+            \xrightarrow{} C$. A nivel de categorias, es decir, la sigueinte
+            diagrama commuta.
+            \[\begin{tikzcd}
+                E && {\faktor{C}{F}} \\
+                \\
+                F
+                \arrow["{\hat{i}}", from=1-1, to=1-3]
+                \arrow["i"', from=3-1, to=1-3]
+                \arrow["j", from=3-1, to=1-1]
+            \end{tikzcd}\]
+            donde $j:F \xrightarrow{} E$ es una inclusi\'on.
+    \end{enumerate}
+\end{theorem}
+
+\begin{lemma}\label{lemma_88}
+    S\'i $E$ y  $K$ son extensiones de un cuerpo  $F$, y  $E$ es algebraico
+    sobre  $K$, y  $K$ algebraica sobre  $F$, entonces,  $E$ es algebraico sobre
+     $F$. Mas a\'un, s\'i  $E$ es generado sobre  $E$ por una cantidad finita de
+     elementos algberaicas sobre  $F$ entonces  $E$ es extensi\'on algebraico.
+\end{lemma}
+\begin{proof}
+    Sea $E_0=F$, $E_k=F(\alpha_1, \dots, \alpha_k)$ para todo $1 \leq k \leq n$,
+    donde  $\alpha_1, \dots, \alpha_n$ son elementos algebraicos sobre $F$; y,
+    por lo tanto, sobre $E_{k-1}$. Nota, que $[E_k:E_{k-1}]=\deg{m}$, donde $m_k$
+    es el polinomio minimo de  $\alpha_k$ sobre $E_{k-1}$, lo cual es finito.
+    Por lo tanto, tenemos que
+    \begin{equation*}
+        [E:F]=\prod{[E_k:E_{k-1}]}
+    \end{equation*}
+    es finito. Por lo tanto, $E$ tiene que ser algebraico sobre  $F$.
+
+    Ahora, sea $\alpha \in E$ con polinomio minimo
+    \begin{equation*}
+        m(x)=b_0+b_1x+\dots+b_{n-1}x^{n-1}+x^n
+    \end{equation*}
+    los coeficientes $b_0, \dots, b_{n-1}$ son algebraicas sobre $F$. Sea
+    \begin{equation*}
+        L=F(b_0, \dots, b_{n-1})
+    \end{equation*}
+    por lo demostrado anteriormente. $L$ es una extensi\'on finita y por lo
+    tanto es algebraico sobre  $F$. Es decir que  $m \in L[x]$ es algebraico
+    sobre $L$ y  $L(\alpha)$ es extensi\'on finita de $L$. Como $[L(\alpha):L]$
+    y $[L:F]$ son finitas, entonces
+    \begin{equation*}
+        [L(\alpha) : F]=[L(\alpha):L][L:F]
+    \end{equation*}
+    es finita, lo que hace $L(\alpha)$ algebraico sobre $F$. En particular,
+    $\alpha$ es algebraico sobre  $F$, lo que hace  $E$ algebraico sobre  $F$.
+\end{proof}
+\begin{corollary}
+    S\'i $E$ es una extensi\'on de  $F$ y $A$ consiste de todos los elementos de
+    $E$ que son algebraicos sobre  $F$, entonces  $A$ es un subcuerpo de  $E$.
+\end{corollary}

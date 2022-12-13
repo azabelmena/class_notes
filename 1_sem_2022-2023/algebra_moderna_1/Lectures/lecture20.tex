@@ -1,0 +1,52 @@
+\section*{Lectura 20: Cuerpos de Descomposici\'on}
+
+\begin{lemma}\label{lemma_84}
+    S\'i $f$ es un polinomio con grado  $\deg{f}=n$, entonces $f$ tiene un
+    cuerpo de descomposici\'on  $K$ sobre  $F$ tal que  $[K:F] \leq n!$.
+\end{lemma}
+\begin{proof}
+    Asuem que $n \geq 1$. Entoces  $f$ tiene al menos una raiz  $\alpha_1$. Como
+    $f(\alpha_1)=0$, entonces el polinomio minimo de $\alpha$,  $m_1$ divide a
+    $f$; es decir, que $f(x)=m_1(x)f_1(x)$ para alg\'un $f_1 \in F[x]$. Como
+    $\deg{m_1} \leq n$, tenemos que $[F(\alpha):F] \leq n$.
+
+    Ahora, escribe $f(x)=(x-\alpha_1)^{r_1}g(x)$, donde $g \neq 0$ y  $\deg{g}
+    \leq n-1$. S\'i $g$ es constante, terminamos. Al contrario, sea  $\alpha_2$
+    ra\'iz de $g$, entonces es ra\'iz de  $f$. Sea  $m_2$ el polinomio minimo de
+    $\alpha_2$, entonces $m_2|g$, es decir, $g(x)=m(x)g_2(x)$, y como $\deg{m_2}
+    \leq n-1$, tenemos que $[F(\alpha_1,\alpha_2):F] \leq n(n-1)$.
+
+    Siguiendo este proceso, sea $\alpha_1, \dots, \alpha_m$ raizes de $f$,
+    entonces $f(x)=(x-\alpha_1)^{r_1} \dots (x-\alpha_m)^{r_m}$ y tiene cuerpo
+    de descomopsici\'on $F(\alpha_1, \dots, \alpha_m)$ con $[F(\alpha_1, \dots,
+    \alpha_m) : F] \leq n!$.
+\end{proof}
+
+\begin{theorem}\label{theorem_85}
+    S\'i $\alpha$ y  $\beta$ son raices de un polinomio irreducible $f \in
+    F[x]$ en una extensi\'on $E$, entonces  $F(\alpha) \simeq F(\beta)$. Es
+    decir los cuerpos de descomposici\'on son \'unicos hasta el isomorfismo.
+\end{theorem}
+\begin{proof}
+    Suponga que $f$ es m\'onico. Como  $f(\alpha)=f(\beta)=0$, tenemos que $f$
+    es polinomio minimo de  $\alpha$ y de  $\beta$. Digamos que  $\deg{f}=n$,
+    s\'i $a \i F(\alpha)$, entonces tenemos
+    \begin{equation*}
+        a=a_0+a_1\alpha+\dots+a_{n-1}\alpha^{n-1}
+    \end{equation*}
+    Pues, considere el mapa $a \xrightarrow{} b$, donde
+    \begin{equation*}
+        b=b_0+b_1\beta+\dots+b_{n-1}\beta^{n-1}
+    \end{equation*}
+    que es un isomorfismo entre $F(\alpha)$ y $F(\beta)$.
+\end{proof}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] Sea $x^3-2 \in \Q[x]$ con raiz $\sqrt[3]{2},
+            \xi\sqrt[3]{2}$, y $\xi^2\sqrt[3]{2}$, donde  $\xi^3=1$. Entonces el
+            cuerpo de descomposici\'on de $x^3-2$ sobre $\Q$ es
+            $\Q(\sqrt[3]{2}, i\sqrt{3})$ con $[\Q(\sqrt[3]{2}, i\sqrt{3})]=6=3!$.
+            Aqui $\xi$ es la tercera raiz unitario primitiva.
+    \end{enumerate}
+\end{example}
