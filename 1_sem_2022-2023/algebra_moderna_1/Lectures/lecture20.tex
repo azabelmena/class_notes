@@ -1,5 +1,142 @@
 \section*{Lectura 20: Cuerpos de Descomposici\'on}
 
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] Considere $\Q$ junto al polinomio $f(x)=x^2-2$. Note que s\'i
+            $f(x)=0$, entonces $x=\sqrt{2}$. Mas a\'un $f$ es irreducible por el
+            criterio de Eisentstein para  $p=2$. Por lo tanto
+            \begin{equation*}
+                \faktor{\Q[x]}{(f)}=\{a+bx : a,b \in \Q \text{ y } x^2=2\} \simeq
+                \Q(\sqrt{2})
+            \end{equation*}
+
+        \item[(2)] Considere el polinomio $f(x)=x^4-4x^2+1$ sobre $\Q$. S\'i
+            $\alpha$ es ra\'iz de $f$, entonces $\alpha^4=4\alpha^2+1$. Mas
+            a\'un observe que  $f(x+1)=x^4+4x^3+2x^2-4x-2$, lo cual es
+            irreducible, por lo tanto, $f$ es irreducible. Entonces, nota que
+            \begin{equation*}
+                \faktor{\Q[x]}{(f)} \simeq \Q(\alpha)=
+                \{a_0+a_1\alpha+a_2\alpha^2+a_3\alpha^3 : c_i \in \Q \text{ para }
+                0 \leq i \leq 3 \text{ y } x^4=4x^2-1\}
+            \end{equation*}
+
+        \item[(3)] Sea $f(x)-x^2+2x+1$ sobre el cuerpo $\F_3$. Sea  $\alpha$ una
+            ra\'iz de  $f$, entonces  $\alpha^2=\alpha+2$. Observe tambien que
+             $f$ no tiene raices en $\F_3$, por lo tanto $f$ es irreducible. Por
+              lo tanto, tenemos que
+              \begin{equation*}
+                  \faktor{\F_3[x]}{(f)} \simeq \F_3(\alpha)=
+                  \{a_0+a_1\alpha : a_0,a_1 \in \F_3 \text{ y }
+                  \alpha^2=\alpha+2\}
+              \end{equation*}
+              Observe que s\'i $g(x)=x^2-2$, entonces tenenmos que
+              $g(\alpha+1)=(\alpha+1)^2-2=\alpha^2+2\alpha+2=0$, pues
+              $\alpha^2+2\alpha+2=f(\alpha)=0$. Por lo tanto, podemos etiquar a
+              $\alpha$ como  $\sqrt{2}$ en $\F_3(\alpha)$. Entonces la otra
+              ra\'iz de $g$ deber\'ia ser  $-\sqrt{2}=-\alpha-1=2\alpha+2$; y
+              $g(2\alpha+2)=0$.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+    S\'i $E$ es una extensi\'on de un cuerpo  $F$, y  $f \in F[x]$, entonces
+    decimos que $f$ se  \textbf{descompone} sobre $E$ s\'i podemos escribir a
+    $f$ de la forma
+    \begin{equation*}
+        f(x)=c(x-\alpha_1)(x-\alpha_2) \dots (x-\alpha_n)
+    \end{equation*}
+    donde $c \in F$ y  $\alpha_k \in E$ para todo $1 \leq k \leq n$.
+\end{definition}
+
+\begin{definition}
+    S\'i $K$ es una extentsi\'on de un cuerpo $F$, y $f \in F[x]$, entonces
+    decimos que $K$ es el  \textbf{cuerpo de descomposici\'on} para $f$  s\'i
+    $K$ es el cuerpo mas peque\~no por lo cual  $f$ se descompone.
+\end{definition}
+
+\begin{example}\label{}
+    \begin{enumerate}
+        \item[(1)] Considere el polinomio $f(x)=x^2-7$ en $\Q[x]$. Este
+            polinomio es irreducible sobre $\Q$. Considere entonces
+            $\Q(\sqrt{7})$. Note que $\pm \sqrt{7} \in \Q(\sqrt{7})$. Por lo
+            tanto $f$ se descompone sobre $\Q(\sqrt{7})$, de la forma
+            \begin{equation*}
+                f(x)=(x+\sqrt{7})(x-\sqrt{7})
+            \end{equation*}
+            Mas a\'un, nota que $[\Q(\sqrt{7}) : \Q]=2$, por lo tanto no existe
+            cuerpo entre $\Q(\sqrt{7})$ y $\Q$; lo cual hace a $\Q(\sqrt{7})$ el
+            cuerpo de descomosici\'on de $f$.
+
+        \item[(2)]  Considere el polinomio $f(x)=x^3-5$ en $\Q[x]$. Nota que $f$
+            es irreducible sobre  $\Q$ y tiene raices  $\sqrt[3]{5}$,
+            $\xi\sqrt[3]{5}$, y $\xi^2\sqrt[3]{5}$, donde $\xi^3=1$; es decir,
+            $\xi$ es ra\'iz primitiva de $x^3-1$. Note que podemos construir las
+            ra\'ices de  $f$ usando  $\xi$ y a  $\sqrt[3]{5}$, por lo tanto, $f$
+            se descompone sobre  $\Q(\xi, \sqrt[3]{5})$. Mas a\'un note que
+            $\sqrt[3]{5}$ no esta en los cuerpos $\Q(\xi\sqrt[3]{5})$, ni en
+            $\Q(\xi^2\sqrt[3]{5})$, as\'i que $f$ no se descompone sobre esos
+            cuerpos. Finalemente, not que $\xi$ es ra\'ix de
+            $x^3-1=(x-1)(x^2+x+1)$, y como $\xi \neq 1$,  $\xi$ es ra\'iz de
+            $x^2+x+1$. Note que  $x^2+x+1$ es irreducible y que  $[\Q(\xi) :
+            \Q]=2$, lo que implica que $x^3-5$ no tiene raizes en ese cuerpo, y
+             $f$ no se descompone en  $\Q(\xi)$. As\'i que el cuerpo de
+             descompoaici\'on de $f$ es  $\Q(\xi,\sqrt[3]{5})$.
+             \[\begin{tikzcd}
+                & {\Q(\xi,\sqrt[3]{5})} \\
+                & {\Q(\sqrt[3]{5})} & {\Q(\xi\sqrt[3]{5})} & {\Q(\xi^2\sqrt[3]{5})} \\
+                {\Q(\xi)} \\
+                & {\Q}
+                \arrow[no head, from=1-2, to=2-2]
+                \arrow[no head, from=1-2, to=2-3]
+                \arrow[no head, from=1-2, to=2-4]
+                \arrow[no head, from=1-2, to=3-1]
+                \arrow[no head, from=3-1, to=4-2]
+                \arrow[no head, from=2-2, to=4-2]
+                \arrow[no head, from=2-3, to=4-2]
+                \arrow[no head, from=2-4, to=4-2]
+             \end{tikzcd}\]
+             Note que este reticulo de cuerpos es isomorfo al reticulo de los
+             grupos $S_3$ y $D_3$.
+
+         \item[(2)] Considere $f(x)=x^2+2$ sobre $\Q$. Tenemos las ra\'ices de
+             $f$ dado por  $\pm i\sqrt{2}$, donde $i^2=-1$. Tenemos que  $f$ se
+             descompone sobre $\Q(i,\sqrt{2})$. Mas a\'un, los cuerpos entre
+             $\Q(i,\sqrt{2})$ est\'an dados por el reticulo
+             \[\begin{tikzcd}
+                & {\Q(i,\sqrt{2})} \\
+                \Q(i) & \Q(i\sqrt{2}) & \Q(\sqrt{2}) \\
+                & {\mathbb{Q}}
+                \arrow[no head, from=1-2, to=2-2]
+                \arrow[no head, from=1-2, to=2-1]
+                \arrow[no head, from=2-1, to=3-2]
+                \arrow[no head, from=3-2, to=2-3]
+                \arrow[no head, from=2-3, to=1-2]
+                \arrow[no head, from=2-2, to=3-2]
+              \end{tikzcd}\]
+              Pero $f$ se descompone sobre  $\Q(i\sqrt{2})$, por lo tanto
+              $\Q(i,\sqrt{2})$ no es el cuerpo de descomposici\'on para $f$;
+              sino es  $\Q(i\sqrt{2})$. Note que el retriculo de estos cuerpos
+              es isomorfo al reticulo de $\faktor{\Z}{2\Z} \times
+              \faktor{\Z}{2\Z}$, a $\Hb$ los cuaterniones, y a  $V_4$, el grupo
+              $4$ de Klein.
+
+          \item[(4)] Considere el polinomio $f(x)=x^4+x^2+1$ sobre $\F_5$.
+              Observer que
+              \begin{equation*}
+                  f(x)=(x^2+x+1)(x^2+4x+1)
+              \end{equation*}
+              Sea $\alpha$ una ra\'iz de $x^2+x+1$ y considere $\F_5(\alpha)$.
+              Sean $f_1(x)=x^2+x+1$ y $f_2(x)=x^2+4x+1$. Observer que
+              $f_1(4\alpha+4)=\alpha^2+\alpha+1=0$, as\'i que $f_1$ se
+              descompone sobre $\F_5(\alpha)$. Similarmente $f_2(\alpha)=0$, y
+              $f_2$ se descompone sobre $\F_5(\alpha)$. Entonces $f$ se
+              descompone sobre  $\F_5(\alpha)$; mas a\'un, $[\F_5(\alpha) :
+              \F_5]=2$ por lo tanto no existe cuerpo entre $\F_5(\alpha)$ y
+              $\F_5$, por lo tanto $\F_5(\alpha)$ es el cuerpo de
+              descomposic\'on de $f$.
+    \end{enumerate}
+\end{example}
+
 \begin{lemma}\label{lemma_84}
     S\'i $f$ es un polinomio con grado  $\deg{f}=n$, entonces $f$ tiene un
     cuerpo de descomposici\'on  $K$ sobre  $F$ tal que  $[K:F] \leq n!$.
